@@ -1,0 +1,4 @@
+nasUser_listUser:
+    pattern: /listUtilisateur/
+    defaults: { _controller: NasUserBundle:Utilisateur:list }
+

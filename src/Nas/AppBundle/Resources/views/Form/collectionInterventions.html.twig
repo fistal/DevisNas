@@ -1,0 +1,31 @@
+{% block widget %}
+ 
+ <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Intervention</th>
+          <th>ghs</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+			
+		  </td>
+          <td>
+			{{ form_widget(prototype.ghs,  { 'attr': {'class': 'form-control'} })}}
+		  </td>
+        </tr>
+      </tbody>
+</table>
+ 
+ 
+{% endblock %}
+{% block collection_widget %}
+{% spaceless %}
+    {% if prototype is defined %}
+        {% set attr = attr|merge({'data-prototype': block('widget') }) %}
+    {% endif %}
+    {{ block('form_widget') }}
+{% endspaceless %}
+{% endblock collection_widget %}

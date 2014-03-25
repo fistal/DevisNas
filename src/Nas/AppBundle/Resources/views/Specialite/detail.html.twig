@@ -1,0 +1,70 @@
+{% extends "NasAppBundle::layout.html.twig" %}
+{% block title %}
+	Ajouter une intervention - {{ parent() }}
+{% endblock %}
+{% block titleAction %}<h2>Détail de la spécialité : {{ specialite.specialite }}</h2>{% endblock %}
+{% block NasApp_body %}
+
+<div class="row">
+	<div class="col-md-12">
+		<h3>Liste des interventions</h3>
+		<table class="table table-striped" id="myTable">
+			<thead>
+			  <tr>
+				<th>Intervention</th>
+				<th>GHS</th>
+				<th>DMI</th>
+				<th>Honoraires</th>
+				<th>Dont praticien</th>
+				<th>Total</th>
+				<th>Modifier</th>
+			  </tr>
+			</thead>
+			<tbody>
+				{% for inter in listeIntervention %}
+					<tr>
+						<td>{{ inter.intervention }}</td>
+						<td>{{ inter.ghs }}</td>
+						<td>{{ inter.dmi }}</td>
+						<td>{{ inter.honoraires }}</td>
+						<td>{{ inter.dontSpecialiste }}</td>
+						<td>{{ inter.total }}</td>
+						<td><a class="btn btn-warning" href="{{ path('nasApp_modifierIntervention', {'id': inter.id}) }}">Modifier</a></td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		<a class="btn btn-success" href="{{ path('nasApp_ajouterIntervention', {'idSpecialite': specialite.id}) }}">Ajouter une intervention</a>
+	</div>
+
+</div>
+	<hr>
+<div class="row">
+	<div class="col-md-12">
+		<h3>Liste les honoraires</h3>
+		<table class="table table-striped">
+			<thead>
+			  <tr>
+				<th>Honoraire</th>
+				<th>% sur le total de la facture</th>
+				<th>% à appliquer sur les devis</th>
+				<th>Modifier</th>
+			  </tr>
+			</thead>
+			<tbody>
+				{% for honoraire in listeHonoraire %}
+					<tr>
+						<td>{{ honoraire.type }}</td>
+						<td>{{ honoraire.pourcentageFacture }}</td>
+						<td>{{ honoraire.pourcentageDevis }}</td>
+						<td><a class="btn btn-warning" href="{{ path('nasApp_modifierHonoraire', {'id': honoraire.id}) }}">Modifier</a></td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		<a class="btn btn-success" href="{{ path('nasApp_ajouterHonoraire', {'idSpecialite': specialite.id}) }}">Ajouter un honoraire</a>
+	</div>
+
+</div>
+
+{% endblock %}

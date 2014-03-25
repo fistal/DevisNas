@@ -1,0 +1,64 @@
+
+<script type="text/javascript">
+    // keep track of how many email fields have been rendered
+    var honoraireCount = '{{ form.honoraires | length }}';
+	var interventionCount = '{{ form.honoraires | length }}';
+
+    jQuery(document).ready(function() {
+        jQuery('#add-another-honoraire').click(function() {
+            var honoraireList = jQuery('#nas_appbundle_specialite_honoraires');
+
+            // grab the prototype template
+            var newWidget = honoraireList.attr('data-prototype');
+            // replace the "__name__" used in the id and name of the prototype
+            // with a number that's unique to your honoraires
+            // end name attribute looks like name="contact[honoraires][2]"
+            newWidget = newWidget.replace(/__name__/g, honoraireCount);
+            honoraireCount++;
+
+            // create a new list element and add it to the list
+            var newLi = jQuery('<li></li>').html(newWidget);
+            newLi.appendTo(jQuery('#nas_appbundle_specialite_honoraires'));
+
+            return false;
+        });
+        jQuery('#add-another-intervention').click(function() {
+            var interventionList = jQuery('#nas_appbundle_specialite_interventions');
+			
+            // grab the prototype template
+			$lienSuppression = $('<p><a id=\"remove'+interventionCount+'\" href="\#\" class=\"btn btn-danger\">Supprimer</a></p>');
+            var newWidget = interventionList.attr('data-prototype');
+            // replace the "__name__" used in the id and name of the prototype
+            // with a number that's unique to your honoraires
+            // end name attribute looks like name="contact[honoraires][2]"
+            newWidget = newWidget.replace(/__name__/g, interventionCount);
+            interventionCount++;
+
+            // create a new list element and add it to the list
+            var newLi = jQuery('<li></li>').html(newWidget);
+			newLi.append($lienSuppression);
+            newLi.appendTo(jQuery('#nas_appbundle_specialite_interventions'));
+
+            return false;
+        });	
+		
+		jQuery('#remove0').click(function() {
+		alert('toto');
+		jQuery('#nas_appbundle_specialite_interventions').remove();
+		e.preventDefault(); // évite qu'un # apparaisse dans l'URL
+		return false;
+		});
+    })
+</script>
+
+
+
+
+
+		delete-another-intervention
+		$('#myDiv').click(function() {
+		alert('toto')
+		jQuery('#nas_appbundle_specialite_interventions').remove();
+		e.preventDefault(); // évite qu'un # apparaisse dans l'URL
+		return false;
+		});

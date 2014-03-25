@@ -1,0 +1,22 @@
+
+
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+				  <h3 class="panel-title">Liste des specialités</h3>
+				</div>
+				<div class="panel-body">
+				  <table class="table table-striped" id="myTable">
+					<tbody>
+					{% for specialite in listeSpecialite  %}
+						<tr>
+							<td>
+								<a href="{{ path('nasApp_detailSpecialite',{'idSpecialite':specialite.id})}}">{{ specialite.specialite }}</a>
+							</td>
+						</tr>
+					{% endfor %}
+					</tbody>
+				</table>
+				</div>
+			  </div>
+
+

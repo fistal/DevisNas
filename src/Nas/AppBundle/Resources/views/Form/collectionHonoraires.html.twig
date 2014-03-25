@@ -1,0 +1,31 @@
+{% block my_widget %}
+ 
+ <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Honoraire</th>
+          <th>Pourcentage</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+			{{ form_widget(prototype.type,  { 'attr': {'class': 'form-control'} })}}
+		  </td>
+          <td>
+			{{ form_widget(prototype.pourcentageFacture,  { 'attr': {'class': 'form-control'} })}}
+		  </td>
+        </tr>
+      </tbody>
+</table>
+ 
+ 
+{% endblock %}
+{% block collection_widget %}
+{% spaceless %}
+    {% if prototype is defined %}
+        {% set attr = attr|merge({'data-prototype': block('my_widget') }) %}
+    {% endif %}
+    {{ block('form_widget') }}
+{% endspaceless %}
+{% endblock collection_widget %}

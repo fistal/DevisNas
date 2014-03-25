@@ -1,0 +1,57 @@
+nas_app_homepage:
+    pattern:  /
+    defaults: { _controller: NasAppBundle:Index:index }
+nasApp_voirSpecialite:
+    pattern: /voirSpecialite/{id}
+    defaults: { _controller: NasAppBundle:Specialite:voir }
+nasApp_listeSpecialite:
+    pattern: /listeSpecialite/
+    defaults: { _controller: NasAppBundle:Specialite:list }
+nasApp_ajouterSpecialite:
+    pattern: /ajouterSpecialite/
+    defaults: { _controller: NasAppBundle:Specialite:ajouter }
+nasApp_detailSpecialite:
+    pattern: /detailSpecialite/{idSpecialite}
+    defaults: { _controller: NasAppBundle:Specialite:detail }
+nasApp_voirIntervention:
+    pattern: /voirIntervention/{idSpecialite}
+    defaults: { _controller: NasAppBundle:Intervention:voir }
+nasApp_ajouterIntervention:
+    pattern: /ajouterIntervention/{idSpecialite}
+    defaults: { _controller: NasAppBundle:Intervention:ajouter }
+nasApp_modifierIntervention:
+    pattern: /modifierIntervention/{id}
+    defaults: { _controller: NasAppBundle:Intervention:modifier }
+nasApp_supprimerIntervention:
+    pattern: /supprimerIntervention/{id}
+    defaults: { _controller: NasAppBundle:Intervention:supprimer }
+nasApp_voirHonoraire:
+    pattern: /voirHonoraire/
+    defaults: { _controller: NasAppBundle:Honoraire:voir }
+nasApp_ajouterHonoraire:
+    pattern: /ajouterHonoraire/{idSpecialite}
+    defaults: { _controller: NasAppBundle:Honoraire:ajouter }
+nasApp_modifierHonoraire:
+    pattern: /modifierHonoraire/{id}
+    defaults: { _controller: NasAppBundle:Honoraire:modifier }	
+nasApp_ajouterDevis:
+    pattern: /ajouterDevis/
+    defaults: { _controller: NasAppBundle:Devis:ajouter }
+nasApp_voirDevis:
+    pattern: /voirDevis/{idDevis}
+    defaults: { _controller: NasAppBundle:Devis:voir }
+nasApp_listeDevis:
+    pattern: /listeDevis/
+    defaults: { _controller: NasAppBundle:Devis:list }
+nasApp_chercheDevis:
+    pattern: /chercheDevis/
+    defaults: { _controller: NasAppBundle:Devis:cherche }
+nasApp_annuleDevis:
+    pattern: /annuleDevis/{idDevis}
+    defaults: { _controller: NasAppBundle:Devis:annule }
+nasApp_extraction:
+    pattern: /extraction/
+    defaults: { _controller: NasAppBundle:Extraction:index }	
+nasApp_extractionExport:
+    pattern: /extractionExport/{listeDevis}
+    defaults: { _controller: NasAppBundle:Extraction:export }	

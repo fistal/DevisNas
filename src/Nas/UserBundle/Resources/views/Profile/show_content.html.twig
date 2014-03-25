@@ -1,0 +1,14 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+
+<div class="row">
+<div class="col-md-6 col-md-offset-3">
+	<div class="alert alert-success">
+        Votre mot de passe à été modifié !
+      </div>
+    <p>Votre nom utilisateur : {{ user.username }}</p>
+    <p>Votre adresse mail : {{ user.email }}</p>
+	<p>Vos droits : {{ user.roles[0] }}</p>
+
+</div>
+</div>

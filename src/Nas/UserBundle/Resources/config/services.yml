@@ -1,0 +1,9 @@
+parameters:
+#    nas_user.example.class: Nas\UserBundle\Example
+
+services:
+    nas_user.registration.form.type:
+        class: Nas\UserBundle\Form\Type\RegistrationFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: nas_user_registration }

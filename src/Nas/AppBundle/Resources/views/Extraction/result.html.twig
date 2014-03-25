@@ -1,0 +1,59 @@
+{% extends "NasAppBundle::layout.html.twig" %}
+{% block title %}
+	Ajouter une intervention - {{ parent() }}
+{% endblock %}
+
+{% block NasApp_body %}
+http://datatables.net/extras/tabletools/
+<div class="row">
+	<div class="col-md-12">
+		<h3>Liste des devis</h3>
+		<table class="table table-hover" id="myTable">
+			<thead>
+			  <tr>
+				<th class="header">Nom</th>
+				<th class="header">Prénom</th>
+				<th class="header">Téléphone</th>
+				<th class="header">E-mail</th>
+				<th class="header">Intervention</th>
+				<th class="header">Date</th>
+				{% if is_granted('ROLE_SUPER_ADMIN') %}
+					<th class="header">Utilisateur</th>
+				{% endif %}				
+				<th></th>
+			  </tr>
+			</thead>
+			<tbody>
+				{% for devis in listeDevis %}
+					{% if devis.etat == "cancel" %}<tr class="danger">{% else %}<tr>{% endif %}
+						<td>{{ devis.patient.nom }}</td>
+						<td>{{ devis.patient.prenom }}</td>
+						<td>{{ devis.patient.telephone }}</td>
+						<td>{{ devis.patient.email }}</td>
+						<td>{{ devis.intervention.intervention }}</td>
+						<td>{{ devis.date|date("d/m/Y") }}</td>
+						{% if is_granted('ROLE_SUPER_ADMIN') %}
+							<td>{{ devis.user.username }}</td>
+						{% endif %}
+						<td><a class="btn btn-warning" href="{{ path('nasApp_voirDevis', {'idDevis': devis.id}) }}">Consulter</a></td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>		
+	</div>
+
+</div>
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+

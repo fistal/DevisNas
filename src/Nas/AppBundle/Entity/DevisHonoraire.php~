@@ -1,0 +1,32 @@
+<?php
+
+namespace Nas\AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+* @ORM\Entity
+*/
+class DevisHonoraire
+{
+
+	/**
+	* @ORM\id
+	* @ORM\ManyToOne(targetEntity="Nas\AppBundle\Entity\Devis")
+	*/
+	private $devis;
+	
+	/**
+	* @ORM\id
+	* @ORM\ManyToOne(targetEntity="Nas\AppBundle\Entity\Honoraire")
+	*/
+	private $honoraire;
+
+    /**
+     *
+     * @ORM\Column(name="date", type="integer")
+     */
+    private $mnt;
+
+
+}

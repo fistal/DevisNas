@@ -1,0 +1,110 @@
+body {
+  padding-top: 70px;
+  padding-bottom: 30px;
+}
+
+.theme-dropdown .dropdown-menu {
+  display: block;
+  position: static;
+  margin-bottom: 20px;
+}
+
+.theme-showcase > p > .btn {
+  margin: 5px 0;
+}
+
+@font-face {
+	font-family: 'icomoon';
+	src:url('../fonts/myFonts/icomoon.eot?-o3pd10');
+	src:url('../fonts/myFonts/icomoon.eot?#iefix-o3pd10') format('embedded-opentype'),
+		url('../fonts/myFonts/icomoon.woff?-o3pd10') format('woff'),
+		url('../fonts/myFonts/icomoon.ttf?-o3pd10') format('truetype'),
+		url('../fonts/myFonts/icomoon.svg?-o3pd10#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-user:before {
+	content: "\e600";
+}
+.icon-close:before {
+	content: "\e601";
+}
+.icon-checkmark:before {
+	content: "\e602";
+}
+.icon-minus:before {
+	content: "\e603";
+}
+.icon-plus:before {
+	content: "\e604";
+}
+.icon-home:before {
+	content: "\e605";
+}
+.icon-search:before {
+	content: "\e606";
+}
+.icon-remove:before {
+	content: "\e608";
+}
+.icon-key:before {
+	content: "\e609";
+}
+.icon-user2:before {
+	content: "\e60a";
+}
+.icon-copy:before {
+	content: "\e60b";
+}
+.icon-grid:before {
+	content: "\e607";
+}
+.icon-pie:before {
+	content: "\e60c";
+}
+
+
+/**************************/
+/* tables */
+table.tablesorter {
+	font-family:arial;
+	margin:10px 0pt 15px;
+	font-size: 8pt;
+	width: 100%;
+	text-align: left;
+}
+table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+	font-size: 8pt;
+	padding: 4px;
+}
+table.tablesorter thead tr .header {
+	background-image: url(../images/bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+table.tablesorter tbody td {
+	padding: 4px;
+	vertical-align: top;
+}
+table.tablesorter thead tr .headerSortUp {
+	background-image: url(../images/asc.gif);
+}
+table.tablesorter thead tr .headerSortDown {
+	background-image: url(../images/desc.gif);
+}

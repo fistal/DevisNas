@@ -1,0 +1,103 @@
+{% extends "NasAppBundle::layout.html.twig" %}
+{% block title %}
+	Ajouter une intervention - {{ parent() }}
+{% endblock %}
+
+{% block NasApp_body %}
+
+
+
+<div class="row">
+	<div class="col-md-8 col-md-offset-3">
+		<form method="post" {{ form_enctype(form) }} class="form-horizontal">
+			
+		<fieldset>
+
+		<!-- Form Name -->
+		<legend>Rechercher un devis</legend>	
+		{{ form_errors(form) }}
+		
+		<!-- Text input-->
+		<div class="form-group">
+						<label for="username" class="col-sm-4 control-label">{{ form_label(form.nomPatient, "Nom du patient : ") }} </label>
+						<div class="col-sm-3">
+							{{ form_widget(form.nomPatient,  { 'attr': {'class': 'form-control'}}) }}
+						</div>
+		</div>
+
+		<!-- Text input-->
+		<div class="form-group">
+						<label for="username" class="col-sm-4 control-label">{{ form_label(form.prenomPatient, "Prénom du patient : ") }} </label>
+						<div class="col-sm-3">
+							{{ form_widget(form.prenomPatient,  { 'attr': {'class': 'form-control'}}) }}
+						</div>
+		</div>		
+
+		<!-- Text input-->
+		<div class="form-group">
+						<label for="username" class="col-sm-4 control-label">{{ form_label(form.intervention, "Intervention : ") }} </label>
+						<div class="col-sm-3">
+							{{ form_widget(form.intervention,  { 'attr': {'class': 'form-control'}}) }}
+						</div>
+		</div>		
+
+		<!-- Text input-->
+		<div class="form-group">
+						<label for="username" class="col-sm-4 control-label">{{ form_label(form.dateDu, "Devis du : ") }} </label>
+						<div class="col-sm-3">
+							{{ form_widget(form.dateDu,  { 'attr': {'class': 'form-control datepicker'}}) }}
+						</div>
+		</div>	
+		<!-- Text input-->
+		<div class="form-group">
+						<label for="username" class="col-sm-4 control-label">{{ form_label(form.dateAu, " Au : ") }} </label>
+						<div class="col-sm-3">
+							{{ form_widget(form.dateAu,  { 'attr': {'class': 'form-control datepicker'}}) }}
+						</div>
+		</div>						
+
+		{{ form_rest(form) }}
+
+		  <div class="form-group">
+			<div class="col-sm-offset-4 col-sm-10">
+			  <input type="submit" class="btn btn-success" value="Rechercher"/>
+			</div>
+		  </div>  
+
+		
+		</fieldset>		
+		
+		
+		</form>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  $(function() {
+    $( "#datepicker" ).datepicker();
+  });
+</script>
+<script type="text/javascript" src="{{ asset('dist/js/dateTime.js') }}"></script> 
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+

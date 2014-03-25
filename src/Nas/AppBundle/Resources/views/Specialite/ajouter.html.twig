@@ -1,0 +1,158 @@
+{% extends "NasAppBundle::layout.html.twig" %}
+{# form_theme form 'NasAppBundle:Form:collectionHonoraires.html.twig' #}
+{# form_theme form 'NasAppBundle:Form:collectionInterventions.html.twig' #}
+
+{% block title %}
+	Ajouter une intervention - {{ parent() }}
+{% endblock %}
+
+{% block titleAction %}<h2>Ajouter une spécialité</h2>{% endblock %}
+
+{% block NasApp_body %}
+<div class="row">
+
+
+        <div class="col-sm-8">
+			<form method="post" {{ form_enctype(form) }} class="form-horizontal">
+
+			<div class="row">
+				<div class="control-group">
+				  <label class="col-sm-5 control-label">{{ form_label(form.specialite, "Spécialité : ") }}</label>
+				  <div class="col-sm-3">
+					{{ form_widget(form.specialite,  { 'attr': {'class': 'form-control'} }) }}
+				  </div>
+				</div>
+			</div>
+			<p></p>
+			 <div class="row">
+			  <div class="col-md-6">			  
+				<div class="panel panel-default">
+					<div class="panel-heading">
+					  <h3 class="panel-title">Ajouter des honoraires</h3>
+					</div>
+					<div class="panel-body">
+						  <p class="text-center"><a href="#" id="add-another-honoraire" class="btn btn-warning text-center">Ajouter honoraire</a></p>
+						  <ol id="nas_appbundle_specialite_honoraires" data-prototype="{{ form_widget(form.honoraires.vars.prototype) | e }}">
+							{# dump(form.vars.value.honoraires) #}
+							{% for honoraire in form.honoraires %}
+							
+								<li>
+									{{ form_errors(honoraire.type) }}
+									{{ form_label(honoraire.type) }}
+									{{ form_widget(honoraire.type) }}
+
+									{{ form_errors(honoraire.pourcentageFacture) }}
+									{{ form_label(honoraire.pourcentageFacture) }}
+									{{ form_widget(honoraire.pourcentageFacture) }}
+								</li>
+							
+							{% endfor %}
+							</ol>
+					</div>
+				  </div>					
+			  </div>
+			  <div class="col-md-6">			  
+				<div class="panel panel-default">
+					<div class="panel-heading">
+					  <h3 class="panel-title">Ajouter des interventions</h3>
+					</div>
+					<div class="panel-body">
+					  <p class="text-center"><a href="#" id="add-another-intervention" class="btn btn-warning text-center">Ajouter intervention</a> </p>
+					  <ol id="nas_appbundle_specialite_interventions" data-prototype="{{ form_widget(form.interventions.vars.prototype) | e }}">
+						{# dump(form.vars.value.interventions) #}
+						{% for intervention in form.interventions %}
+						
+							<li>
+								{{ form_errors(intervention.intervention) }}
+								{{ form_label(intervention.intervention) }}
+								{{ form_widget(intervention.intervention) }}
+
+								{{ form_errors(intervention.ghs) }}
+								{{ form_label(intervention.ghs) }}
+								{{ form_widget(intervention.ghs) }}
+								
+								{{ form_errors(intervention.dmi) }}
+								{{ form_label(intervention.dmi) }}
+								{{ form_widget(intervention.dmi) }}
+
+								{{ form_errors(intervention.dontSpecialiste) }}
+								{{ form_label(intervention.dontSpecialiste) }}
+								{{ form_widget(intervention.dontSpecialiste) }}						
+							</li>
+						
+						{% endfor %}
+						</ol>
+					</div>
+				  </div>					
+			  </div>			  
+
+			</div>
+			<p></p>
+			<div class="row text-center">
+			{{ form_widget(form._token) }}
+				<button class="btn btn-success"><span class="icon-checkmark"></span> Enregistrer</button></div>
+			</form>
+        </div>
+
+        <div class="col-sm-3">
+
+            {{ render(controller("NasAppBundle:Specialite:list")) }}
+
+		</div>
+
+</div>
+
+
+
+{# ------------------------------------------------------- JS ------------------------------------------------------------------#}
+
+<script type="text/javascript">
+    // keep track of how many email fields have been rendered
+    var honoraireCount = '{{ form.honoraires | length }}';
+	var interventionCount = '{{ form.interventions | length }}';
+
+    jQuery(document).ready(function() {
+        jQuery('#add-another-honoraire').click(function() {
+            var honoraireList = jQuery('#nas_appbundle_specialite_honoraires');
+			
+			$lienSuppression = $('<p class=\"text-right\"><a id=\"delete\" href="\#\" class=\"btn btn-danger\">Supprimer</a></p>');
+            var newWidget = honoraireList.attr('data-prototype');
+            newWidget = newWidget.replace(/__name__/g, honoraireCount);
+            honoraireCount++;
+
+            var newLi = jQuery('<li id=\"'+honoraireCount+'\"></li>').html(newWidget);
+			newLi.append($lienSuppression);
+            newLi.appendTo(jQuery('#nas_appbundle_specialite_honoraires'));
+
+            return false;
+        });
+        jQuery('#add-another-intervention').click(function() {
+            var interventionList = jQuery('#nas_appbundle_specialite_interventions');
+			
+			$lienSuppression = $('<p class=\"text-right\"><a id=\"delete\" href="\#\" class=\"btn btn-danger\">Supprimer</a></p>');
+            var newWidget = interventionList.attr('data-prototype');
+            newWidget = newWidget.replace(/__name__/g, interventionCount);
+            interventionCount++;
+
+            var newLi = jQuery('<li id=\"'+interventionCount+'\"></li>').html(newWidget);
+			newLi.append($lienSuppression);
+            newLi.appendTo(jQuery('#nas_appbundle_specialite_interventions'));
+
+            return false;
+        });	
+
+		
+		$(document).on("click", "#delete", function() {
+			$(this).closest('li').remove();
+		});	
+
+				
+
+    })
+</script>
+
+
+
+
+
+{% endblock %}

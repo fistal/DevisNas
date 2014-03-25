@@ -1,0 +1,79 @@
+{% extends "NasAppBundle::layout.html.twig" %}
+{% block title %}
+	Ajouter une intervention - {{ parent() }}
+{% endblock %}
+
+{% block NasApp_body %}
+<div class="row">
+	<div class="col-md-8 col-md-offset-3">
+		<form method="post" {{ form_enctype(form) }} class="form-horizontal">			
+			<fieldset>
+				<legend>Ajouter un devis</legend>
+				
+				
+					<div class="form-group">
+						<label for="username" class="col-sm-4 control-label">Intervention : </label>
+						<div class="col-sm-3">
+							{{ form_widget(form.intervention,  { 'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="username" class="col-sm-4 control-label">Le patient a-t-il demandé la chambre particulière ? </label>
+						<div class="col-sm-3">
+							{{ form_widget(form.chambre,  { 'attr': {'class': 'checkbox inline'}}) }}
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="username" class="col-sm-4 control-label">Nombre jours estimés du séjour pour chambre particulière : </label>
+						<div class="col-sm-3">
+							{{ form_widget(form.nbrJours,  { 'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>	
+					<div class="form-group">
+						<label for="username" class="col-sm-4 control-label">Nom du patient : </label>
+						<div class="col-sm-3">
+							{{ form_widget(form.patient.nom,  { 'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="username" class="col-sm-4 control-label">Prénom du patient : </label>
+						<div class="col-sm-3">
+							{{ form_widget(form.patient.prenom,  { 'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>	
+					<div class="form-group">
+						<label for="username" class="col-sm-4 control-label">Telephone du patient : </label>
+						<div class="col-sm-3">
+							{{ form_widget(form.patient.telephone,  { 'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>	
+					<div class="form-group">
+						<label for="username" class="col-sm-4 control-label">E-mail du patient : </label>
+						<div class="col-sm-3">
+							{{ form_widget(form.patient.email,  { 'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>					
+{{ form_rest(form) }}
+				  <div class="form-group">
+					<div class="col-sm-offset-4 col-sm-10">
+					  <input type="submit" class="btn btn-primary" value="Enregistrer" class="btn btn-default"/>
+					</div>
+				  </div>  
+
+
+				
+			</fieldset>					
+		</form>
+	</div>
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
