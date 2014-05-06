@@ -30,7 +30,7 @@ class __TwigTemplate_968b20c3de1cdeabbe7c5d413802fd7b1f88fe4f039fc03affe17159fe3
     {
         // line 4
         $context['_parent'] = (array) $context;
-        $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute($this->getAttribute($this->getContext($context, "app"), "session"), "flashbag"), "all", array(), "method"));
+        $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session"), "flashbag"), "all", array(), "method"));
         foreach ($context['_seq'] as $context["key"] => $context["message"]) {
         }
         $_parent = $context['_parent'];

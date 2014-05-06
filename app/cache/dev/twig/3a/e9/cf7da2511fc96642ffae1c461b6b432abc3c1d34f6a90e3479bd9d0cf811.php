@@ -32,7 +32,7 @@ class __TwigTemplate_3ae9cf7da2511fc96642ffae1c461b6b432abc3c1d34f6a90e3479bd9d0
         // line 6
         echo $this->env->getExtension('routing')->getPath("fos_user_change_password");
         echo "\" ";
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getContext($context, "form"), 'enctype');
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'enctype');
         echo " method=\"POST\" class=\"fos_user_change_password\" class=\"form-horizontal\">
 <fieldset>
 \t<legend>Changer votre mot de passe</legend>
@@ -40,7 +40,7 @@ class __TwigTemplate_3ae9cf7da2511fc96642ffae1c461b6b432abc3c1d34f6a90e3479bd9d0
 
 ";
         // line 11
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getContext($context, "form"), 'errors');
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'errors');
         echo "
 
 <div class=\"row\">
@@ -49,7 +49,7 @@ class __TwigTemplate_3ae9cf7da2511fc96642ffae1c461b6b432abc3c1d34f6a90e3479bd9d0
 \t\t<div class=\"col-sm-4\">
 \t\t\t";
         // line 17
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "current_password"), 'widget', array("attr" => array("class" => "form-control")));
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "current_password"), 'widget', array("attr" => array("class" => "form-control")));
         echo "
 \t\t</div>
 \t</div>
@@ -61,7 +61,7 @@ class __TwigTemplate_3ae9cf7da2511fc96642ffae1c461b6b432abc3c1d34f6a90e3479bd9d0
 \t\t<div class=\"col-sm-4\">
 \t\t\t";
         // line 26
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getContext($context, "form"), "plainPassword"), "first"), 'widget', array("attr" => array("class" => "form-control")));
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "plainPassword"), "first"), 'widget', array("attr" => array("class" => "form-control")));
         echo "
 \t\t</div>
 \t</div>
@@ -73,7 +73,7 @@ class __TwigTemplate_3ae9cf7da2511fc96642ffae1c461b6b432abc3c1d34f6a90e3479bd9d0
 \t\t<div class=\"col-sm-4\">
 \t\t\t";
         // line 35
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getContext($context, "form"), "plainPassword"), "second"), 'widget', array("attr" => array("class" => "form-control")));
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "plainPassword"), "second"), 'widget', array("attr" => array("class" => "form-control")));
         echo "
 \t\t</div>
 \t</div> 
@@ -81,7 +81,7 @@ class __TwigTemplate_3ae9cf7da2511fc96642ffae1c461b6b432abc3c1d34f6a90e3479bd9d0
 <p></p>
 ";
         // line 40
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getContext($context, "form"), 'rest');
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'rest');
         echo "
   <div class=\"form-group\">
     <div class=\"col-sm-offset-4 col-sm-10\">

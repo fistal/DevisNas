@@ -391,18 +391,6 @@ session_name($name);
 }
 }
 }
-namespace
-{
-interface SessionHandlerInterface
-{
-public function open($savePath, $sessionName);
-public function close();
-public function read($sessionId);
-public function write($sessionId, $data);
-public function destroy($sessionId);
-public function gc($lifetime);
-}
-}
 namespace Symfony\Component\HttpFoundation\Session\Storage\Proxy
 {
 class SessionHandlerProxy extends AbstractProxy implements \SessionHandlerInterface
@@ -4706,7 +4694,6 @@ protected function normalizeException(Exception $e)
 $data = array('class'=> get_class($e),'message'=> $e->getMessage(),'file'=> $e->getFile().':'.$e->getLine(),
 );
 $trace = $e->getTrace();
-array_shift($trace);
 foreach ($trace as $frame) {
 if (isset($frame['file'])) {
 $data['trace'][] = $frame['file'].':'.$frame['line'];
@@ -4736,13 +4723,16 @@ return json_encode($data);
 }
 namespace Monolog\Formatter
 {
+use Exception;
 class LineFormatter extends NormalizerFormatter
 {
 const SIMPLE_FORMAT ="[%datetime%] %channel%.%level_name%: %message% %context% %extra%\n";
 protected $format;
-public function __construct($format = null, $dateFormat = null)
+protected $allowInlineLineBreaks;
+public function __construct($format = null, $dateFormat = null, $allowInlineLineBreaks = false)
 {
 $this->format = $format ?: static::SIMPLE_FORMAT;
+$this->allowInlineLineBreaks = $allowInlineLineBreaks;
 parent::__construct($dateFormat);
 }
 public function format(array $record)
@@ -4751,13 +4741,13 @@ $vars = parent::format($record);
 $output = $this->format;
 foreach ($vars['extra'] as $var => $val) {
 if (false !== strpos($output,'%extra.'.$var.'%')) {
-$output = str_replace('%extra.'.$var.'%', $this->convertToString($val), $output);
+$output = str_replace('%extra.'.$var.'%', $this->replaceNewlines($this->convertToString($val)), $output);
 unset($vars['extra'][$var]);
 }
 }
 foreach ($vars as $var => $val) {
 if (false !== strpos($output,'%'.$var.'%')) {
-$output = str_replace('%'.$var.'%', $this->convertToString($val), $output);
+$output = str_replace('%'.$var.'%', $this->replaceNewlines($this->convertToString($val)), $output);
 }
 }
 return $output;
@@ -4770,32 +4760,35 @@ $message .= $this->format($record);
 }
 return $message;
 }
-protected function normalize($data)
+protected function normalizeException(Exception $e)
 {
-if (is_bool($data) || is_null($data)) {
-return var_export($data, true);
-}
-if ($data instanceof \Exception) {
 $previousText ='';
-if ($previous = $data->getPrevious()) {
+if ($previous = $e->getPrevious()) {
 do {
 $previousText .=', '.get_class($previous).': '.$previous->getMessage().' at '.$previous->getFile().':'.$previous->getLine();
 } while ($previous = $previous->getPrevious());
 }
-return'[object] ('.get_class($data).': '.$data->getMessage().' at '.$data->getFile().':'.$data->getLine().$previousText.')';
-}
-return parent::normalize($data);
+return'[object] ('.get_class($e).': '.$e->getMessage().' at '.$e->getFile().':'.$e->getLine().$previousText.')';
 }
 protected function convertToString($data)
 {
-if (null === $data || is_scalar($data)) {
+if (null === $data || is_bool($data)) {
+return var_export($data, true);
+}
+if (is_scalar($data)) {
 return (string) $data;
 }
-$data = $this->normalize($data);
 if (version_compare(PHP_VERSION,'5.4.0','>=')) {
 return $this->toJson($data, true);
 }
 return str_replace('\\/','/', @json_encode($data));
+}
+protected function replaceNewlines($str)
+{
+if ($this->allowInlineLineBreaks) {
+return $str;
+}
+return preg_replace('{[\r\n]+}',' ', $str);
 }
 }
 }
@@ -4967,7 +4960,8 @@ throw new \UnexpectedValueException(sprintf('The stream or file "%s" could not b
 }
 fwrite($this->stream, (string) $record['formatted']);
 }
-private function customErrorHandler($code, $msg) {
+private function customErrorHandler($code, $msg)
+{
 $this->errorMessage = preg_replace('{^fopen\(.*?\): }','', $msg);
 }
 }

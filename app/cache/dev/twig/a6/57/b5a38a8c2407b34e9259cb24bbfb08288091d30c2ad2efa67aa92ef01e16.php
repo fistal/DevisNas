@@ -31,10 +31,10 @@ class __TwigTemplate_a657b5a38a8c2407b34e9259cb24bbfb08288091d30c2ad2efa67aa92ef
         echo "
 ";
         // line 7
-        if ($this->getContext($context, "error")) {
+        if ((isset($context["error"]) ? $context["error"] : $this->getContext($context, "error"))) {
             // line 8
             echo "    <div>";
-            echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans($this->getContext($context, "error"), array(), "FOSUserBundle"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans((isset($context["error"]) ? $context["error"] : $this->getContext($context, "error")), array(), "FOSUserBundle"), "html", null, true);
             echo "</div>
 ";
         }
@@ -49,7 +49,7 @@ class __TwigTemplate_a657b5a38a8c2407b34e9259cb24bbfb08288091d30c2ad2efa67aa92ef
 \t<legend><span class=\"icon-key\"></span> Connectez-vous</legend>
     <input type=\"hidden\" name=\"_csrf_token\" value=\"";
         // line 15
-        echo twig_escape_filter($this->env, $this->getContext($context, "csrf_token"), "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["csrf_token"]) ? $context["csrf_token"] : $this->getContext($context, "csrf_token")), "html", null, true);
         echo "\" />
 \t
 \t<div class=\"form-group\">
@@ -57,7 +57,7 @@ class __TwigTemplate_a657b5a38a8c2407b34e9259cb24bbfb08288091d30c2ad2efa67aa92ef
 \t\t<div class=\"col-sm-4\">
 \t\t\t<input type=\"text\" id=\"username\" name=\"_username\" class=\"form-control\" value=\"";
         // line 20
-        echo twig_escape_filter($this->env, $this->getContext($context, "last_username"), "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["last_username"]) ? $context["last_username"] : $this->getContext($context, "last_username")), "html", null, true);
         echo "\" required=\"required\" />
 \t\t</div>
 \t</div>

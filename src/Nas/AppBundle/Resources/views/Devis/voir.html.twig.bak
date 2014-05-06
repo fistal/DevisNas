@@ -1,0 +1,116 @@
+{% extends "NasAppBundle::layout.html.twig" %}
+
+{% block title %}
+	Ajouter une intervention - {{ parent() }}
+{% endblock %}
+
+{% block NasApp_body %}
+
+{% if devis.etat != "success" %}
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+		<div class="alert alert-danger alert-dismissable">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			<div class="text-center">
+				<strong>Attention!</strong> Ce devis a été annulé. <br>Commentaire : {{ devis.commentaire }}.<br>
+			</div>
+			<a class="btn btn-info text-right" href="{{ path('nasApp_listeDevis') }}"><span class="glyphicon glyphicon-chevron-left"></span> Liste des devis</a>
+		</div>
+	</div>
+</div>
+
+{% endif %}
+
+<div id='printDevis'>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 text-center">
+		<h2>Informations générale</h2>
+  </div>
+</div>
+<div class="row">
+	<div class="col-md-4 text-right">Type d'intervention :</div>
+	<div class="col-md-8">{{ intervention.intervention }}</div>
+</div>
+<div class="row">
+	<div class="col-md-4 text-right">Le patient a-t-il demandé la chambre particulière ? </div>
+	<div class="col-md-8"> {% if devis.chambre == 1 %} oui {% else %} non {% endif %}</div>
+</div>
+<div class="row">
+	<div class="col-md-4 text-right">Nombre jours estimés du séjour pour chambre particulière : </div>
+	<div class="col-md-8"> {{ devis.nbrJours }}</div>
+</div>
+<div class="row">
+	<div class="col-md-4 text-right">Nom du patient : </div>
+	<div class="col-md-8"> {{ patient.nom }}</div>
+</div>
+<div class="row">
+	<div class="col-md-4 text-right">Prénom du patient : </div>
+	<div class="col-md-8"> {{ patient.prenom }}</div>
+</div>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 text-center">
+		<h2>Informations tarifaire</h2>
+  </div>
+</div>
+<div class="row">
+	<div class="col-md-4 text-right">Part de la clinique incluant les frais de séjour (y compris de réanimation) : </div>
+	<div class="col-md-8"> {{ devis.mntPartClinique }} €</div>
+</div>
+<div class="row">
+	<div class="col-md-4 text-right">Chambre particulière : </div>
+	<div class="col-md-8"> {{ devis.mntChambre }} €</div>
+</div>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+	<table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Honnoraire</th>
+          <th>Montant</th>
+        </tr>
+      </thead>
+      <tbody>		
+		{% for honoraire in listeHonoraires %}
+				<tr>
+				  <td>{{ honoraire.honoraire.type }}</td>
+				  <td>{{ honoraire.mnt }} €</td>
+				</tr>
+		{% endfor %}
+				<tr>
+				  <td>TOTAL :</td>
+				  <td>{{ totalFacture }} €</td>
+				</tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+{% if devis.etat == "success" %}
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 text-center" >
+		<a class="btn btn-warning" href="#" onclick="imprime_zone('commande', 'printDevis');"><span class="glyphicon glyphicon-print"></span> Imprimer</a>
+		{% if is_granted('ROLE_SUPER_ADMIN') %}
+			<form class="navbar-form navbar-right" method="post" action="{{path('nasApp_annuleDevis', {'idDevis': devis.id})}}" >
+            <div class="form-group">
+              {{ form_widget(form.commentaire,  { 'attr': {'class': 'form-control'}}) }}
+			  {{ form_rest(form) }}
+            </div>
+            <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span>  Annuler</button>
+          </form>
+		{% endif %}
+  </div>
+</div>
+{% endif %}
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+

@@ -1,4 +1,40 @@
 {% extends "NasAppBundle::layout.html.twig" %}
+{% block printDevis %}
+<ul class="nav nav-pills pull-right">
+	<li>
+		<div class="navbar-form navbar-left">
+			<a class="btn btn-warning" href="#" onclick="imprime_zone('commande', 'printDevis');"><span class="glyphicon glyphicon-print"></span> Imprimer</a>
+		</div>
+	</li>
+	{% if is_granted('ROLE_SUPER_ADMIN') %}
+	<li>
+		<form class="navbar-form navbar-right" role="form">
+            <div class="form-group">
+              <input type="text" placeholder="Commentaire" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
+          </form>
+	</li>
+	<li>
+		<div class="navbar-form navbar-left">
+			<div class="btn-group">
+			  <button type="button" class="btn btn-danger" href="{{path('nasApp_annuleDevis',{'idDevis': devis.id})}}"><span class="glyphicon glyphicon-trash"></span> Annuler</button>
+			  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+				<span class="caret"></span>
+				<span class="sr-only">Toggle Dropdown</span>
+			  </button>
+			  <ul class="dropdown-menu" role="menu">
+				<li><a href="{{path('nasApp_annuleDevis',{'idDevis': devis.id,'commentaire': 'Le patient ne viendra pas'})}}">Le patient ne viendra pas</a></li>
+				<li><a href="#">Erreur dans le devis</a></li>
+				<li><a href="#">Devis non signé</a></li>
+			  </ul>
+			</div>
+			 Annuler</a>
+		</div>
+	</li>
+	{% endif %}	
+</ul>			
+{% endblock %}
 
 {% block title %}
 	Ajouter une intervention - {{ parent() }}
