@@ -17,8 +17,8 @@ class PatientType extends AbstractType
         $builder
             ->add('nom')
             ->add('prenom')
-            ->add('telephone')
-            ->add('email', 'text', array('required' => false,))
+            ->add('telephone', 'text', array('required' => false))
+            ->add('email', 'text', array('required' => false))
         ;
     }
     

@@ -58,6 +58,34 @@ class Devis
     private $nbrJours;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="nbrJoursSupp", type="integer", nullable=true)
+     */
+    private $nbrJoursSupp;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="honorairesPraticien", type="string", nullable=true)
+     */
+    private $honorairesPraticien;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="honorairesAnesthesiste", type="string", nullable=true)
+     */
+    private $honorairesAnesthesiste;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="accompagnant ", type="boolean", nullable=true)
+     */
+    private $accompagnant ;	
+
+    /**
      * @var \Date
      *
      * @ORM\Column(name="date", type="date")
@@ -351,5 +379,97 @@ class Devis
     public function getEtat()
     {
         return $this->etat;
+    }
+
+    /**
+     * Set commentaire
+     *
+     * @param string $commentaire
+     * @return Devis
+     */
+    public function setCommentaire($commentaire)
+    {
+        $this->commentaire = $commentaire;
+
+        return $this;
+    }
+
+    /**
+     * Get commentaire
+     *
+     * @return string 
+     */
+    public function getCommentaire()
+    {
+        return $this->commentaire;
+    }
+
+    /**
+     * Set nbrJoursSupp
+     *
+     * @param integer $nbrJoursSupp
+     * @return Devis
+     */
+    public function setNbrJoursSupp($nbrJoursSupp)
+    {
+        $this->nbrJoursSupp = $nbrJoursSupp;
+    
+        return $this;
+    }
+
+    /**
+     * Get nbrJoursSupp
+     *
+     * @return integer 
+     */
+    public function getNbrJoursSupp()
+    {
+        return $this->nbrJoursSupp;
+    }
+
+    /**
+     * Set accompagnant
+     *
+     * @param boolean $accompagnant
+     * @return Devis
+     */
+    public function setAccompagnant($accompagnant)
+    {
+        $this->accompagnant = $accompagnant;
+    
+        return $this;
+    }
+
+    /**
+     * Get accompagnant
+     *
+     * @return boolean 
+     */
+    public function getAccompagnant()
+    {
+        return $this->accompagnant;
+    }
+
+    /**
+     * Set honorairesPraticien
+     *
+     * @param integer $honorairesPraticien
+     * @return Devis
+     */
+    public function setHonorairesPraticien($honorairesPraticien)
+    {
+        $this->honorairesPraticien = $honorairesPraticien;
+    
+        return $this;
+    }
+
+    /**
+     * Get honorairesPraticien
+     *
+     * @return integer 
+     */
+    public function getHonorairesPraticien()
+    {
+        return $this->honorairesPraticien;
     }
 }

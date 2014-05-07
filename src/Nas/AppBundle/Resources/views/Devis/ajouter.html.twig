@@ -17,6 +17,7 @@
 							{{ form_widget(form.intervention,  { 'attr': {'class': 'form-control'}}) }}
 						</div>
 					</div>
+					
 					<div class="form-group">
 						<label for="username" class="col-sm-4 control-label">Le patient a-t-il demandé la chambre particulière ? </label>
 						<div class="col-sm-3">
@@ -29,6 +30,34 @@
 							{{ form_widget(form.nbrJours,  { 'attr': {'class': 'form-control'}}) }}
 						</div>
 					</div>	
+					<div class="form-group">
+						<label for="username" class="col-sm-4 control-label">Nombre de jours supplémentaires  : </label>
+						<div class="col-sm-3">
+							{{ form_widget(form.nbrJoursSupp,  { 'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="username" class="col-sm-4 control-label">Accompagnant </label>
+						<div class="col-sm-3">
+							{{ form_widget(form.accompagnant,  { 'attr': {'class': 'checkbox inline'}}) }}
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="username" class="col-sm-4 control-label">Honoraires praticien  </label>
+						<div class="col-sm-3">
+							{{ form_widget(form.honorairesPraticien,  { 'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="username" class="col-sm-4 control-label">Honoraires anesthésiste  </label>
+						<div class="col-sm-3">
+							{{ form_widget(form.honorairesAnesthesiste,  { 'attr': {'class': 'form-control'}}) }}
+						</div>
+					</div>		
+						
+					
 					<div class="form-group">
 						<label for="username" class="col-sm-4 control-label">Nom du patient : </label>
 						<div class="col-sm-3">

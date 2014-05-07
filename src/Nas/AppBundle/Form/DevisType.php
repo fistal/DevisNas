@@ -26,7 +26,11 @@ class DevisType extends AbstractType
 		
         $builder
             ->add('chambre', 'checkbox', array('required' => false,))
-            ->add('nbrJours', 'number', array('required' => false,))
+            ->add('nbrJours', 'number', array('required' => false, 'read_only' => true))
+            ->add('nbrJoursSupp', 'number', array('required' => false))
+			->add('accompagnant', 'checkbox', array('required' => false,))			
+			->add('honorairesPraticien', 'text', array('required' => true,))			
+			->add('honorairesAnesthesiste', 'text', array('required' => true,))			
             ->add('date')
             ->add('patient', new PatientType())
 			->add('intervention', 'entity', array(
