@@ -15,7 +15,7 @@
 				<th>GHS</th>
 				<th>DMI</th>
 				<th>Honoraires</th>
-				<th>Dont praticien</th>
+				<th>jours CP</th>
 				<th>Total</th>
 				<th>Modifier</th>
 			  </tr>
@@ -27,7 +27,7 @@
 						<td>{{ inter.ghs }}</td>
 						<td>{{ inter.dmi }}</td>
 						<td>{{ inter.honoraires }}</td>
-						<td>{{ inter.dontSpecialiste }}</td>
+						<td>{{ inter.nbrJours }}</td>
 						<td>{{ inter.total }}</td>
 						<td><a class="btn btn-warning" href="{{ path('nasApp_modifierIntervention', {'id': inter.id}) }}">Modifier</a></td>
 					</tr>

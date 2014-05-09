@@ -60,7 +60,7 @@
 <div id='printDevis'>
 <div class="row">
   <div class="col-md-6 col-md-offset-3 text-center">
-		<h2>Informations générale</h2>
+		<h2>Informations générales</h2>
   </div>
 </div>
 <div class="row">
@@ -72,8 +72,8 @@
 	<div class="col-md-8"> {% if devis.chambre == 1 %} oui {% else %} non {% endif %}</div>
 </div>
 <div class="row">
-	<div class="col-md-4 text-right">Nombre jours estimés du séjour pour chambre particulière : </div>
-	<div class="col-md-8"> {{ devis.nbrJours }}</div>
+	<div class="col-md-4 text-right">Durée de séjour prévue : </div>
+	<div class="col-md-8"> {{ devis.nbrJours + devis.nbrJoursSupp }}</div>
 </div>
 <div class="row">
 	<div class="col-md-4 text-right">Nom du patient : </div>

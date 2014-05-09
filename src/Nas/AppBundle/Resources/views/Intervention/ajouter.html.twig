@@ -42,7 +42,15 @@
 			<div class="col-sm-3">
 				{{ form_widget(form.honoraires,  { 'attr': {'class': 'form-control'}}) }}
 			</div>
-		</div>		
+		</div>	
+
+		<!-- Text input-->
+		<div class="form-group">
+			<label for="username" class="col-sm-4 control-label">{{ form_label(form.nbrJours, "nbrJours (cp) : ") }}</label>
+			<div class="col-sm-3">
+				{{ form_widget(form.nbrJours,  { 'attr': {'class': 'form-control'}}) }}
+			</div>
+		</div>			
 
 		<!-- Text input-->
 		<div class="form-group">

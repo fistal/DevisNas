@@ -11,6 +11,7 @@ use Nas\AppBundle\Form\InterventionEditType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 //use JMS\SecurityExtraBundle\Annotation\Secure;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
 * @Security("has_role('ROLE_SUPER_ADMIN')")
@@ -112,9 +113,49 @@ class InterventionController extends Controller
 		$specialite = $repSpe->find($intervention->getSpecialite()->getId());
 		return $this->render('NasAppBundle:Intervention:modifier.html.twig', array('form'=>$form->createView(), 'intervention'=>$intervention, 'maSpecialite' =>$specialite->getSpecialite()));
 	}
+	
 	public function supprimerAction(Intervention $intervention)
 	{
 		
+	}
+
+	public function joursAction()
+	{
+		
+		$request = $this->container->get('request');
+
+		$nbrJours = "tarace";
+		var_dump($nbrJours);
+		die;
+
+		if($request->isXmlHttpRequest())
+		{
+			$interventionId = '';
+			$interventionId = $request->request->get('interventionId');
+
+			$em = $this->container->get('doctrine')->getEntityManager();
+
+			if($interventionId != '')
+			{
+			
+				$em = $this->getDoctrine()->getManager();
+				$nbrJours = $em->getRepository('NasAppBundle:Intervention')->find($interventionId)->getNbrJours();			
+			
+			}
+			else {
+				$nbrJours = "N/A";
+			}
+			$nbrJours = "tarace";
+			$response = new Response(json_encode($nbrJours));
+            $response->headers->set('Content-Type', 'application/json');
+            return $response;
+
+
+
+/* 			return $this->container->get('templating')->renderResponse('NasAppBundle:Devis:ajouter.html.twig', array(
+				'nbrJours' => $nbrJours
+				)); */
+		}
 	}
 }
 

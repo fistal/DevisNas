@@ -88,15 +88,38 @@
 					  <input type="submit" class="btn btn-primary" value="Enregistrer" class="btn btn-default"/>
 					</div>
 				  </div>  
-
+<div id="resultats_recherche"></div>
 
 				
 			</fieldset>					
 		</form>
 	</div>
 </div>
-{% endblock %}
 
+
+{# ------------------------------------------------------- JS ------------------------------------------------------------------#}
+
+<script type="text/javascript">
+
+$('#nas_appbundle_devis_intervention').on('change', function() {
+    var interventionId = this.value;
+	
+    var DATA = 'interventionId=' + interventionId;
+    $.ajax({
+        type: "POST",
+        url: "{{ path('nasApp_extractionExport')}}",
+        data: DATA,
+        cache: false,
+        success: function(data){
+		alert(data);
+           $('#resultats_recherche').html(data);
+        }
+    });    
+    return false;
+});	
+</script>
+
+{% endblock %}
 
 
 

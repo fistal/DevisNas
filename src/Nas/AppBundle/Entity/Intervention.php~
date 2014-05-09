@@ -8,14 +8,14 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * Intervention
  *
- * @ORM\Table()
+ * @ORM\Table(name="intervention")
  * @ORM\Entity(repositoryClass="Nas\AppBundle\Entity\InterventionRepository")
  * @UniqueEntity (fields="intervention", message="Cette intervention existe deja.")
  */
 class Intervention
 {
 	/**
-	 * @ORM\ManyToOne(targetEntity="Nas\AppBundle\Entity\Specialite", inversedBy="honoraires")
+	 * @ORM\ManyToOne(targetEntity="Nas\AppBundle\Entity\Specialite", inversedBy="interventions")
 	 * @ORM\JoinColumn(name="specialite_id", referencedColumnName="id")
 	 */
 	private $specialite;
@@ -53,6 +53,13 @@ class Intervention
      * @ORM\Column(name="honoraires", type="decimal", scale=2)
      */
     private $honoraires;
+	
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="nbrJours", type="integer", nullable=true)
+     */
+    private $nbrJours;	
 
     /**
      *

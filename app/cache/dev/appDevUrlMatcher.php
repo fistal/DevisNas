@@ -248,22 +248,25 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'nasApp_annuleDevis')), array (  '_controller' => 'Nas\\AppBundle\\Controller\\DevisController::annuleAction',));
         }
 
-        if (0 === strpos($pathinfo, '/extraction')) {
-            // nasApp_extraction
-            if (rtrim($pathinfo, '/') === '/extraction') {
-                if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 'nasApp_extraction');
-                }
-
-                return array (  '_controller' => 'Nas\\AppBundle\\Controller\\ExtractionController::indexAction',  '_route' => 'nasApp_extraction',);
+        // nasApp_extraction
+        if (rtrim($pathinfo, '/') === '/extraction') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'nasApp_extraction');
             }
 
-            // nasApp_extractionExport
-            if (0 === strpos($pathinfo, '/extractionExport') && preg_match('#^/extractionExport/(?P<listeDevis>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'nasApp_extractionExport')), array (  '_controller' => 'Nas\\AppBundle\\Controller\\ExtractionController::exportAction',));
-            }
-
+            return array (  '_controller' => 'Nas\\AppBundle\\Controller\\ExtractionController::indexAction',  '_route' => 'nasApp_extraction',);
         }
+
+        // nasApp_extractionExport
+        if ($pathinfo === '/ajouterDevis/') {
+            if ($this->context->getMethod() != 'POST') {
+                $allow[] = 'POST';
+                goto not_nasApp_extractionExport;
+            }
+
+            return array (  '_controller' => 'Nas\\AppBundle\\Controller\\DevisController::nbrjoursAction',  '_route' => 'nasApp_extractionExport',);
+        }
+        not_nasApp_extractionExport:
 
         if (0 === strpos($pathinfo, '/log')) {
             if (0 === strpos($pathinfo, '/login')) {

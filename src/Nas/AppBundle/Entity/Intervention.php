@@ -53,6 +53,13 @@ class Intervention
      * @ORM\Column(name="honoraires", type="decimal", scale=2)
      */
     private $honoraires;
+	
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="nbrJours", type="integer", nullable=true)
+     */
+    private $nbrJours;	
 
     /**
      *
@@ -237,5 +244,28 @@ class Intervention
     public function getSpecialite()
     {
         return $this->specialite;
+    }
+
+    /**
+     * Set nbrJours
+     *
+     * @param integer $nbrJours
+     * @return Intervention
+     */
+    public function setNbrJours($nbrJours)
+    {
+        $this->nbrJours = $nbrJours;
+    
+        return $this;
+    }
+
+    /**
+     * Get nbrJours
+     *
+     * @return integer 
+     */
+    public function getNbrJours()
+    {
+        return $this->nbrJours;
     }
 }

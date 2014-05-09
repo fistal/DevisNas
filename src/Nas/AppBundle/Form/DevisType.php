@@ -41,6 +41,7 @@ class DevisType extends AbstractType
 					return $r->getSelectList($id);
 				}))
 			->remove('date') ;
+			
     }
     
     /**

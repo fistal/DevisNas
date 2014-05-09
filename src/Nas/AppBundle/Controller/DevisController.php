@@ -90,6 +90,8 @@ class DevisController extends Controller
 	}	
 	public function ajouterAction()
 	{		
+		$request = $this->get('request');
+		
 		$devis = new Devis();		
 		$user = $this->getUser();
 		
@@ -99,8 +101,9 @@ class DevisController extends Controller
 	
 		$form = $this->createForm(new DevisType($idSpe) , $devis);
 			
-		$request = $this->get('request');
+
 		
+
 		//si la requete est de type POST
 		if($request->getMethod() == 'POST')
 		{	
@@ -117,7 +120,7 @@ class DevisController extends Controller
 				//CALCULER DU MONTANT CHAMBRE--------------
 				if($devis->getChambre() ==1)
 				{
-					$devis->setMntChambre($devis->getNbrJours()*200);
+					$devis->setMntChambre(($devis->getNbrJours()+$devis->getNbrJoursSupp())*200);
 				}
 				else
 				{
@@ -259,6 +262,39 @@ class DevisController extends Controller
 			}
 		}
 		return $this->redirect($this->generateUrl('nasApp_listeDevis'));
+	}
+	
+	public function nbrJoursAction()
+	{
+		$request = $this->get('request');
+		//si la requete est de type AJAX
+		if($request->isXmlHttpRequest())
+		{
+					die;
+			$interventionId = '';
+			$interventionId = $request->request->get('interventionId');
+
+			$em = $this->container->get('doctrine')->getEntityManager();
+			$nbrJours = 'toto';
+			if($interventionId != '')
+			{
+			
+				$em = $this->getDoctrine()->getManager();
+				$nbrJours = $em->getRepository('NasAppBundle:Intervention')->find($interventionId)->getNbrJours();			
+			
+			}
+			else {
+				$nbrJours = "N/A";
+			}
+
+			$nbrJours = "N/A";
+			
+			$response = new Response(json_encode($nbrJours));
+            $response->headers->set('Content-Type', 'application/json');
+            return $response;
+		}else{
+            return new Response('Not Ajax');
+        }
 	}
 }
 

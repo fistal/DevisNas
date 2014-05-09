@@ -162,13 +162,40 @@ class __TwigTemplate_f74bee475c7c0ce2923f87f3294f0fd0155e83299320c7fddc44a9ad114
 \t\t\t\t\t  <input type=\"submit\" class=\"btn btn-primary\" value=\"Enregistrer\" class=\"btn btn-default\"/>
 \t\t\t\t\t</div>
 \t\t\t\t  </div>  
-
+<div id=\"resultats_recherche\"></div>
 
 \t\t\t\t
 \t\t\t</fieldset>\t\t\t\t\t
 \t\t</form>
 \t</div>
 </div>
+
+
+";
+        // line 102
+        echo "<script type=\"text/javascript\">
+
+\$('#nas_appbundle_devis_intervention').on('change', function() {
+    var interventionId = this.value;
+\t
+    var DATA = 'interventionId=' + interventionId;
+    \$.ajax({
+        type: \"POST\",
+        url: \"";
+        // line 110
+        echo $this->env->getExtension('routing')->getPath("nasApp_extractionExport");
+        echo "\",
+        data: DATA,
+        cache: false,
+        success: function(data){
+\t\talert(data);
+           \$('#resultats_recherche').html(data);
+        }
+    });    
+    return false;
+});\t
+</script>
+
 ";
     }
 
@@ -184,6 +211,6 @@ class __TwigTemplate_f74bee475c7c0ce2923f87f3294f0fd0155e83299320c7fddc44a9ad114
 
     public function getDebugInfo()
     {
-        return array (  158 => 85,  152 => 82,  143 => 76,  134 => 70,  125 => 64,  114 => 56,  105 => 50,  95 => 43,  85 => 36,  76 => 30,  67 => 24,  57 => 17,  46 => 9,  42 => 7,  39 => 6,  32 => 3,  29 => 2,);
+        return array (  186 => 110,  176 => 102,  158 => 85,  152 => 82,  143 => 76,  134 => 70,  125 => 64,  114 => 56,  105 => 50,  95 => 43,  85 => 36,  76 => 30,  67 => 24,  57 => 17,  46 => 9,  42 => 7,  39 => 6,  32 => 3,  29 => 2,);
     }
 }

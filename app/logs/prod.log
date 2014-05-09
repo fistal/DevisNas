@@ -445,3 +445,5 @@
 [2014-05-07 08:26:00] security.NOTICE: It is recommended that you enable the "openssl" extension for random number generation. [] []
 =======
 >>>>>>> 8ffb79c5f12d9fdbe0cbd98880dc94807abff87a
+[2014-05-09 07:48:35] request.ERROR: Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /docs-assets/ico/favicon.png"" at C:\wamp\www\DevisNas\app\cache\prod\classes.php line 1964 {"exception":"[object] (Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException: No route found for \"GET /docs-assets/ico/favicon.png\" at C:\\wamp\\www\\DevisNas\\app\\cache\\prod\\classes.php:1964, Symfony\\Component\\Routing\\Exception\\ResourceNotFoundException:  at C:\\wamp\\www\\DevisNas\\app\\cache\\prod\\appProdUrlMatcher.php:331)"} []
+[2014-05-09 07:48:35] security.NOTICE: It is recommended that you enable the "openssl" extension for random number generation. [] []
