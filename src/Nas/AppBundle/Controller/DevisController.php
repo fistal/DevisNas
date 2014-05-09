@@ -266,35 +266,29 @@ class DevisController extends Controller
 	
 	public function nbrJoursAction()
 	{
+
 		$request = $this->get('request');
-		//si la requete est de type AJAX
-		if($request->isXmlHttpRequest())
+		$interventionId = '';
+		$interventionId = $request->request->get('interventionId');
+
+		$em = $this->container->get('doctrine')->getEntityManager();
+		$nbrJours = 'toto';
+		if($interventionId != '')
 		{
-					die;
-			$interventionId = '';
-			$interventionId = $request->request->get('interventionId');
-
-			$em = $this->container->get('doctrine')->getEntityManager();
-			$nbrJours = 'toto';
-			if($interventionId != '')
-			{
-			
-				$em = $this->getDoctrine()->getManager();
-				$nbrJours = $em->getRepository('NasAppBundle:Intervention')->find($interventionId)->getNbrJours();			
-			
-			}
-			else {
-				$nbrJours = "N/A";
-			}
-
+		
+			$em = $this->getDoctrine()->getManager();
+			$nbrJours = $em->getRepository('NasAppBundle:Intervention')->find($interventionId)->getNbrJours();			
+		
+		}
+		else {
 			$nbrJours = "N/A";
-			
-			$response = new Response(json_encode($nbrJours));
-            $response->headers->set('Content-Type', 'application/json');
-            return $response;
-		}else{
-            return new Response('Not Ajax');
-        }
+		}
+		
+		//prepare the response, e.g.
+		$response = $nbrJours;
+		//you can return result as JSON
+		return new Response(json_encode($response)); 		
+		
 	}
 }
 

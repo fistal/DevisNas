@@ -55,8 +55,8 @@ nasApp_extraction:
 nasApp_extractionExport:
     pattern: /extractionExport/{listeDevis}
     defaults: { _controller: NasAppBundle:Extraction:export }
-nasApp_extractionExport:
-    pattern: /ajouterDevis/
-    defaults: { _controller: NasAppBundle:Devis:nbrjours }
+nasApp_nbrJourIntervention:
+    pattern:  /update/data/from/ajax/call
+    defaults: { _controller: NasAppBundle:Devis:nbrJours }
     requirements:
       _method: POST

@@ -183,7 +183,7 @@ class __TwigTemplate_f74bee475c7c0ce2923f87f3294f0fd0155e83299320c7fddc44a9ad114
         type: \"POST\",
         url: \"";
         // line 110
-        echo $this->env->getExtension('routing')->getPath("nasApp_extractionExport");
+        echo $this->env->getExtension('routing')->getPath("nasApp_nbrJourIntervention");
         echo "\",
         data: DATA,
         cache: false,

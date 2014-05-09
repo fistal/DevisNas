@@ -107,7 +107,7 @@ $('#nas_appbundle_devis_intervention').on('change', function() {
     var DATA = 'interventionId=' + interventionId;
     $.ajax({
         type: "POST",
-        url: "{{ path('nasApp_extractionExport')}}",
+        url: "{{ path('nasApp_nbrJourIntervention')}}",
         data: DATA,
         cache: false,
         success: function(data){
