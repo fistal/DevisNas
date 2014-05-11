@@ -22,7 +22,7 @@ class __TwigTemplate_87703cf25373e7555eddef1ef40040cb45689b0d25a8cbee9a0e9042950
         // line 4
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("group.show.name", array(), "FOSUserBundle"), "html", null, true);
         echo ": ";
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "group"), "getName", array(), "method"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["group"]) ? $context["group"] : $this->getContext($context, "group")), "getName", array(), "method"), "html", null, true);
         echo "</p>
 </div>
 ";

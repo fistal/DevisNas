@@ -29,13 +29,13 @@ class __TwigTemplate_945f712bc2e0e334a3f9a5c4c7e896c9f4554fd3256832e7cd7a6182176
     {
         // line 4
         echo "    ";
-        if (twig_length_filter($this->env, $this->getContext($context, "majors"))) {
+        if (twig_length_filter($this->env, (isset($context["majors"]) ? $context["majors"] : $this->getContext($context, "majors")))) {
             // line 5
             echo "        <h1>Major Problems that need to be fixed now</h1>
         <p>
             We have detected <strong>";
             // line 7
-            echo twig_escape_filter($this->env, twig_length_filter($this->env, $this->getContext($context, "majors")), "html", null, true);
+            echo twig_escape_filter($this->env, twig_length_filter($this->env, (isset($context["majors"]) ? $context["majors"] : $this->getContext($context, "majors"))), "html", null, true);
             echo "</strong> major problems.
             You <em>must</em> fix them before continuing:
         </p>
@@ -43,11 +43,11 @@ class __TwigTemplate_945f712bc2e0e334a3f9a5c4c7e896c9f4554fd3256832e7cd7a6182176
             ";
             // line 11
             $context['_parent'] = (array) $context;
-            $context['_seq'] = twig_ensure_traversable($this->getContext($context, "majors"));
+            $context['_seq'] = twig_ensure_traversable((isset($context["majors"]) ? $context["majors"] : $this->getContext($context, "majors")));
             foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
                 // line 12
                 echo "                <li>";
-                echo twig_escape_filter($this->env, $this->getContext($context, "message"), "html", null, true);
+                echo twig_escape_filter($this->env, (isset($context["message"]) ? $context["message"] : $this->getContext($context, "message")), "html", null, true);
                 echo "</li>
             ";
             }
@@ -62,14 +62,14 @@ class __TwigTemplate_945f712bc2e0e334a3f9a5c4c7e896c9f4554fd3256832e7cd7a6182176
         echo "
     ";
         // line 17
-        if (twig_length_filter($this->env, $this->getContext($context, "minors"))) {
+        if (twig_length_filter($this->env, (isset($context["minors"]) ? $context["minors"] : $this->getContext($context, "minors")))) {
             // line 18
             echo "        <h1>Some Recommendations</h1>
 
         <p>
             ";
             // line 21
-            if (twig_length_filter($this->env, $this->getContext($context, "majors"))) {
+            if (twig_length_filter($this->env, (isset($context["majors"]) ? $context["majors"] : $this->getContext($context, "majors")))) {
                 // line 22
                 echo "            Additionally, we
             ";
@@ -86,11 +86,11 @@ class __TwigTemplate_945f712bc2e0e334a3f9a5c4c7e896c9f4554fd3256832e7cd7a6182176
                 ";
             // line 30
             $context['_parent'] = (array) $context;
-            $context['_seq'] = twig_ensure_traversable($this->getContext($context, "minors"));
+            $context['_seq'] = twig_ensure_traversable((isset($context["minors"]) ? $context["minors"] : $this->getContext($context, "minors")));
             foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
                 // line 31
                 echo "                    <li>";
-                echo twig_escape_filter($this->env, $this->getContext($context, "message"), "html", null, true);
+                echo twig_escape_filter($this->env, (isset($context["message"]) ? $context["message"] : $this->getContext($context, "message")), "html", null, true);
                 echo "</li>
                 ";
             }
@@ -107,12 +107,12 @@ class __TwigTemplate_945f712bc2e0e334a3f9a5c4c7e896c9f4554fd3256832e7cd7a6182176
         echo "
     ";
         // line 38
-        if ((!twig_length_filter($this->env, $this->getContext($context, "majors")))) {
+        if ((!twig_length_filter($this->env, (isset($context["majors"]) ? $context["majors"] : $this->getContext($context, "majors"))))) {
             // line 39
             echo "        <ul class=\"symfony_list\">
             <li><a href=\"";
             // line 40
-            echo twig_escape_filter($this->env, $this->getContext($context, "url"), "html", null, true);
+            echo twig_escape_filter($this->env, (isset($context["url"]) ? $context["url"] : $this->getContext($context, "url")), "html", null, true);
             echo "\">Configure your Symfony Application online</a></li>
         </ul>
     ";

@@ -68,51 +68,51 @@ class __TwigTemplate_24e2f759b27e5506582ff2700e4142b529c0751f52256a52c81a7bf9817
 \t\t\t\t";
         // line 27
         $context['_parent'] = (array) $context;
-        $context['_seq'] = twig_ensure_traversable($this->getContext($context, "listeDevis"));
+        $context['_seq'] = twig_ensure_traversable((isset($context["listeDevis"]) ? $context["listeDevis"] : $this->getContext($context, "listeDevis")));
         foreach ($context['_seq'] as $context["_key"] => $context["devis"]) {
             // line 28
             echo "\t\t\t\t\t";
-            if (($this->getAttribute($this->getContext($context, "devis"), "etat") == "cancel")) {
+            if (($this->getAttribute((isset($context["devis"]) ? $context["devis"] : $this->getContext($context, "devis")), "etat") == "cancel")) {
                 echo "<tr class=\"danger\">";
             } else {
                 echo "<tr>";
             }
             // line 29
             echo "\t\t\t\t\t\t<td>";
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "devis"), "patient"), "nom"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["devis"]) ? $context["devis"] : $this->getContext($context, "devis")), "patient"), "nom"), "html", null, true);
             echo "</td>
 \t\t\t\t\t\t<td>";
             // line 30
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "devis"), "patient"), "prenom"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["devis"]) ? $context["devis"] : $this->getContext($context, "devis")), "patient"), "prenom"), "html", null, true);
             echo "</td>
 \t\t\t\t\t\t<td>";
             // line 31
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "devis"), "patient"), "telephone"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["devis"]) ? $context["devis"] : $this->getContext($context, "devis")), "patient"), "telephone"), "html", null, true);
             echo "</td>
 \t\t\t\t\t\t<td>";
             // line 32
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "devis"), "patient"), "email"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["devis"]) ? $context["devis"] : $this->getContext($context, "devis")), "patient"), "email"), "html", null, true);
             echo "</td>
 \t\t\t\t\t\t<td>";
             // line 33
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "devis"), "intervention"), "intervention"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["devis"]) ? $context["devis"] : $this->getContext($context, "devis")), "intervention"), "intervention"), "html", null, true);
             echo "</td>
 \t\t\t\t\t\t<td>";
             // line 34
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($this->getContext($context, "devis"), "date"), "d/m/Y"), "html", null, true);
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["devis"]) ? $context["devis"] : $this->getContext($context, "devis")), "date"), "d/m/Y"), "html", null, true);
             echo "</td>
 \t\t\t\t\t\t";
             // line 35
             if ($this->env->getExtension('security')->isGranted("ROLE_SUPER_ADMIN")) {
                 // line 36
                 echo "\t\t\t\t\t\t\t<td>";
-                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "devis"), "user"), "username"), "html", null, true);
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["devis"]) ? $context["devis"] : $this->getContext($context, "devis")), "user"), "username"), "html", null, true);
                 echo "</td>
 \t\t\t\t\t\t";
             }
             // line 38
             echo "\t\t\t\t\t\t<td><a class=\"btn btn-warning\" href=\"";
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("nasApp_voirDevis", array("idDevis" => $this->getAttribute($this->getContext($context, "devis"), "id"))), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("nasApp_voirDevis", array("idDevis" => $this->getAttribute((isset($context["devis"]) ? $context["devis"] : $this->getContext($context, "devis")), "id"))), "html", null, true);
             echo "\">Consulter</a></td>
 \t\t\t\t\t</tr>
 \t\t\t\t";

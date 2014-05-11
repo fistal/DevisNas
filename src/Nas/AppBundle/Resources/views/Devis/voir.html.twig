@@ -64,37 +64,29 @@
   </div>
 </div>
 <div class="row">
-	<div class="col-md-4 text-right">Type d'intervention :</div>
-	<div class="col-md-8">{{ intervention.intervention }}</div>
+	<div class="col-md-6 text-right">Type d'intervention :</div>
+	<div class="col-md-6">{{ intervention.intervention }}</div>
 </div>
 <div class="row">
-	<div class="col-md-4 text-right">Le patient a-t-il demandé la chambre particulière ? </div>
-	<div class="col-md-8"> {% if devis.chambre == 1 %} oui {% else %} non {% endif %}</div>
+	<div class="col-md-6 text-right">Le patient a-t-il demandé la chambre particulière ? </div>
+	<div class="col-md-6"> {% if devis.chambre == 1 %} oui {% else %} non {% endif %}</div>
 </div>
 <div class="row">
-	<div class="col-md-4 text-right">Durée de séjour prévue : </div>
-	<div class="col-md-8"> {{ devis.nbrJours + devis.nbrJoursSupp }}</div>
+	<div class="col-md-6 text-right">Durée de séjour prévue : </div>
+	<div class="col-md-6"> {{ devis.nbrJours + devis.nbrJoursSupp }} jour(s)</div>
 </div>
 <div class="row">
-	<div class="col-md-4 text-right">Nom du patient : </div>
-	<div class="col-md-8"> {{ patient.nom }}</div>
+	<div class="col-md-6 text-right">Nom du patient : </div>
+	<div class="col-md-6"> {{ patient.nom }}</div>
 </div>
 <div class="row">
-	<div class="col-md-4 text-right">Prénom du patient : </div>
-	<div class="col-md-8"> {{ patient.prenom }}</div>
+	<div class="col-md-6 text-right">Prénom du patient : </div>
+	<div class="col-md-6"> {{ patient.prenom }}</div>
 </div>
 <div class="row">
   <div class="col-md-6 col-md-offset-3 text-center">
 		<h2>Informations tarifaire</h2>
   </div>
-</div>
-<div class="row">
-	<div class="col-md-4 text-right">Part de la clinique incluant les frais de séjour (y compris de réanimation) : </div>
-	<div class="col-md-8"> {{ devis.mntPartClinique }} €</div>
-</div>
-<div class="row">
-	<div class="col-md-4 text-right">Chambre particulière : </div>
-	<div class="col-md-8"> {{ devis.mntChambre }} €</div>
 </div>
 
 <div class="row">
@@ -102,21 +94,53 @@
 	<table class="table table-hover">
       <thead>
         <tr>
-          <th>Honnoraire</th>
-          <th>Montant</th>
+          <th></th>
+          <th>Montants</th>
         </tr>
       </thead>
-      <tbody>		
-		{% for honoraire in listeHonoraires %}
-				<tr>
-				  <td>{{ honoraire.honoraire.type }}</td>
-				  <td>{{ honoraire.mnt }} €</td>
-				</tr>
-		{% endfor %}
-				<tr>
-				  <td>TOTAL :</td>
-				  <td>{{ totalFacture }} €</td>
-				</tr>
+      <tbody>	
+		<tr>
+			<td>Part de la clinique incluant les frais de séjour<br>(y compris de réanimation)</td>
+			<td> {{ devis.mntPartClinique }} €</td>
+		</tr>
+		<tr>
+			<td>Chambre particulière</td>
+			<td> {{ devis.mntChambre }} €</td>
+		</tr>
+		<tr>
+			<td>Lit accompagnant + repas</td>
+			<td> {{ devis.mntAccompagnant }} €</td>
+		</tr>
+		<tr>
+			<td>Honoraires praticien </td>
+			<td>{{ devis.honorairesPraticien }} €</td>			
+		</tr>
+		<tr>
+			<td>Honoraires Anesthésiste </td>
+			<td>{{ devis.honorairesAnesthesiste }}  €</td>			
+		</tr>
+		<tr>
+			<td>
+				Honoraires autres spécialités <br>
+				<div style="font-size:11px; color: grey;">
+					{% for honoraire in listeHonoraires %}
+						{{ honoraire.honoraire.type }}<br>
+					{% endfor %}
+				</div>
+			</td>
+			<td>
+				{{ honorairesAutres }} €<br>
+				<div style="font-size:11px; color: grey;">
+					{% for honoraire in listeHonoraires %}
+						{{ honoraire.mnt }} €<br>
+					{% endfor %}
+				</div>
+			</td>			
+		</tr>
+		<tr>
+		  <td>TOTAL :</td>
+		  <td>{{ totalFacture }} €</td>
+		</tr>
       </tbody>
     </table>
   </div>

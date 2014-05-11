@@ -31,7 +31,7 @@ class __TwigTemplate_bfdaf1471737218b35455ee716c7501966bbcaf4864bb16932a4e78d0d3
         echo "<p>
 ";
         // line 7
-        echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("resetting.check_email", array("%email%" => $this->getContext($context, "email")), "FOSUserBundle"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("resetting.check_email", array("%email%" => (isset($context["email"]) ? $context["email"] : $this->getContext($context, "email"))), "FOSUserBundle"), "html", null, true);
         echo "
 </p>
 ";

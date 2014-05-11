@@ -103,6 +103,11 @@ class Devis
     private $mntChambre;
 
 	/**
+     * @ORM\Column(name="mntAccompagnant", type="integer")
+     */
+    private $mntAccompagnant;
+
+	/**
      * @ORM\Column(name="etat", type="text")
      */
     private $etat;
@@ -494,5 +499,28 @@ class Devis
     public function getHonorairesAnesthesiste()
     {
         return $this->honorairesAnesthesiste;
+    }
+
+    /**
+     * Set mntAccompagnant
+     *
+     * @param integer $mntAccompagnant
+     * @return Devis
+     */
+    public function setMntAccompagnant($mntAccompagnant)
+    {
+        $this->mntAccompagnant = $mntAccompagnant;
+    
+        return $this;
+    }
+
+    /**
+     * Get mntAccompagnant
+     *
+     * @return integer 
+     */
+    public function getMntAccompagnant()
+    {
+        return $this->mntAccompagnant;
     }
 }

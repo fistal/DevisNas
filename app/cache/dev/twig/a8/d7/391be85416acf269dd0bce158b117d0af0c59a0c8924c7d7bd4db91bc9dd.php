@@ -20,22 +20,22 @@ class __TwigTemplate_a8d7391be85416acf269dd0bce158b117d0af0c59a0c8924c7d7bd4db91
     ";
         // line 2
         $context['_parent'] = (array) $context;
-        $context['_seq'] = twig_ensure_traversable(range(1, $this->getContext($context, "count")));
+        $context['_seq'] = twig_ensure_traversable(range(1, (isset($context["count"]) ? $context["count"] : $this->getContext($context, "count"))));
         foreach ($context['_seq'] as $context["_key"] => $context["i"]) {
             // line 3
             echo "
       ";
             // line 4
-            if (($this->getContext($context, "i") == ($this->getContext($context, "index") + 1))) {
+            if (((isset($context["i"]) ? $context["i"] : $this->getContext($context, "i")) == ((isset($context["index"]) ? $context["index"] : $this->getContext($context, "index")) + 1))) {
                 // line 5
                 echo "          <span class=\"selected\">Step ";
-                echo twig_escape_filter($this->env, $this->getContext($context, "i"), "html", null, true);
+                echo twig_escape_filter($this->env, (isset($context["i"]) ? $context["i"] : $this->getContext($context, "i")), "html", null, true);
                 echo "</span>
       ";
             } else {
                 // line 7
                 echo "          <span>Step ";
-                echo twig_escape_filter($this->env, $this->getContext($context, "i"), "html", null, true);
+                echo twig_escape_filter($this->env, (isset($context["i"]) ? $context["i"] : $this->getContext($context, "i")), "html", null, true);
                 echo "</span>
       ";
             }
@@ -43,7 +43,7 @@ class __TwigTemplate_a8d7391be85416acf269dd0bce158b117d0af0c59a0c8924c7d7bd4db91
             echo "
       ";
             // line 10
-            if (($this->getContext($context, "i") != $this->getContext($context, "count"))) {
+            if (((isset($context["i"]) ? $context["i"] : $this->getContext($context, "i")) != (isset($context["count"]) ? $context["count"] : $this->getContext($context, "count")))) {
                 // line 11
                 echo "        &gt;
       ";

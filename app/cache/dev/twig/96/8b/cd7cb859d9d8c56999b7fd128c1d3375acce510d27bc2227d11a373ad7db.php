@@ -40,7 +40,7 @@ class __TwigTemplate_968bcd7cb859d9d8c56999b7fd128c1d3375acce510d27bc2227d11a373
     public function block_titleAction($context, array $blocks = array())
     {
         echo "<h2>Liste des interventions de la spécialité : ";
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "uneSpe"), "specialite"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["uneSpe"]) ? $context["uneSpe"] : $this->getContext($context, "uneSpe")), "specialite"), "html", null, true);
         echo "</h2>";
     }
 
@@ -62,29 +62,29 @@ class __TwigTemplate_968bcd7cb859d9d8c56999b7fd128c1d3375acce510d27bc2227d11a373
 \t\t\t";
         // line 18
         $context['_parent'] = (array) $context;
-        $context['_seq'] = twig_ensure_traversable($this->getContext($context, "liste_honoraire"));
+        $context['_seq'] = twig_ensure_traversable((isset($context["liste_honoraire"]) ? $context["liste_honoraire"] : $this->getContext($context, "liste_honoraire")));
         foreach ($context['_seq'] as $context["_key"] => $context["honoraire"]) {
             // line 19
             echo "\t\t\t\t<tr>
 \t\t\t\t\t<td>";
             // line 20
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "honoraire"), "type"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["honoraire"]) ? $context["honoraire"] : $this->getContext($context, "honoraire")), "type"), "html", null, true);
             echo "</td>
 \t\t\t\t\t<td>";
             // line 21
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "honoraire"), "pourcentageFacture"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["honoraire"]) ? $context["honoraire"] : $this->getContext($context, "honoraire")), "pourcentageFacture"), "html", null, true);
             echo "</td>
 \t\t\t\t\t<td>";
             // line 22
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "honoraire"), "pourcentageDevis"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["honoraire"]) ? $context["honoraire"] : $this->getContext($context, "honoraire")), "pourcentageDevis"), "html", null, true);
             echo "</td>
 \t\t\t\t\t<td><a class=\"btn btn-warning\" href=\"";
             // line 23
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("nasApp_modifierIntervention", array("id" => $this->getAttribute($this->getContext($context, "inter"), "id"))), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("nasApp_modifierIntervention", array("id" => $this->getAttribute((isset($context["inter"]) ? $context["inter"] : $this->getContext($context, "inter")), "id"))), "html", null, true);
             echo "\">Modifier</a></td>
 \t\t\t\t\t<td><a class=\"btn btn-danger\" href=\"";
             // line 24
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("nasApp_supprimerIntervention", array("id" => $this->getAttribute($this->getContext($context, "inter"), "id"))), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("nasApp_supprimerIntervention", array("id" => $this->getAttribute((isset($context["inter"]) ? $context["inter"] : $this->getContext($context, "inter")), "id"))), "html", null, true);
             echo "\">Supprimer</a></td>
 \t\t\t\t</tr>
 \t\t\t";

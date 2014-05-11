@@ -46,7 +46,7 @@ class __TwigTemplate_fffeb20f8a4ccec3c79e7b36dbd56d88c2929b97f509fee4c7d272e1343
 \t";
         // line 22
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 58
+        // line 60
         echo "
   </head>
 
@@ -66,7 +66,7 @@ class __TwigTemplate_fffeb20f8a4ccec3c79e7b36dbd56d88c2929b97f509fee4c7d272e1343
         <div class=\"navbar-collapse collapse\">
           <ul class=\"nav navbar-nav\">
             <li><a href=\"";
-        // line 76
+        // line 78
         echo $this->env->getExtension('routing')->getPath("nas_app_homepage");
         echo "\"><span class=\"icon-home\" ></span> Accueil</a></li>
 \t\t\t
@@ -74,119 +74,119 @@ class __TwigTemplate_fffeb20f8a4ccec3c79e7b36dbd56d88c2929b97f509fee4c7d272e1343
               <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><span class=\"icon-copy\"></span> Devis <b class=\"caret\"></b></a>
               <ul class=\"dropdown-menu\">
                 <li><a href=\"";
-        // line 81
+        // line 83
         echo $this->env->getExtension('routing')->getPath("nasApp_ajouterDevis");
         echo "\">Créer un devis</a></li>
                 <li><a href=\"";
-        // line 82
+        // line 84
         echo $this->env->getExtension('routing')->getPath("nasApp_listeDevis");
         echo "\">Liste des devis</a></li>
                 <li><a href=\"";
-        // line 83
+        // line 85
         echo $this->env->getExtension('routing')->getPath("nasApp_chercheDevis");
         echo "\">Rechercher un devis</a></li>
               </ul>
             </li>
 \t\t\t";
-        // line 86
+        // line 88
         if ($this->env->getExtension('security')->isGranted("ROLE_SUPER_ADMIN")) {
-            // line 87
+            // line 89
             echo "\t\t\t<li><a href=\"";
             echo $this->env->getExtension('routing')->getPath("nasApp_ajouterSpecialite");
             echo "\"><span class=\"icon-grid\" ></span> Specialité</a></li>
 \t\t\t<li><a href=\"";
-            // line 88
+            // line 90
             echo $this->env->getExtension('routing')->getPath("nasApp_extraction");
             echo "\"><span class=\"icon-pie\" ></span> Extraction</a></li>
 <!--             <li class=\"dropdown\">
               <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><span class=\"icon-pie\"></span> Statistique <b class=\"caret\"></b></a>
               <ul class=\"dropdown-menu\">
                 <li><a href=\"";
-            // line 92
+            // line 94
             echo $this->env->getExtension('routing')->getPath("nasApp_ajouterSpecialite");
             echo "\">Devis par utilisateur</a></li>
                 <li><a href=\"";
-            // line 93
+            // line 95
             echo $this->env->getExtension('routing')->getPath("nasApp_ajouterSpecialite");
             echo "\">Devis validé</a></li>
                 <li><a href=\"";
-            // line 94
+            // line 96
             echo $this->env->getExtension('routing')->getPath("nasApp_listeSpecialite");
             echo "\">Devis supprimé</a></li>
                 <li><a href=\"";
-            // line 95
+            // line 97
             echo $this->env->getExtension('routing')->getPath("nasApp_listeSpecialite");
             echo "\">Listing par spécialité</a></li>
               </ul>
             </li>\t -->
 \t\t\t";
         }
-        // line 99
+        // line 101
         echo "\t\t\t<li class=\"dropdown\">
               <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><span class=\"icon-user\" ></span> Utilisateur";
-        // line 100
+        // line 102
         if ($this->env->getExtension('security')->isGranted("IS_AUTHENTICATED_REMEMBERED")) {
             echo "  -  ";
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "app"), "user"), "username"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user"), "username"), "html", null, true);
             echo " ";
         }
         echo " <b class=\"caret\"></b></a>
               <ul class=\"dropdown-menu\">
 \t\t\t\t";
-        // line 102
+        // line 104
         if ($this->env->getExtension('security')->isGranted("ROLE_SUPER_ADMIN")) {
-            // line 103
+            // line 105
             echo "                <li><a href=\"";
             echo $this->env->getExtension('routing')->getPath("fos_user_registration_register");
             echo "\"><span class=\"icon-user2\" style=\"color:#5a943f;\"></span> Nouveau utilisateur</a></li>
 \t\t\t\t<!-- <li><a href=\"";
-            // line 104
+            // line 106
             echo $this->env->getExtension('routing')->getPath("nasUser_listUser");
             echo "\"><span class=\"icon-user2\" style=\"color:#5a943f;\"></span> Liste utilisateurs</a></li> -->
 \t\t\t\t<li><a href=\"";
-            // line 105
+            // line 107
             echo $this->env->getExtension('routing')->getPath("fos_user_change_password");
             echo "\"><span class=\"glyphicon glyphicon-cog\" style=\"color:#5a943f;\"></span> Changer le mot de passe</a></li>
                 <li><a href=\"";
-            // line 106
+            // line 108
             echo $this->env->getExtension('routing')->getPath("fos_user_security_logout");
             echo "\"><span class=\"icon-close\" style=\"color:#911f4c;\"></span> Déconnexion</a></li>
 \t\t\t\t";
         } else {
-            // line 107
+            // line 109
             echo "\t
 \t\t\t\t\t";
-            // line 108
+            // line 110
             if ($this->env->getExtension('security')->isGranted("IS_AUTHENTICATED_REMEMBERED")) {
-                // line 109
+                // line 111
                 echo "\t\t\t\t\t\t<li><a href=\"";
                 echo $this->env->getExtension('routing')->getPath("fos_user_change_password");
                 echo "\"><span class=\"glyphicon glyphicon-cog\" style=\"color:#5a943f;\"></span> Changer le mot de passe</a></li>
 \t\t\t\t\t\t<li><a href=\"";
-                // line 110
+                // line 112
                 echo $this->env->getExtension('routing')->getPath("fos_user_security_logout");
                 echo "\"><span class=\"icon-close\" style=\"color:#911f4c;\"></span> Déconnexion</a></li>
 \t\t\t\t\t";
             } else {
-                // line 111
+                // line 113
                 echo "\t
 \t\t\t\t\t\t<li><a href=\"";
-                // line 112
+                // line 114
                 echo $this->env->getExtension('routing')->getPath("fos_user_security_login");
                 echo "\"><span class=\"icon-key\" style=\"color:#5a943f;\"></span> Connexion</a></li>
 \t\t\t\t\t";
             }
-            // line 114
+            // line 116
             echo "\t\t\t\t";
         }
-        // line 115
+        // line 117
         echo "              </ul>
             </li>\t\t\t
           </ul>
 \t\t\t";
-        // line 118
+        // line 120
         $this->displayBlock('printDevis', $context, $blocks);
-        // line 121
+        // line 123
         echo "        </div><!--/.nav-collapse -->
       </div>
     </div>
@@ -194,12 +194,12 @@ class __TwigTemplate_fffeb20f8a4ccec3c79e7b36dbd56d88c2929b97f509fee4c7d272e1343
 <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class=\"jumbotron\">
 \t\t";
-        // line 127
+        // line 129
         $this->displayBlock('titleAction', $context, $blocks);
-        // line 132
+        // line 134
         echo "\t\t";
         $this->displayBlock('body', $context, $blocks);
-        // line 134
+        // line 136
         echo "
     </div>
   
@@ -278,9 +278,14 @@ class __TwigTemplate_fffeb20f8a4ccec3c79e7b36dbd56d88c2929b97f509fee4c7d272e1343
         // line 27
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("dist/js/jquery-ui.js"), "html", null, true);
         echo "\"></script>
-\t
+\t<script type=\"text/javascript\" src=\"http://platform.twitter.com/widgets.js\"></script>
 \t<script type=\"text/javascript\" src=\"";
         // line 29
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("dist/js/bootstrap-tooltip.js"), "html", null, true);
+        echo "\"></script>
+\t
+\t<script type=\"text/javascript\" src=\"";
+        // line 31
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("dist/js/jquery.tablesorter.min.js"), "html", null, true);
         echo "\"></script>\t\t
     <script language=\"JavaScript\">
@@ -313,25 +318,25 @@ class __TwigTemplate_fffeb20f8a4ccec3c79e7b36dbd56d88c2929b97f509fee4c7d272e1343
 \t";
     }
 
-    // line 118
+    // line 120
     public function block_printDevis($context, array $blocks = array())
     {
-        // line 119
+        // line 121
         echo "\t\t
 \t\t\t";
     }
 
-    // line 127
+    // line 129
     public function block_titleAction($context, array $blocks = array())
     {
-        // line 128
+        // line 130
         echo "\t\t";
     }
 
-    // line 132
+    // line 134
     public function block_body($context, array $blocks = array())
     {
-        // line 133
+        // line 135
         echo "\t\t";
     }
 
@@ -347,6 +352,6 @@ class __TwigTemplate_fffeb20f8a4ccec3c79e7b36dbd56d88c2929b97f509fee4c7d272e1343
 
     public function getDebugInfo()
     {
-        return array (  335 => 133,  332 => 132,  328 => 128,  325 => 127,  320 => 119,  317 => 118,  284 => 29,  279 => 27,  275 => 26,  271 => 25,  267 => 24,  264 => 23,  261 => 22,  255 => 19,  251 => 18,  247 => 17,  243 => 16,  238 => 15,  235 => 14,  229 => 12,  203 => 134,  200 => 132,  198 => 127,  190 => 121,  188 => 118,  183 => 115,  180 => 114,  175 => 112,  172 => 111,  167 => 110,  162 => 109,  160 => 108,  157 => 107,  152 => 106,  148 => 105,  144 => 104,  139 => 103,  137 => 102,  128 => 100,  125 => 99,  118 => 95,  114 => 94,  110 => 93,  106 => 92,  99 => 88,  94 => 87,  92 => 86,  86 => 83,  82 => 82,  78 => 81,  70 => 76,  50 => 58,  48 => 22,  45 => 21,  43 => 14,  38 => 12,  25 => 1,);
+        return array (  340 => 135,  337 => 134,  333 => 130,  330 => 129,  325 => 121,  322 => 120,  289 => 31,  284 => 29,  279 => 27,  275 => 26,  271 => 25,  267 => 24,  264 => 23,  261 => 22,  255 => 19,  251 => 18,  247 => 17,  243 => 16,  238 => 15,  235 => 14,  229 => 12,  203 => 136,  200 => 134,  198 => 129,  190 => 123,  188 => 120,  183 => 117,  180 => 116,  175 => 114,  172 => 113,  167 => 112,  162 => 111,  160 => 110,  157 => 109,  152 => 108,  148 => 107,  144 => 106,  139 => 105,  137 => 104,  128 => 102,  125 => 101,  118 => 97,  114 => 96,  110 => 95,  106 => 94,  99 => 90,  94 => 89,  92 => 88,  86 => 85,  82 => 84,  78 => 83,  70 => 78,  50 => 60,  48 => 22,  45 => 21,  43 => 14,  38 => 12,  25 => 1,);
     }
 }

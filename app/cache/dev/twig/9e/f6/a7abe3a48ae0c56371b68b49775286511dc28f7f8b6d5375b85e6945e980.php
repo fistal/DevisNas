@@ -40,7 +40,7 @@ class __TwigTemplate_9ef6a7abe3a48ae0c56371b68b49775286511dc28f7f8b6d5375b85e694
     public function block_titleAction($context, array $blocks = array())
     {
         echo "<h2>Liste des interventions de la spécialité : ";
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "uneSpe"), "specialite"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["uneSpe"]) ? $context["uneSpe"] : $this->getContext($context, "uneSpe")), "specialite"), "html", null, true);
         echo "</h2>";
     }
 
@@ -65,41 +65,41 @@ class __TwigTemplate_9ef6a7abe3a48ae0c56371b68b49775286511dc28f7f8b6d5375b85e694
 \t\t\t";
         // line 21
         $context['_parent'] = (array) $context;
-        $context['_seq'] = twig_ensure_traversable($this->getContext($context, "liste_intervention"));
+        $context['_seq'] = twig_ensure_traversable((isset($context["liste_intervention"]) ? $context["liste_intervention"] : $this->getContext($context, "liste_intervention")));
         foreach ($context['_seq'] as $context["_key"] => $context["inter"]) {
             // line 22
             echo "\t\t\t\t<tr>
 \t\t\t\t\t<td>";
             // line 23
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "inter"), "intervention"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["inter"]) ? $context["inter"] : $this->getContext($context, "inter")), "intervention"), "html", null, true);
             echo "</td>
 \t\t\t\t\t<td>";
             // line 24
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "inter"), "ghs"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["inter"]) ? $context["inter"] : $this->getContext($context, "inter")), "ghs"), "html", null, true);
             echo "</td>
 \t\t\t\t\t<td>";
             // line 25
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "inter"), "dmi"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["inter"]) ? $context["inter"] : $this->getContext($context, "inter")), "dmi"), "html", null, true);
             echo "</td>
 \t\t\t\t\t<td>";
             // line 26
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "inter"), "honoraires"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["inter"]) ? $context["inter"] : $this->getContext($context, "inter")), "honoraires"), "html", null, true);
             echo "</td>
 \t\t\t\t\t<td>";
             // line 27
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "inter"), "dontSpecialiste"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["inter"]) ? $context["inter"] : $this->getContext($context, "inter")), "dontSpecialiste"), "html", null, true);
             echo "</td>
 \t\t\t\t\t<td>";
             // line 28
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "inter"), "total"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["inter"]) ? $context["inter"] : $this->getContext($context, "inter")), "total"), "html", null, true);
             echo "</td>
 \t\t\t\t\t<td><a class=\"btn btn-warning\" href=\"";
             // line 29
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("nasApp_modifierIntervention", array("id" => $this->getAttribute($this->getContext($context, "inter"), "id"))), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("nasApp_modifierIntervention", array("id" => $this->getAttribute((isset($context["inter"]) ? $context["inter"] : $this->getContext($context, "inter")), "id"))), "html", null, true);
             echo "\">Modifier</a></td>
 \t\t\t\t\t<td><a class=\"btn btn-danger\" href=\"";
             // line 30
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("nasApp_supprimerIntervention", array("id" => $this->getAttribute($this->getContext($context, "inter"), "id"))), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("nasApp_supprimerIntervention", array("id" => $this->getAttribute((isset($context["inter"]) ? $context["inter"] : $this->getContext($context, "inter")), "id"))), "html", null, true);
             echo "\">Supprimer</a></td>
 \t\t\t\t</tr>
 \t\t\t";

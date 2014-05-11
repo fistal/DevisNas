@@ -40,7 +40,7 @@ class __TwigTemplate_eaf130a54eded73e6b4aaef9d1a93f35cfbc5027f134a2df8ff10fc63ec
     public function block_titleAction($context, array $blocks = array())
     {
         echo "<h2>Liste des interventions de la spécialité : ";
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "uneSpe"), "specialite"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["uneSpe"]) ? $context["uneSpe"] : $this->getContext($context, "uneSpe")), "specialite"), "html", null, true);
         echo "</h2>";
     }
 

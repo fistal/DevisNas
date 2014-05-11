@@ -33,7 +33,7 @@ class __TwigTemplate_788106b0f1be96219c3510d7b0af9de39fac6828e39a9f71bebcb4f1e51
         echo "
     <li>logged in as <strong>";
         // line 5
-        echo twig_escape_filter($this->env, (($this->getAttribute($this->getContext($context, "app"), "user")) ? ($this->getAttribute($this->getAttribute($this->getContext($context, "app"), "user"), "username")) : ("Anonymous")), "html", null, true);
+        echo twig_escape_filter($this->env, (($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user")) ? ($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user"), "username")) : ("Anonymous")), "html", null, true);
         echo "</strong> - <a href=\"";
         echo $this->env->getExtension('routing')->getPath("_demo_logout");
         echo "\">Logout</a></li>

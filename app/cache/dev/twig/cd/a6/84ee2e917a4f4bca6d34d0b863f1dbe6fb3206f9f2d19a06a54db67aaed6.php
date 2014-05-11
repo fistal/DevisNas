@@ -40,13 +40,13 @@ class __TwigTemplate_cda684ee2e917a4f4bca6d34d0b863f1dbe6fb3206f9f2d19a06a54db67
           <td>
 \t\t\t";
         // line 13
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "prototype"), "type"), 'widget', array("attr" => array("class" => "form-control")));
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["prototype"]) ? $context["prototype"] : $this->getContext($context, "prototype")), "type"), 'widget', array("attr" => array("class" => "form-control")));
         echo "
 \t\t  </td>
           <td>
 \t\t\t";
         // line 16
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "prototype"), "pourcentageFacture"), 'widget', array("attr" => array("class" => "form-control")));
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["prototype"]) ? $context["prototype"] : $this->getContext($context, "prototype")), "pourcentageFacture"), 'widget', array("attr" => array("class" => "form-control")));
         echo "
 \t\t  </td>
         </tr>
@@ -67,7 +67,7 @@ class __TwigTemplate_cda684ee2e917a4f4bca6d34d0b863f1dbe6fb3206f9f2d19a06a54db67
         if (array_key_exists("prototype", $context)) {
             // line 27
             echo "        ";
-            $context["attr"] = twig_array_merge($this->getContext($context, "attr"), array("data-prototype" => $this->renderBlock("my_widget", $context, $blocks)));
+            $context["attr"] = twig_array_merge((isset($context["attr"]) ? $context["attr"] : $this->getContext($context, "attr")), array("data-prototype" => $this->renderBlock("my_widget", $context, $blocks)));
             // line 28
             echo "    ";
         }

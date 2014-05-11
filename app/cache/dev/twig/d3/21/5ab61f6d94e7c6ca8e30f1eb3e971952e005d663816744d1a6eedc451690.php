@@ -30,7 +30,7 @@ class __TwigTemplate_d3215ab61f6d94e7c6ca8e30f1eb3e971952e005d663816744d1a6eedc4
     // line 3
     public function block_title($context, array $blocks = array())
     {
-        echo twig_escape_filter($this->env, ("Hello " . $this->getContext($context, "name")), "html", null, true);
+        echo twig_escape_filter($this->env, ("Hello " . (isset($context["name"]) ? $context["name"] : $this->getContext($context, "name"))), "html", null, true);
     }
 
     // line 5
@@ -38,7 +38,7 @@ class __TwigTemplate_d3215ab61f6d94e7c6ca8e30f1eb3e971952e005d663816744d1a6eedc4
     {
         // line 6
         echo "    <h1 class=\"title\">Hello ";
-        echo twig_escape_filter($this->env, $this->getContext($context, "name"), "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["name"]) ? $context["name"] : $this->getContext($context, "name")), "html", null, true);
         echo " secured for Admins only!</h1>
 ";
     }

@@ -55,7 +55,7 @@ class __TwigTemplate_f93af3d506dad245c43c27cf46994c0b89b6241bdcfafe5f75d0eb5aa4a
         echo "    </div>
     <div class=\"version\">Symfony Standard Edition v.";
         // line 13
-        echo twig_escape_filter($this->env, $this->getContext($context, "version"), "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["version"]) ? $context["version"] : $this->getContext($context, "version")), "html", null, true);
         echo "</div>
 ";
     }

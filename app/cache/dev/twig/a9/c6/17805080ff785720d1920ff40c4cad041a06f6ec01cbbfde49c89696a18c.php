@@ -32,50 +32,50 @@ class __TwigTemplate_a9c617805080ff785720d1920ff40c4cad041a06f6ec01cbbfde49c8969
 \t<div class=\"col-md-8 col-md-offset-3\">
 \t\t<form method=\"post\" ";
         // line 8
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getContext($context, "form"), 'enctype');
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'enctype');
         echo " class=\"form-horizontal\">\t\t\t
 \t\t\t<fieldset>
 
 \t\t\t<!-- Form Name -->
 \t\t\t<legend>Ajouter un honoraire pour la spécialité : ";
         // line 12
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "specialite"), "specialite"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["specialite"]) ? $context["specialite"] : $this->getContext($context, "specialite")), "specialite"), "html", null, true);
         echo " - <a href=\"";
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("nasApp_detailSpecialite", array("idSpecialite" => $this->getAttribute($this->getContext($context, "specialite"), "id"))), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("nasApp_detailSpecialite", array("idSpecialite" => $this->getAttribute((isset($context["specialite"]) ? $context["specialite"] : $this->getContext($context, "specialite")), "id"))), "html", null, true);
         echo "\" class=\"btn btn-info\">Retour à la spécialité</a></legend>
 \t\t\t";
         // line 13
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getContext($context, "form"), 'errors');
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'errors');
         echo "
 \t\t\t<!-- Text input-->
 \t\t\t
 \t\t\t<div class=\"form-group\">
 \t\t\t\t<label for=\"username\" class=\"col-sm-4 control-label\">";
         // line 17
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "type"), 'label', array("label" => "Type d'honoraire : "));
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "type"), 'label', array("label" => "Type d'honoraire : "));
         echo "</label>
 \t\t\t\t<div class=\"col-sm-3\">
 \t\t\t\t\t";
         // line 19
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "type"), 'widget', array("attr" => array("class" => "form-control")));
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "type"), 'widget', array("attr" => array("class" => "form-control")));
         echo "
 \t\t\t\t</div>
 \t\t\t</div>
 \t\t\t<div class=\"form-group\">
 \t\t\t\t<label for=\"username\" class=\"col-sm-4 control-label\">";
         // line 23
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "pourcentageFacture"), 'label', array("label" => "% sur le total de la facture : "));
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "pourcentageFacture"), 'label', array("label" => "% sur le total de la facture : "));
         echo "</label>
 \t\t\t\t<div class=\"col-sm-3\">
 \t\t\t\t\t";
         // line 25
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "pourcentageFacture"), 'widget', array("attr" => array("class" => "form-control")));
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "pourcentageFacture"), 'widget', array("attr" => array("class" => "form-control")));
         echo "
 \t\t\t\t</div>
 \t\t\t</div>
 \t\t\t";
         // line 28
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getContext($context, "form"), 'rest');
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'rest');
         echo "
 \t\t  <div class=\"form-group\">
 \t\t\t<div class=\"col-sm-offset-4 col-sm-10\">

@@ -38,10 +38,10 @@ class __TwigTemplate_f2448312c6325df107818293eab55d7dbe86ee19c56606ae412a04f28a6
 
     ";
         // line 10
-        if ($this->getContext($context, "error")) {
+        if ((isset($context["error"]) ? $context["error"] : $this->getContext($context, "error"))) {
             // line 11
             echo "        <div class=\"error\">";
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "error"), "message"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["error"]) ? $context["error"] : $this->getContext($context, "error")), "message"), "html", null, true);
             echo "</div>
     ";
         }
@@ -55,7 +55,7 @@ class __TwigTemplate_f2448312c6325df107818293eab55d7dbe86ee19c56606ae412a04f28a6
             <label for=\"username\">Username</label>
             <input type=\"text\" id=\"username\" name=\"_username\" value=\"";
         // line 17
-        echo twig_escape_filter($this->env, $this->getContext($context, "last_username"), "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["last_username"]) ? $context["last_username"] : $this->getContext($context, "last_username")), "html", null, true);
         echo "\" />
         </div>
 

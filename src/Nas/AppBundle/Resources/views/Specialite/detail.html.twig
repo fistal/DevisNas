@@ -7,7 +7,7 @@
 
 <div class="row">
 	<div class="col-md-12">
-		<h3>Liste des interventions</h3>
+		<h3>Liste des interventions <a class="btn btn-success btn-sm" href="{{ path('nasApp_ajouterIntervention', {'idSpecialite': specialite.id}) }}"><span class="glyphicon glyphicon-plus"></span></a></h3>
 		<table class="table table-striped" id="myTable">
 			<thead>
 			  <tr>
@@ -17,7 +17,7 @@
 				<th>Honoraires</th>
 				<th>jours CP</th>
 				<th>Total</th>
-				<th>Modifier</th>
+				<th></th>
 			  </tr>
 			</thead>
 			<tbody>
@@ -34,21 +34,21 @@
 				{% endfor %}
 			</tbody>
 		</table>
-		<a class="btn btn-success" href="{{ path('nasApp_ajouterIntervention', {'idSpecialite': specialite.id}) }}">Ajouter une intervention</a>
+		
 	</div>
 
 </div>
 	<hr>
 <div class="row">
 	<div class="col-md-12">
-		<h3>Liste les honoraires</h3>
+		<h3>Liste les honoraires <a class="btn btn-success btn-sm" href="{{ path('nasApp_ajouterHonoraire', {'idSpecialite': specialite.id}) }}"><span class="glyphicon glyphicon-plus"></span></a></h3>
 		<table class="table table-striped">
 			<thead>
 			  <tr>
 				<th>Honoraire</th>
 				<th>% sur le total de la facture</th>
 				<th>% à appliquer sur les devis</th>
-				<th>Modifier</th>
+				<th></th>
 			  </tr>
 			</thead>
 			<tbody>
@@ -62,7 +62,7 @@
 				{% endfor %}
 			</tbody>
 		</table>
-		<a class="btn btn-success" href="{{ path('nasApp_ajouterHonoraire', {'idSpecialite': specialite.id}) }}">Ajouter un honoraire</a>
+		
 	</div>
 
 </div>

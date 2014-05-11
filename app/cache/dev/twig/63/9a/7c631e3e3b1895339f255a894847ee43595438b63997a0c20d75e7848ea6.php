@@ -47,26 +47,26 @@ class __TwigTemplate_639a7c631e3e3b1895339f255a894847ee43595438b63997a0c20d75e78
 \t\t";
         // line 22
         $context['_parent'] = (array) $context;
-        $context['_seq'] = twig_ensure_traversable($this->getContext($context, "users"));
+        $context['_seq'] = twig_ensure_traversable((isset($context["users"]) ? $context["users"] : $this->getContext($context, "users")));
         foreach ($context['_seq'] as $context["_key"] => $context["user"]) {
             // line 23
             echo "\t\t<tr>
 \t\t\t<td>
 \t\t\t\t<a href=\"#\">";
             // line 25
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "user"), "email"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "email"), "html", null, true);
             echo "</a>
 \t\t\t</td>\t\t\t
 \t\t\t<td>
 \t\t\t\t<a href=\"#\">";
             // line 28
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "user"), "username"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "username"), "html", null, true);
             echo "</a>
 \t\t\t</td>\t\t\t
 \t\t\t<td>
 \t\t\t\t<a href=\"#\">";
             // line 31
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "user"), "roles"), 0, array(), "array"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "roles"), 0, array(), "array"), "html", null, true);
             echo "</a>
 \t\t\t</td>
 \t\t\t<td>

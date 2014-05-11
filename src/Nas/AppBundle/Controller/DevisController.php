@@ -35,9 +35,17 @@ class DevisController extends Controller
 		
 		$totalFacture = $devis->getMntPartClinique();
 		$totalFacture += $devis->getMntChambre();
+		$honorairesAutres = 0;
 		foreach($listeHonoraires as $i => $honoraire)
 		{
+			$honorairesAutres += $honoraire->getMnt();
 			$totalFacture += $honoraire->getMnt();
+		}
+		
+		if($devis->getNbrJoursSupp()!= "")
+		{
+			$honorairesAutres = $honorairesAutres*1.3;
+			
 		}
 		
 		if(!$this->get('security.context')->isGranted('ROLE_SUPER_ADMIN')) 
@@ -47,7 +55,8 @@ class DevisController extends Controller
 																		'specialite'=>$specialite,
 																		'intervention'=>$intervention,
 																		'listeHonoraires'=>$listeHonoraires,
-																		'totalFacture'=>$totalFacture));
+																		'totalFacture'=>$totalFacture,
+																		'honorairesAutres'=>$honorairesAutres));
 		}
 		else
 		{				
@@ -100,35 +109,46 @@ class DevisController extends Controller
 		$devis->setSpecialite($this->getDoctrine()->getManager()->getRepository('NasAppBundle:Specialite')->find($idSpe));
 	
 		$form = $this->createForm(new DevisType($idSpe) , $devis);
-			
-
-		
 
 		//si la requete est de type POST
 		if($request->getMethod() == 'POST')
 		{	
 			//lien requete <=> formulaire
-			$form->bind($request);
+			$form->bind($request);						
 			
 			if($form->isValid())
 			{
-				$devis->setUser($user);
-				
+				$devis->setUser($user);				
 				$devis->setEtat('success');
-				
+				//$intervention = $this->getDoctrine()->getManager()->getRepository('NasAppBundle:Intervention')->find($devis->getIntervention()->getId());								
 				//print_r($devis->getIntervention()->getId());
-				//CALCULER DU MONTANT CHAMBRE--------------
+				//NOMBRE DE JOURS PMSI
+				$devis->setNbrJours($devis->getIntervention()->getNbrJours());							
+				
+				//CALCULER DU MONTANT CHAMBRE + MONTANT PART CLINIQUE--------------
+				//Si chambre particulière 
 				if($devis->getChambre() ==1)
 				{
 					$devis->setMntChambre(($devis->getNbrJours()+$devis->getNbrJoursSupp())*200);
+					//$devis->setMntPartClinique($intervention->getGhs()*1.3);
+					$devis->setMntPartClinique($devis->getIntervention()->getGhs()*1.3);
 				}
 				else
 				{
 					$devis->setMntChambre(0);	
+					//$devis->setMntPartClinique($intervention->getGhs());
+					$devis->setMntPartClinique($devis->getIntervention()->getGhs());
 				}
-				//CALCULER DU MONTANT PART CLINIQUE--------------
-				$intervention = $this->getDoctrine()->getManager()->getRepository('NasAppBundle:Intervention')->find($devis->getIntervention()->getId());
-				$devis->setMntPartClinique($intervention->getGhs()+$intervention->getDmi());
+				
+				//CALCULER DE L'ACCOMPAGNANT--------------
+				if($devis->getAccompagnant() ==1)
+				{
+					$devis->setMntAccompagnant(($devis->getNbrJours()+$devis->getNbrJoursSupp())*50);
+				}
+				else
+				{
+					$devis->setMntAccompagnant(0);	
+				}			
 				
 				//ENREGISTRER LE DEVIS--------------
 				$em = $this->getDoctrine()->getManager();

@@ -25,15 +25,15 @@ class __TwigTemplate_04b4efda5ae3f4f6ad4e4147dbddd01df7200926df1b4e399f4abf6586e
       </div>
     <p>Votre nom utilisateur : ";
         // line 9
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "user"), "username"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "username"), "html", null, true);
         echo "</p>
     <p>Votre adresse mail : ";
         // line 10
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "user"), "email"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "email"), "html", null, true);
         echo "</p>
 \t<p>Vos droits : ";
         // line 11
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "user"), "roles"), 0, array(), "array"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "roles"), 0, array(), "array"), "html", null, true);
         echo "</p>
 
 </div>

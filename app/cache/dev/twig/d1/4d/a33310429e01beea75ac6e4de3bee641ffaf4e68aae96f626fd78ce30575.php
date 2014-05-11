@@ -22,7 +22,7 @@ class __TwigTemplate_d14da33310429e01beea75ac6e4de3bee641ffaf4e68aae96f626fd78ce
         // line 3
         echo $this->env->getExtension('routing')->getPath("fos_user_registration_register");
         echo "\" ";
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getContext($context, "form"), 'enctype');
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'enctype');
         echo " method=\"POST\" class=\"form-horizontal\">
 <fieldset>
 \t<legend>Enregistrer un utilisateur</legend>
@@ -32,11 +32,11 @@ class __TwigTemplate_d14da33310429e01beea75ac6e4de3bee641ffaf4e68aae96f626fd78ce
 \t\t<div class=\"col-sm-4\">
 \t\t\t";
         // line 10
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "email"), 'widget', array("attr" => array("class" => "form-control")));
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "email"), 'widget', array("attr" => array("class" => "form-control")));
         echo "
 \t\t\t<p class=\"help-block\">";
         // line 11
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "email"), 'errors');
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "email"), 'errors');
         echo "</p>
 \t\t</div>
 \t</div>
@@ -45,11 +45,11 @@ class __TwigTemplate_d14da33310429e01beea75ac6e4de3bee641ffaf4e68aae96f626fd78ce
 \t\t<div class=\"col-sm-4\">
 \t\t\t";
         // line 17
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "username"), 'widget', array("attr" => array("class" => "form-control")));
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "username"), 'widget', array("attr" => array("class" => "form-control")));
         echo "
 \t\t\t<p class=\"help-block\">";
         // line 18
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "username"), 'errors');
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "username"), 'errors');
         echo "</p>
 \t\t</div>
 \t</div>
@@ -58,11 +58,11 @@ class __TwigTemplate_d14da33310429e01beea75ac6e4de3bee641ffaf4e68aae96f626fd78ce
 \t\t<div class=\"col-sm-4\">
 \t\t\t";
         // line 24
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getContext($context, "form"), "plainPassword"), "first"), 'widget', array("attr" => array("class" => "form-control")));
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "plainPassword"), "first"), 'widget', array("attr" => array("class" => "form-control")));
         echo "
 \t\t\t<p class=\"help-block\">";
         // line 25
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getContext($context, "form"), "plainPassword"), "first"), 'errors');
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "plainPassword"), "first"), 'errors');
         echo "</p>
 \t\t</div>
 \t</div>
@@ -71,11 +71,11 @@ class __TwigTemplate_d14da33310429e01beea75ac6e4de3bee641ffaf4e68aae96f626fd78ce
 \t\t<div class=\"col-sm-4\">
 \t\t\t";
         // line 31
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getContext($context, "form"), "plainPassword"), "second"), 'widget', array("attr" => array("class" => "form-control")));
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "plainPassword"), "second"), 'widget', array("attr" => array("class" => "form-control")));
         echo "
 \t\t\t<p class=\"help-block\">";
         // line 32
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getContext($context, "form"), "plainPassword"), "second"), 'errors');
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "plainPassword"), "second"), 'errors');
         echo "</p>
 \t\t</div>
 \t</div>
@@ -85,12 +85,12 @@ class __TwigTemplate_d14da33310429e01beea75ac6e4de3bee641ffaf4e68aae96f626fd78ce
 \t\t";
         // line 38
         $context['_parent'] = (array) $context;
-        $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getContext($context, "form"), "roles"));
+        $context['_seq'] = twig_ensure_traversable($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "roles"));
         foreach ($context['_seq'] as $context["_key"] => $context["role"]) {
             // line 39
             echo "\t\t\t";
-            echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getContext($context, "role"), 'widget', array("attr" => array("class" => "form-control")));
-            echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getContext($context, "role"), 'errors');
+            echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["role"]) ? $context["role"] : $this->getContext($context, "role")), 'widget', array("attr" => array("class" => "form-control")));
+            echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["role"]) ? $context["role"] : $this->getContext($context, "role")), 'errors');
             echo "
 \t\t";
         }
@@ -105,13 +105,13 @@ class __TwigTemplate_d14da33310429e01beea75ac6e4de3bee641ffaf4e68aae96f626fd78ce
 \t\t<div class=\"col-sm-4\">
 \t\t\t";
         // line 46
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "specialite"), 'widget', array("attr" => array("class" => "form-control")));
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "specialite"), 'widget', array("attr" => array("class" => "form-control")));
         echo "
 \t\t</div>
 \t</div> 
 ";
         // line 49
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getContext($context, "form"), 'rest');
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'rest');
         echo "
   <div class=\"form-group\">
     <div class=\"col-sm-offset-4 col-sm-10\">

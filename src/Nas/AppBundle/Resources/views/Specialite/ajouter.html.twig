@@ -31,7 +31,7 @@
 					  <h3 class="panel-title">Ajouter des honoraires</h3>
 					</div>
 					<div class="panel-body">
-						  <p class="text-center"><a href="#" id="add-another-honoraire" class="btn btn-warning text-center">Ajouter honoraire</a></p>
+						  <p class="text-center"><a href="#" id="add-another-honoraire" class="btn btn-warning text-center"><span class="glyphicon glyphicon-plus"></span></a></p>
 						  <ol id="nas_appbundle_specialite_honoraires" data-prototype="{{ form_widget(form.honoraires.vars.prototype) | e }}">
 							{# dump(form.vars.value.honoraires) #}
 							{% for honoraire in form.honoraires %}
@@ -57,7 +57,7 @@
 					  <h3 class="panel-title">Ajouter des interventions</h3>
 					</div>
 					<div class="panel-body">
-					  <p class="text-center"><a href="#" id="add-another-intervention" class="btn btn-warning text-center">Ajouter intervention</a> </p>
+					  <p class="text-center"><a href="#" id="add-another-intervention" class="btn btn-warning text-center"><span class="glyphicon glyphicon-plus"></span></a> </p>
 					  <ol id="nas_appbundle_specialite_interventions" data-prototype="{{ form_widget(form.interventions.vars.prototype) | e }}">
 						{# dump(form.vars.value.interventions) #}
 						{% for intervention in form.interventions %}
@@ -115,7 +115,7 @@
         jQuery('#add-another-honoraire').click(function() {
             var honoraireList = jQuery('#nas_appbundle_specialite_honoraires');
 			
-			$lienSuppression = $('<p class=\"text-right\"><a id=\"delete\" href="\#\" class=\"btn btn-danger\">Supprimer</a></p>');
+			$lienSuppression = $('<p class=\"text-right\"><a id=\"delete\" href="\#\" class=\"btn btn-danger\"><span class="glyphicon glyphicon-trash"></span></a></p>');
             var newWidget = honoraireList.attr('data-prototype');
             newWidget = newWidget.replace(/__name__/g, honoraireCount);
             honoraireCount++;
@@ -129,7 +129,7 @@
         jQuery('#add-another-intervention').click(function() {
             var interventionList = jQuery('#nas_appbundle_specialite_interventions');
 			
-			$lienSuppression = $('<p class=\"text-right\"><a id=\"delete\" href="\#\" class=\"btn btn-danger\">Supprimer</a></p>');
+			$lienSuppression = $('<p class=\"text-right\"><a id=\"delete\" href="\#\" class=\"btn btn-danger\"><span class="glyphicon glyphicon-trash"></span></a></p>');
             var newWidget = interventionList.attr('data-prototype');
             newWidget = newWidget.replace(/__name__/g, interventionCount);
             interventionCount++;

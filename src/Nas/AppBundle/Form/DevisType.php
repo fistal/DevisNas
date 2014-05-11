@@ -26,7 +26,7 @@ class DevisType extends AbstractType
 		
         $builder
             ->add('chambre', 'checkbox', array('required' => false,))
-            ->add('nbrJours', 'number', array('required' => false, 'read_only' => true))
+            //->add('nbrJours', 'number', array('required' => false, 'read_only' => true))
             ->add('nbrJoursSupp', 'number', array('required' => false))
 			->add('accompagnant', 'checkbox', array('required' => false,))			
 			->add('honorairesPraticien', 'text', array('required' => true,))			
@@ -36,6 +36,7 @@ class DevisType extends AbstractType
 			->add('intervention', 'entity', array(
 				'class' => 'NasAppBundle:Intervention',
 				'property' => 'intervention',
+				'empty_value' => 'Choisissez une option',
 				'query_builder' =>
 				function(\Nas\AppBundle\Entity\InterventionRepository $r) use($id) {
 					return $r->getSelectList($id);

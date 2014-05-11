@@ -64,10 +64,10 @@ class Intervention extends \Nas\AppBundle\Entity\Intervention implements \Doctri
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', 'specialite', 'id', 'intervention', 'ghs', 'dmi', 'honoraires', 'dontSpecialiste', 'total');
+            return array('__isInitialized__', 'specialite', 'id', 'intervention', 'ghs', 'dmi', 'honoraires', 'nbrJours', 'dontSpecialiste', 'total');
         }
 
-        return array('__isInitialized__', 'specialite', 'id', 'intervention', 'ghs', 'dmi', 'honoraires', 'dontSpecialiste', 'total');
+        return array('__isInitialized__', 'specialite', 'id', 'intervention', 'ghs', 'dmi', 'honoraires', 'nbrJours', 'dontSpecialiste', 'total');
     }
 
     /**
@@ -340,6 +340,28 @@ class Intervention extends \Nas\AppBundle\Entity\Intervention implements \Doctri
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSpecialite', array());
 
         return parent::getSpecialite();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setNbrJours($nbrJours)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setNbrJours', array($nbrJours));
+
+        return parent::setNbrJours($nbrJours);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getNbrJours()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getNbrJours', array());
+
+        return parent::getNbrJours();
     }
 
 }
