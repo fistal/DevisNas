@@ -43,7 +43,7 @@ class __TwigTemplate_f74bee475c7c0ce2923f87f3294f0fd0155e83299320c7fddc44a9ad114
 \t<div class=\"col-md-9 col-md-offset-1\">
 \t\t<form method=\"post\" ";
         // line 9
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'enctype');
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getContext($context, "form"), 'enctype');
         echo " class=\"form-horizontal\">\t\t\t
 \t\t\t<fieldset>
 \t\t\t\t<legend>Ajouter un devis</legend>
@@ -54,7 +54,7 @@ class __TwigTemplate_f74bee475c7c0ce2923f87f3294f0fd0155e83299320c7fddc44a9ad114
 \t\t\t\t\t\t<div class=\"col-sm-3\">
 \t\t\t\t\t\t\t";
         // line 17
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "intervention"), 'widget', array("attr" => array("class" => "form-control")));
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "intervention"), 'widget', array("attr" => array("class" => "form-control")));
         echo "
 \t\t\t\t\t\t</div>
 \t\t\t\t\t</div>
@@ -70,7 +70,7 @@ class __TwigTemplate_f74bee475c7c0ce2923f87f3294f0fd0155e83299320c7fddc44a9ad114
 \t\t\t\t\t\t<div class=\"col-sm-3\">
 \t\t\t\t\t\t\t";
         // line 30
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "nbrJoursSupp"), 'widget', array("attr" => array("class" => "form-control")));
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "nbrJoursSupp"), 'widget', array("attr" => array("class" => "form-control")));
         echo "
 \t\t\t\t\t\t</div>
 \t\t\t\t\t</div>
@@ -79,7 +79,7 @@ class __TwigTemplate_f74bee475c7c0ce2923f87f3294f0fd0155e83299320c7fddc44a9ad114
 \t\t\t\t\t\t<div class=\"col-sm-3\">
 \t\t\t\t\t\t\t";
         // line 36
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "chambre"), 'widget', array("attr" => array("class" => "checkbox inline")));
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "chambre"), 'widget', array("attr" => array("class" => "checkbox inline")));
         echo "
 \t\t\t\t\t\t</div>
 \t\t\t\t\t</div>\t\t\t\t\t
@@ -89,7 +89,7 @@ class __TwigTemplate_f74bee475c7c0ce2923f87f3294f0fd0155e83299320c7fddc44a9ad114
 \t\t\t\t\t\t<div class=\"col-sm-3\">
 \t\t\t\t\t\t\t";
         // line 43
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "accompagnant"), 'widget', array("attr" => array("class" => "checkbox inline")));
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "accompagnant"), 'widget', array("attr" => array("class" => "checkbox inline")));
         echo "
 \t\t\t\t\t\t</div>
 \t\t\t\t\t</div>
@@ -99,7 +99,7 @@ class __TwigTemplate_f74bee475c7c0ce2923f87f3294f0fd0155e83299320c7fddc44a9ad114
 \t\t\t\t\t\t<div class=\"col-sm-3\">
 \t\t\t\t\t\t\t";
         // line 50
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "honorairesPraticien"), 'widget', array("attr" => array("class" => "form-control")));
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "honorairesPraticien"), 'widget', array("attr" => array("class" => "form-control")));
         echo "
 \t\t\t\t\t\t</div>
 \t\t\t\t\t</div>
@@ -108,7 +108,16 @@ class __TwigTemplate_f74bee475c7c0ce2923f87f3294f0fd0155e83299320c7fddc44a9ad114
 \t\t\t\t\t\t<div class=\"col-sm-3\">
 \t\t\t\t\t\t\t";
         // line 56
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "honorairesAnesthesiste"), 'widget', array("attr" => array("class" => "form-control")));
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "honorairesAnesthesiste"), 'widget', array("attr" => array("class" => "form-control")));
+        echo "
+\t\t\t\t\t\t</div>
+\t\t\t\t\t</div>\t\t
+\t\t\t\t\t<div class=\"form-group\">
+\t\t\t\t\t\t<label for=\"username\" class=\"col-sm-6 control-label\">Honoraires autres  </label>
+\t\t\t\t\t\t<div class=\"col-sm-3\">
+\t\t\t\t\t\t\t";
+        // line 62
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "honorairesAutres"), 'widget', array("attr" => array("class" => "form-control")));
         echo "
 \t\t\t\t\t\t</div>
 \t\t\t\t\t</div>\t\t
@@ -118,8 +127,8 @@ class __TwigTemplate_f74bee475c7c0ce2923f87f3294f0fd0155e83299320c7fddc44a9ad114
 \t\t\t\t\t\t<label for=\"username\" class=\"col-sm-6 control-label\">Nom du patient : </label>
 \t\t\t\t\t\t<div class=\"col-sm-3\">
 \t\t\t\t\t\t\t";
-        // line 64
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "patient"), "nom"), 'widget', array("attr" => array("class" => "form-control")));
+        // line 70
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getContext($context, "form"), "patient"), "nom"), 'widget', array("attr" => array("class" => "form-control")));
         echo "
 \t\t\t\t\t\t</div>
 \t\t\t\t\t</div>
@@ -127,8 +136,8 @@ class __TwigTemplate_f74bee475c7c0ce2923f87f3294f0fd0155e83299320c7fddc44a9ad114
 \t\t\t\t\t\t<label for=\"username\" class=\"col-sm-6 control-label\">Prénom du patient : </label>
 \t\t\t\t\t\t<div class=\"col-sm-3\">
 \t\t\t\t\t\t\t";
-        // line 70
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "patient"), "prenom"), 'widget', array("attr" => array("class" => "form-control")));
+        // line 76
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getContext($context, "form"), "patient"), "prenom"), 'widget', array("attr" => array("class" => "form-control")));
         echo "
 \t\t\t\t\t\t</div>
 \t\t\t\t\t</div>\t
@@ -136,8 +145,8 @@ class __TwigTemplate_f74bee475c7c0ce2923f87f3294f0fd0155e83299320c7fddc44a9ad114
 \t\t\t\t\t\t<label for=\"username\" class=\"col-sm-6 control-label\">Telephone du patient : </label>
 \t\t\t\t\t\t<div class=\"col-sm-3\">
 \t\t\t\t\t\t\t";
-        // line 76
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "patient"), "telephone"), 'widget', array("attr" => array("class" => "form-control")));
+        // line 82
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getContext($context, "form"), "patient"), "telephone"), 'widget', array("attr" => array("class" => "form-control")));
         echo "
 \t\t\t\t\t\t</div>
 \t\t\t\t\t</div>\t
@@ -145,14 +154,14 @@ class __TwigTemplate_f74bee475c7c0ce2923f87f3294f0fd0155e83299320c7fddc44a9ad114
 \t\t\t\t\t\t<label for=\"username\" class=\"col-sm-6 control-label\">E-mail du patient : </label>
 \t\t\t\t\t\t<div class=\"col-sm-3\">
 \t\t\t\t\t\t\t";
-        // line 82
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "patient"), "email"), 'widget', array("attr" => array("class" => "form-control")));
+        // line 88
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getContext($context, "form"), "patient"), "email"), 'widget', array("attr" => array("class" => "form-control")));
         echo "
 \t\t\t\t\t\t</div>
 \t\t\t\t\t</div>\t\t\t\t\t
 ";
-        // line 85
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'rest');
+        // line 91
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getContext($context, "form"), 'rest');
         echo "
 \t\t\t\t  <div class=\"form-group\">
 \t\t\t\t\t<div class=\"col-sm-offset-4 col-sm-10\">
@@ -169,7 +178,7 @@ class __TwigTemplate_f74bee475c7c0ce2923f87f3294f0fd0155e83299320c7fddc44a9ad114
 
 
 ";
-        // line 102
+        // line 108
         echo "<script type=\"text/javascript\">
 
 \$('#nas_appbundle_devis_intervention').on('change', function() {
@@ -179,7 +188,7 @@ class __TwigTemplate_f74bee475c7c0ce2923f87f3294f0fd0155e83299320c7fddc44a9ad114
     \$.ajax({
         type: \"POST\",
         url: \"";
-        // line 110
+        // line 116
         echo $this->env->getExtension('routing')->getPath("nasApp_nbrJourIntervention");
         echo "\",
         data: DATA,
@@ -207,6 +216,6 @@ class __TwigTemplate_f74bee475c7c0ce2923f87f3294f0fd0155e83299320c7fddc44a9ad114
 
     public function getDebugInfo()
     {
-        return array (  183 => 110,  173 => 102,  155 => 85,  149 => 82,  140 => 76,  131 => 70,  122 => 64,  111 => 56,  102 => 50,  92 => 43,  82 => 36,  73 => 30,  57 => 17,  46 => 9,  42 => 7,  39 => 6,  32 => 3,  29 => 2,);
+        return array (  192 => 116,  182 => 108,  164 => 91,  158 => 88,  149 => 82,  140 => 76,  131 => 70,  120 => 62,  111 => 56,  102 => 50,  92 => 43,  82 => 36,  73 => 30,  57 => 17,  46 => 9,  42 => 7,  39 => 6,  32 => 3,  29 => 2,);
     }
 }

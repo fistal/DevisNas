@@ -107,7 +107,7 @@ class SpecialiteController extends Controller
 		$repSpecialite = $this->getDoctrine()->getManager()->getRepository('NasAppBundle:Specialite');
 		$spe = $repSpecialite->find($idSpecialite);
 		
-		return $this->render('NasAppBundle:Specialite:detail.html.twig', array('listeIntervention'=>$interventions, 'listeHonoraire'=>$honoraires, 'specialite'=>$spe));
+		return $this->render('NasAppBundle:Specialite:detail.html.twig', array('listeIntervention'=>$interventions, 'specialite'=>$spe));
 	}
 }
 

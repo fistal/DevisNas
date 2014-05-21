@@ -25,33 +25,7 @@
 			</div>
 			<p></p>
 			 <div class="row">
-			  <div class="col-md-6">			  
-				<div class="panel panel-default">
-					<div class="panel-heading">
-					  <h3 class="panel-title">Ajouter des honoraires</h3>
-					</div>
-					<div class="panel-body">
-						  <p class="text-center"><a href="#" id="add-another-honoraire" class="btn btn-warning text-center"><span class="glyphicon glyphicon-plus"></span></a></p>
-						  <ol id="nas_appbundle_specialite_honoraires" data-prototype="{{ form_widget(form.honoraires.vars.prototype) | e }}">
-							{# dump(form.vars.value.honoraires) #}
-							{% for honoraire in form.honoraires %}
-							
-								<li>
-									{{ form_errors(honoraire.type) }}
-									{{ form_label(honoraire.type) }}
-									{{ form_widget(honoraire.type) }}
-
-									{{ form_errors(honoraire.pourcentageFacture) }}
-									{{ form_label(honoraire.pourcentageFacture) }}
-									{{ form_widget(honoraire.pourcentageFacture) }}
-								</li>
-							
-							{% endfor %}
-							</ol>
-					</div>
-				  </div>					
-			  </div>
-			  <div class="col-md-6">			  
+			  <div class="col-md-12">			  
 				<div class="panel panel-default">
 					<div class="panel-heading">
 					  <h3 class="panel-title">Ajouter des interventions</h3>
@@ -108,24 +82,9 @@
 
 <script type="text/javascript">
     // keep track of how many email fields have been rendered
-    var honoraireCount = '{{ form.honoraires | length }}';
 	var interventionCount = '{{ form.interventions | length }}';
 
     jQuery(document).ready(function() {
-        jQuery('#add-another-honoraire').click(function() {
-            var honoraireList = jQuery('#nas_appbundle_specialite_honoraires');
-			
-			$lienSuppression = $('<p class=\"text-right\"><a id=\"delete\" href="\#\" class=\"btn btn-danger\"><span class="glyphicon glyphicon-trash"></span></a></p>');
-            var newWidget = honoraireList.attr('data-prototype');
-            newWidget = newWidget.replace(/__name__/g, honoraireCount);
-            honoraireCount++;
-
-            var newLi = jQuery('<li id=\"'+honoraireCount+'\"></li>').html(newWidget);
-			newLi.append($lienSuppression);
-            newLi.appendTo(jQuery('#nas_appbundle_specialite_honoraires'));
-
-            return false;
-        });
         jQuery('#add-another-intervention').click(function() {
             var interventionList = jQuery('#nas_appbundle_specialite_interventions');
 			

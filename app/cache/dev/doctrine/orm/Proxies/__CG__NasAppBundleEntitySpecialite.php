@@ -64,10 +64,10 @@ class Specialite extends \Nas\AppBundle\Entity\Specialite implements \Doctrine\O
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', 'id', 'specialite', 'honoraires', 'interventions');
+            return array('__isInitialized__', 'id', 'specialite', 'interventions');
         }
 
-        return array('__isInitialized__', 'id', 'specialite', 'honoraires', 'interventions');
+        return array('__isInitialized__', 'id', 'specialite', 'interventions');
     }
 
     /**
@@ -208,39 +208,6 @@ class Specialite extends \Nas\AppBundle\Entity\Specialite implements \Doctrine\O
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSpecialite', array());
 
         return parent::getSpecialite();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function addHonoraire(\Nas\AppBundle\Entity\Honoraire $honoraires)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addHonoraire', array($honoraires));
-
-        return parent::addHonoraire($honoraires);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function removeHonoraire(\Nas\AppBundle\Entity\Honoraire $honoraire)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeHonoraire', array($honoraire));
-
-        return parent::removeHonoraire($honoraire);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getHonoraires()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getHonoraires', array());
-
-        return parent::getHonoraires();
     }
 
     /**

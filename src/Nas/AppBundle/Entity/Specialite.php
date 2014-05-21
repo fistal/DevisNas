@@ -31,11 +31,6 @@ class Specialite
     private $specialite;
 	
 	/**
-	* @ORM\OneToMany(targetEntity="Nas\AppBundle\Entity\Honoraire", mappedBy="specialite", cascade={"persist"})
-	*/
-	private $honoraires; // Ici honoraires prend un « s », car une spécialité a plusieurs honoraires !
-	
-	/**
 	* @ORM\OneToMany(targetEntity="Nas\AppBundle\Entity\Intervention", mappedBy="specialite", cascade={"persist"})
 	*/
 	private $interventions; // Ici interventions prend un « s », car une spécialité a plusieurs interventions !	
@@ -80,40 +75,6 @@ class Specialite
     public function getSpecialite()
     {
         return $this->specialite;
-    }
-
-    /**
-     * Add honoraires
-     *
-     * @param \Nas\AppBundle\Entity\Honoraire $honoraires
-     * @return Specialite
-     */
-    public function addHonoraire(\Nas\AppBundle\Entity\Honoraire $honoraires)
-    {		
-        $this->honoraires[] = $honoraires;
-		$honoraires->setSpecialite($this);
-
-        return $this;
-    }
-
-    /**
-     * Remove honoraires
-     *
-     * @param \Nas\AppBundle\Entity\Honoraire $honoraires
-     */
-    public function removeHonoraire(\Nas\AppBundle\Entity\Honoraire $honoraire)
-    {
-        $this->honoraires->removeElement($honoraires);
-    }
-
-    /**
-     * Get honoraires
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getHonoraires()
-    {
-        return $this->honoraires->toArray();
     }
 
     /**

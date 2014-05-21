@@ -39,32 +39,6 @@
 
 </div>
 	<hr>
-<div class="row">
-	<div class="col-md-12">
-		<h3>Liste les honoraires <a class="btn btn-success btn-sm" href="{{ path('nasApp_ajouterHonoraire', {'idSpecialite': specialite.id}) }}"><span class="glyphicon glyphicon-plus"></span></a></h3>
-		<table class="table table-striped">
-			<thead>
-			  <tr>
-				<th>Honoraire</th>
-				<th>% sur le total de la facture</th>
-				<th>% à appliquer sur les devis</th>
-				<th></th>
-			  </tr>
-			</thead>
-			<tbody>
-				{% for honoraire in listeHonoraire %}
-					<tr>
-						<td>{{ honoraire.type }}</td>
-						<td>{{ honoraire.pourcentageFacture }}</td>
-						<td>{{ honoraire.pourcentageDevis }}</td>
-						<td><a class="btn btn-warning" href="{{ path('nasApp_modifierHonoraire', {'id': honoraire.id}) }}">Modifier</a></td>
-					</tr>
-				{% endfor %}
-			</tbody>
-		</table>
-		
-	</div>
 
-</div>
 
 {% endblock %}

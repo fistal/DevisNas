@@ -32,21 +32,28 @@ class DevisController extends Controller
 		$intervention = $em->getRepository('NasAppBundle:Intervention')->find($devis->getIntervention());
 		
 		$listeHonoraires = $em->getRepository('NasAppBundle:DevisHonoraire')->findByDevis($devis->getId());
+				
+		if($devis->getNbrJoursSupp()!= "")
+		{
+			$honorairesAutres = $devis->getHonorairesAutres()*1.3;
+			
+		}
 		
 		$totalFacture = $devis->getMntPartClinique();
 		$totalFacture += $devis->getMntChambre();
-		$honorairesAutres = 0;
+		$totalFacture += $devis->getHonorairesPraticien();
+		$totalFacture += $devis->getHonorairesAnesthesiste();
+		$totalFacture += $devis->getHonorairesAutres();
+		$totalFacture += $devis->getIntervention()->getDmi();
+		$totalFacture += $devis->getMntAccompagnant();
+/* 		$honorairesAutres = 0;
 		foreach($listeHonoraires as $i => $honoraire)
 		{
 			$honorairesAutres += $honoraire->getMnt();
 			$totalFacture += $honoraire->getMnt();
-		}
+		} */
 		
-		if($devis->getNbrJoursSupp()!= "")
-		{
-			$honorairesAutres = $honorairesAutres*1.3;
-			
-		}
+
 		
 		if(!$this->get('security.context')->isGranted('ROLE_SUPER_ADMIN')) 
 		{
@@ -217,7 +224,7 @@ class DevisController extends Controller
 		$user = $this->getUser();
 		//On récupère la requête
 		$request = $this->getRequest();
-
+		
 		if($request->getMethod() == 'POST')
 		{
 			//lier le formulaire avec la requete

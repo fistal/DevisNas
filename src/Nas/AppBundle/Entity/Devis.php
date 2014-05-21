@@ -67,16 +67,23 @@ class Devis
     /**
      * @var integer
      *
-     * @ORM\Column(name="honorairesPraticien", type="string", nullable=true)
+     * @ORM\Column(name="honorairesPraticien", type="decimal", scale=2, nullable=true)
      */
     private $honorairesPraticien;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="honorairesAnesthesiste", type="string", nullable=true)
+     * @ORM\Column(name="honorairesAnesthesiste", type="decimal", scale=2, nullable=true)
      */
     private $honorairesAnesthesiste;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="honorairesAutres", type="decimal", scale=2, nullable=true)
+     */
+    private $honorairesAutres;
 
     /**
      * @var boolean
@@ -93,17 +100,17 @@ class Devis
     private $date;
 	
     /**
-     * @ORM\Column(name="mntPartClinique", type="integer")
+     * @ORM\Column(name="mntPartClinique", type="decimal", scale=2)
      */
     private $mntPartClinique;
 	
 	/**
-     * @ORM\Column(name="mntChambre", type="integer")
+     * @ORM\Column(name="mntChambre", type="decimal", scale=2)
      */
     private $mntChambre;
 
 	/**
-     * @ORM\Column(name="mntAccompagnant", type="integer")
+     * @ORM\Column(name="mntAccompagnant", type="decimal", scale=2)
      */
     private $mntAccompagnant;
 
@@ -522,5 +529,28 @@ class Devis
     public function getMntAccompagnant()
     {
         return $this->mntAccompagnant;
+    }
+
+    /**
+     * Set honorairesAutres
+     *
+     * @param string $honorairesAutres
+     * @return Devis
+     */
+    public function setHonorairesAutres($honorairesAutres)
+    {
+        $this->honorairesAutres = $honorairesAutres;
+    
+        return $this;
+    }
+
+    /**
+     * Get honorairesAutres
+     *
+     * @return string 
+     */
+    public function getHonorairesAutres()
+    {
+        return $this->honorairesAutres;
     }
 }

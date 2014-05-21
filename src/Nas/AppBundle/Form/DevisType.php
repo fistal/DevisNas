@@ -31,6 +31,7 @@ class DevisType extends AbstractType
 			->add('accompagnant', 'checkbox', array('required' => false,))			
 			->add('honorairesPraticien', 'text', array('required' => true,))			
 			->add('honorairesAnesthesiste', 'text', array('required' => true,))			
+			->add('honorairesAutres', 'text', array('required' => true,))			
             ->add('date')
             ->add('patient', new PatientType())
 			->add('intervention', 'entity', array(

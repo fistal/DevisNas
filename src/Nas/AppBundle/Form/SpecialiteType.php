@@ -16,9 +16,6 @@ class SpecialiteType extends AbstractType
     {
         $builder
             ->add('specialite', 'text')
-			->add('honoraires', 'collection', array('type' => new HonoraireType(),
-													'allow_add' =>true,
-													'allow_delete' =>true))
 			->add('interventions', 'collection', array('type' => new InterventionType(),
 													'allow_add' =>true,
 													'allow_delete' =>true))													

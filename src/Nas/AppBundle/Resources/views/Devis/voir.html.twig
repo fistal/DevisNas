@@ -104,6 +104,10 @@
 			<td> {{ devis.mntPartClinique }} €</td>
 		</tr>
 		<tr>
+			<td>Dispositifs médicaux implantables </td>
+			<td> {{ intervention.dmi }} €</td>
+		</tr>
+		<tr>
 			<td>Chambre particulière</td>
 			<td> {{ devis.mntChambre }} €</td>
 		</tr>
@@ -120,22 +124,8 @@
 			<td>{{ devis.honorairesAnesthesiste }}  €</td>			
 		</tr>
 		<tr>
-			<td>
-				Honoraires autres spécialités <br>
-				<div style="font-size:11px; color: grey;">
-					{% for honoraire in listeHonoraires %}
-						{{ honoraire.honoraire.type }}<br>
-					{% endfor %}
-				</div>
-			</td>
-			<td>
-				{{ honorairesAutres }} €<br>
-				<div style="font-size:11px; color: grey;">
-					{% for honoraire in listeHonoraires %}
-						{{ honoraire.mnt }} €<br>
-					{% endfor %}
-				</div>
-			</td>			
+			<td>Honoraires Autres </td>
+			<td>{{ devis.honorairesAutres }} €</td>			
 		</tr>
 		<tr>
 		  <td>TOTAL :</td>
