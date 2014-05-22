@@ -61,7 +61,7 @@ class __TwigTemplate_3b5464f2cfd8adc29d64ede47b7849f82e2523e3d375b7c198ac7847167
 \t\t\t\t<th>Intervention</th>
 \t\t\t\t<th>GHS</th>
 \t\t\t\t<th>DMI</th>
-\t\t\t\t<th>Honoraires</th>
+\t\t\t\t<th>Honoraires autres spécialités</th>
 \t\t\t\t<th>jours CP</th>
 \t\t\t\t<th>Total</th>
 \t\t\t\t<th></th>

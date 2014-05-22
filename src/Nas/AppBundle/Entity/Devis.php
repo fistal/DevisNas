@@ -79,13 +79,6 @@ class Devis
     private $honorairesAnesthesiste;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="honorairesAutres", type="decimal", scale=2, nullable=true)
-     */
-    private $honorairesAutres;
-
-    /**
      * @var boolean
      *
      * @ORM\Column(name="accompagnant ", type="boolean", nullable=true)
@@ -529,28 +522,5 @@ class Devis
     public function getMntAccompagnant()
     {
         return $this->mntAccompagnant;
-    }
-
-    /**
-     * Set honorairesAutres
-     *
-     * @param string $honorairesAutres
-     * @return Devis
-     */
-    public function setHonorairesAutres($honorairesAutres)
-    {
-        $this->honorairesAutres = $honorairesAutres;
-    
-        return $this;
-    }
-
-    /**
-     * Get honorairesAutres
-     *
-     * @return string 
-     */
-    public function getHonorairesAutres()
-    {
-        return $this->honorairesAutres;
     }
 }

@@ -63,12 +63,6 @@ class Intervention
 
     /**
      *
-     * @ORM\Column(name="dontSpecialiste", type="decimal", scale=2)
-     */
-    private $dontSpecialiste;
-
-    /**
-     *
      * @ORM\Column(name="total", type="decimal", scale=2, nullable=true)
      */
     private $total;
@@ -185,29 +179,6 @@ class Intervention
     public function setDontSpecialiste($dontSpecialiste)
     {
         $this->dontSpecialiste = $dontSpecialiste;
-
-        return $this;
-    }
-
-    /**
-     * Get dontSpecialiste
-     *
-     * @return integer 
-     */
-    public function getDontSpecialiste()
-    {
-        return $this->dontSpecialiste;
-    }
-
-    /**
-     * Set total
-     *
-     * @param integer $total
-     * @return Intervention
-     */
-    public function setTotal($total)
-    {
-        $this->total = $total;
 
         return $this;
     }

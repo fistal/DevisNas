@@ -64,10 +64,10 @@ class Intervention extends \Nas\AppBundle\Entity\Intervention implements \Doctri
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', 'specialite', 'id', 'intervention', 'ghs', 'dmi', 'honoraires', 'nbrJours', 'dontSpecialiste', 'total');
+            return array('__isInitialized__', 'specialite', 'id', 'intervention', 'ghs', 'dmi', 'honoraires', 'nbrJours', 'total');
         }
 
-        return array('__isInitialized__', 'specialite', 'id', 'intervention', 'ghs', 'dmi', 'honoraires', 'nbrJours', 'dontSpecialiste', 'total');
+        return array('__isInitialized__', 'specialite', 'id', 'intervention', 'ghs', 'dmi', 'honoraires', 'nbrJours', 'total');
     }
 
     /**
@@ -285,28 +285,6 @@ class Intervention extends \Nas\AppBundle\Entity\Intervention implements \Doctri
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDontSpecialiste', array($dontSpecialiste));
 
         return parent::setDontSpecialiste($dontSpecialiste);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getDontSpecialiste()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDontSpecialiste', array());
-
-        return parent::getDontSpecialiste();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setTotal($total)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setTotal', array($total));
-
-        return parent::setTotal($total);
     }
 
     /**

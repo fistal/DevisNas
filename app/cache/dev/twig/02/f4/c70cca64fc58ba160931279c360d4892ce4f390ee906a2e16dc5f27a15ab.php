@@ -217,17 +217,17 @@ class __TwigTemplate_02f4c70cca64fc58ba160931279c360d4892ce4f390ee906a2e16dc5f27
         echo " €</td>\t\t\t
 \t\t</tr>
 \t\t<tr>
-\t\t\t<td>Honoraires Anesthésiste </td>
+\t\t\t<td>Honoraires anesthésiste </td>
 \t\t\t<td>";
         // line 124
         echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "devis"), "honorairesAnesthesiste"), "html", null, true);
         echo "  €</td>\t\t\t
 \t\t</tr>
 \t\t<tr>
-\t\t\t<td>Honoraires Autres </td>
+\t\t\t<td>Honoraires autres spécialités </td>
 \t\t\t<td>";
         // line 128
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "devis"), "honorairesAutres"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "intervention"), "honoraires"), "html", null, true);
         echo " €</td>\t\t\t
 \t\t</tr>
 \t\t<tr>

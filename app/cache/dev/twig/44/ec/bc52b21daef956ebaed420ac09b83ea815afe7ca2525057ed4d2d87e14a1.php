@@ -91,57 +91,7 @@ class __TwigTemplate_44ecbc52b21daef956ebaed420ac09b83ea815afe7ca2525057ed4d2d87
             // line 38
             echo "\t\t\t\t\t\t
 \t\t\t\t\t\t\t<li>
-\t\t\t\t\t\t\t\t";
-            // line 40
-            echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "intervention"), "intervention"), 'errors');
-            echo "
-\t\t\t\t\t\t\t\t";
-            // line 41
-            echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "intervention"), "intervention"), 'label');
-            echo "
-\t\t\t\t\t\t\t\t";
-            // line 42
-            echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "intervention"), "intervention"), 'widget');
-            echo "
-
-\t\t\t\t\t\t\t\t";
-            // line 44
-            echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "intervention"), "ghs"), 'errors');
-            echo "
-\t\t\t\t\t\t\t\t";
-            // line 45
-            echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "intervention"), "ghs"), 'label');
-            echo "
-\t\t\t\t\t\t\t\t";
-            // line 46
-            echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "intervention"), "ghs"), 'widget');
-            echo "
-\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t";
-            // line 48
-            echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "intervention"), "dmi"), 'errors');
-            echo "
-\t\t\t\t\t\t\t\t";
-            // line 49
-            echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "intervention"), "dmi"), 'label');
-            echo "
-\t\t\t\t\t\t\t\t";
-            // line 50
-            echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "intervention"), "dmi"), 'widget');
-            echo "
-
-\t\t\t\t\t\t\t\t";
-            // line 52
-            echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "intervention"), "dontSpecialiste"), 'errors');
-            echo "
-\t\t\t\t\t\t\t\t";
-            // line 53
-            echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "intervention"), "dontSpecialiste"), 'label');
-            echo "
-\t\t\t\t\t\t\t\t";
-            // line 54
-            echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "intervention"), "dontSpecialiste"), 'widget');
-            echo "\t\t\t\t\t\t
+\t\t\t\t\t
 \t\t\t\t\t\t\t</li>
 \t\t\t\t\t\t
 \t\t\t\t\t\t";
@@ -149,7 +99,7 @@ class __TwigTemplate_44ecbc52b21daef956ebaed420ac09b83ea815afe7ca2525057ed4d2d87
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['intervention'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 58
+        // line 44
         echo "\t\t\t\t\t\t</ol>
 \t\t\t\t\t</div>
 \t\t\t\t  </div>\t\t\t\t\t
@@ -159,7 +109,7 @@ class __TwigTemplate_44ecbc52b21daef956ebaed420ac09b83ea815afe7ca2525057ed4d2d87
 \t\t\t<p></p>
 \t\t\t<div class=\"row text-center\">
 \t\t\t";
-        // line 66
+        // line 52
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "_token"), 'widget');
         echo "
 \t\t\t\t<button class=\"btn btn-success\"><span class=\"icon-checkmark\"></span> Enregistrer</button></div>
@@ -169,7 +119,7 @@ class __TwigTemplate_44ecbc52b21daef956ebaed420ac09b83ea815afe7ca2525057ed4d2d87
         <div class=\"col-sm-3\">
 
             ";
-        // line 73
+        // line 59
         echo $this->env->getExtension('http_kernel')->renderFragment($this->env->getExtension('http_kernel')->controller("NasAppBundle:Specialite:list"));
         echo "
 
@@ -180,11 +130,11 @@ class __TwigTemplate_44ecbc52b21daef956ebaed420ac09b83ea815afe7ca2525057ed4d2d87
 
 
 ";
-        // line 83
+        // line 69
         echo "<script type=\"text/javascript\">
     // keep track of how many email fields have been rendered
 \tvar interventionCount = '";
-        // line 85
+        // line 71
         echo twig_escape_filter($this->env, twig_length_filter($this->env, $this->getAttribute($this->getContext($context, "form"), "interventions")), "html", null, true);
         echo "';
 
@@ -233,6 +183,6 @@ class __TwigTemplate_44ecbc52b21daef956ebaed420ac09b83ea815afe7ca2525057ed4d2d87
 
     public function getDebugInfo()
     {
-        return array (  188 => 85,  184 => 83,  173 => 73,  163 => 66,  153 => 58,  143 => 54,  139 => 53,  135 => 52,  130 => 50,  126 => 49,  122 => 48,  117 => 46,  113 => 45,  109 => 44,  104 => 42,  100 => 41,  96 => 40,  92 => 38,  87 => 37,  83 => 35,  67 => 22,  62 => 20,  55 => 16,  49 => 12,  46 => 11,  40 => 9,  33 => 6,  30 => 5,);
+        return array (  138 => 71,  134 => 69,  123 => 59,  113 => 52,  103 => 44,  92 => 38,  87 => 37,  83 => 35,  67 => 22,  62 => 20,  55 => 16,  49 => 12,  46 => 11,  40 => 9,  33 => 6,  30 => 5,);
     }
 }

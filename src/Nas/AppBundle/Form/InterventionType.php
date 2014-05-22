@@ -28,15 +28,12 @@ class InterventionType extends AbstractType
 							'attr'   =>  array(
 							'class'   => 'form-control')))
             ->add('honoraires', 'text', array( 
-							'label'  => 'Honoraires : ',
+							'label'  => 'Honoraires autres spécialités : ',
 							'attr'   =>  array(
 							'class'   => 'form-control')))
 			->add('nbrJours', 'text', array( 
 							'label'  => 'Nombre de jours (cp)  : ',
-							'attr'   =>  array(
-							'class'   => 'form-control')))
-            ->add('dontSpecialiste', 'text', array( 
-							'label'  => 'Dont spécialiste : ',
+							'required'  => false,
 							'attr'   =>  array(
 							'class'   => 'form-control')))
             ->add('total', 'text', array( 

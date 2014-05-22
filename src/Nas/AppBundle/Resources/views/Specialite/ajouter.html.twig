@@ -37,21 +37,7 @@
 						{% for intervention in form.interventions %}
 						
 							<li>
-								{{ form_errors(intervention.intervention) }}
-								{{ form_label(intervention.intervention) }}
-								{{ form_widget(intervention.intervention) }}
-
-								{{ form_errors(intervention.ghs) }}
-								{{ form_label(intervention.ghs) }}
-								{{ form_widget(intervention.ghs) }}
-								
-								{{ form_errors(intervention.dmi) }}
-								{{ form_label(intervention.dmi) }}
-								{{ form_widget(intervention.dmi) }}
-
-								{{ form_errors(intervention.dontSpecialiste) }}
-								{{ form_label(intervention.dontSpecialiste) }}
-								{{ form_widget(intervention.dontSpecialiste) }}						
+					
 							</li>
 						
 						{% endfor %}

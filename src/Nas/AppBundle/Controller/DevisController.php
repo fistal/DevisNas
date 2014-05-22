@@ -35,15 +35,19 @@ class DevisController extends Controller
 				
 		if($devis->getNbrJoursSupp()!= "")
 		{
-			$honorairesAutres = $devis->getHonorairesAutres()*1.3;
+			$honorairesAutres = $intervention->getHonoraires()*1.3;
 			
+		}
+		else
+		{
+			$honorairesAutres = $intervention->getHonoraires();
 		}
 		
 		$totalFacture = $devis->getMntPartClinique();
 		$totalFacture += $devis->getMntChambre();
 		$totalFacture += $devis->getHonorairesPraticien();
 		$totalFacture += $devis->getHonorairesAnesthesiste();
-		$totalFacture += $devis->getHonorairesAutres();
+		$totalFacture += $honorairesAutres;
 		$totalFacture += $devis->getIntervention()->getDmi();
 		$totalFacture += $devis->getMntAccompagnant();
 /* 		$honorairesAutres = 0;
@@ -162,7 +166,7 @@ class DevisController extends Controller
 				$em->persist($devis);
 				$em->flush();
 				
-				//ENREGISTRER LES HONORAIRES--------------
+/* 				//ENREGISTRER LES HONORAIRES--------------
 				//recuperer les honoraires
 				$listeHonoraires = $em->getRepository('NasAppBundle:Honoraire')->findBySpecialite($devis->getSpecialite()->getId());
 				print_r($devis->getSpecialite()->getId());
@@ -175,7 +179,7 @@ class DevisController extends Controller
 					$devisHonoraire[$i]->setMnt($devis->getMntPartClinique() * $honoraire->getPourcentageDevis() / 100); //calcul du prix mntPartCLinique * %honoraire
 					$em->persist($devisHonoraire[$i]);
 				}
-				$em->flush();
+				$em->flush(); */
 				
 				return $this->redirect($this->generateUrl('nasApp_voirDevis', array('idDevis'=> $devis->getId())));
 			}

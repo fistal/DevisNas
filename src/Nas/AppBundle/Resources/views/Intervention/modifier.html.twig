@@ -42,7 +42,7 @@
 
 			<!-- Text input-->
 			<div class="form-group">
-				<label for="username" class="col-sm-4 control-label">{{ form_label(form.honoraires, "Montant honoraires : ") }} </label>
+				<label for="username" class="col-sm-4 control-label">{{ form_label(form.honoraires, "Honoraires autres spécialités : ") }} </label>
 				<div class="col-sm-3">
 					{{ form_widget(form.honoraires,  { 'attr': {'class': 'form-control'}}) }}
 				</div>
@@ -55,14 +55,6 @@
 					{{ form_widget(form.nbrJours,  { 'attr': {'class': 'form-control'}}) }}
 				</div>
 			</div>			
-
-			<!-- Text input-->
-			<div class="form-group">
-				<label for="username" class="col-sm-4 control-label">{{ form_label(form.dontSpecialiste, "Dont Praticien : ") }}</label>
-				<div class="col-sm-3">
-					{{ form_widget(form.dontSpecialiste,  { 'attr': {'class': 'form-control'}}) }}
-				</div>
-			</div>
 
 
 			{{ form_rest(form) }}

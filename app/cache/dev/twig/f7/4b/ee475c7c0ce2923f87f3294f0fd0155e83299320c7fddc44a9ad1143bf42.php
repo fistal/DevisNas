@@ -111,23 +111,13 @@ class __TwigTemplate_f74bee475c7c0ce2923f87f3294f0fd0155e83299320c7fddc44a9ad114
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "honorairesAnesthesiste"), 'widget', array("attr" => array("class" => "form-control")));
         echo "
 \t\t\t\t\t\t</div>
-\t\t\t\t\t</div>\t\t
-\t\t\t\t\t<div class=\"form-group\">
-\t\t\t\t\t\t<label for=\"username\" class=\"col-sm-6 control-label\">Honoraires autres  </label>
-\t\t\t\t\t\t<div class=\"col-sm-3\">
-\t\t\t\t\t\t\t";
-        // line 62
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "honorairesAutres"), 'widget', array("attr" => array("class" => "form-control")));
-        echo "
-\t\t\t\t\t\t</div>
-\t\t\t\t\t</div>\t\t
-\t\t\t\t\t\t
+\t\t\t\t\t</div>\t\t\t\t\t\t\t\t\t
 \t\t\t\t\t
 \t\t\t\t\t<div class=\"form-group\">
 \t\t\t\t\t\t<label for=\"username\" class=\"col-sm-6 control-label\">Nom du patient : </label>
 \t\t\t\t\t\t<div class=\"col-sm-3\">
 \t\t\t\t\t\t\t";
-        // line 70
+        // line 63
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getContext($context, "form"), "patient"), "nom"), 'widget', array("attr" => array("class" => "form-control")));
         echo "
 \t\t\t\t\t\t</div>
@@ -136,7 +126,7 @@ class __TwigTemplate_f74bee475c7c0ce2923f87f3294f0fd0155e83299320c7fddc44a9ad114
 \t\t\t\t\t\t<label for=\"username\" class=\"col-sm-6 control-label\">Prénom du patient : </label>
 \t\t\t\t\t\t<div class=\"col-sm-3\">
 \t\t\t\t\t\t\t";
-        // line 76
+        // line 69
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getContext($context, "form"), "patient"), "prenom"), 'widget', array("attr" => array("class" => "form-control")));
         echo "
 \t\t\t\t\t\t</div>
@@ -145,7 +135,7 @@ class __TwigTemplate_f74bee475c7c0ce2923f87f3294f0fd0155e83299320c7fddc44a9ad114
 \t\t\t\t\t\t<label for=\"username\" class=\"col-sm-6 control-label\">Telephone du patient : </label>
 \t\t\t\t\t\t<div class=\"col-sm-3\">
 \t\t\t\t\t\t\t";
-        // line 82
+        // line 75
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getContext($context, "form"), "patient"), "telephone"), 'widget', array("attr" => array("class" => "form-control")));
         echo "
 \t\t\t\t\t\t</div>
@@ -154,13 +144,13 @@ class __TwigTemplate_f74bee475c7c0ce2923f87f3294f0fd0155e83299320c7fddc44a9ad114
 \t\t\t\t\t\t<label for=\"username\" class=\"col-sm-6 control-label\">E-mail du patient : </label>
 \t\t\t\t\t\t<div class=\"col-sm-3\">
 \t\t\t\t\t\t\t";
-        // line 88
+        // line 81
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getContext($context, "form"), "patient"), "email"), 'widget', array("attr" => array("class" => "form-control")));
         echo "
 \t\t\t\t\t\t</div>
 \t\t\t\t\t</div>\t\t\t\t\t
 ";
-        // line 91
+        // line 84
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getContext($context, "form"), 'rest');
         echo "
 \t\t\t\t  <div class=\"form-group\">
@@ -178,7 +168,7 @@ class __TwigTemplate_f74bee475c7c0ce2923f87f3294f0fd0155e83299320c7fddc44a9ad114
 
 
 ";
-        // line 108
+        // line 101
         echo "<script type=\"text/javascript\">
 
 \$('#nas_appbundle_devis_intervention').on('change', function() {
@@ -188,7 +178,7 @@ class __TwigTemplate_f74bee475c7c0ce2923f87f3294f0fd0155e83299320c7fddc44a9ad114
     \$.ajax({
         type: \"POST\",
         url: \"";
-        // line 116
+        // line 109
         echo $this->env->getExtension('routing')->getPath("nasApp_nbrJourIntervention");
         echo "\",
         data: DATA,
@@ -216,6 +206,6 @@ class __TwigTemplate_f74bee475c7c0ce2923f87f3294f0fd0155e83299320c7fddc44a9ad114
 
     public function getDebugInfo()
     {
-        return array (  192 => 116,  182 => 108,  164 => 91,  158 => 88,  149 => 82,  140 => 76,  131 => 70,  120 => 62,  111 => 56,  102 => 50,  92 => 43,  82 => 36,  73 => 30,  57 => 17,  46 => 9,  42 => 7,  39 => 6,  32 => 3,  29 => 2,);
+        return array (  182 => 109,  172 => 101,  154 => 84,  148 => 81,  139 => 75,  130 => 69,  121 => 63,  111 => 56,  102 => 50,  92 => 43,  82 => 36,  73 => 30,  57 => 17,  46 => 9,  42 => 7,  39 => 6,  32 => 3,  29 => 2,);
     }
 }
