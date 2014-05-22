@@ -262,8 +262,10 @@ class DevisController extends Controller
 		}		
 		return $this->render('NasAppBundle:Devis:recherche.html.twig', array('form'=>$form->createView()));
 	}
-	public function annuleAction($idDevis)
+	public function annuleAction($idDevis, $commentaire)
 	{			
+	var_dump($idDevis);
+	die;
 		$request = $this->getRequest();
 		$form = $this->createForm(new AnnuleDevisType());
 		
@@ -278,7 +280,8 @@ class DevisController extends Controller
 				
 				$devis = $em->getRepository('NasAppBundle:Devis')->find($idDevis);
 				$devis->setEtat('cancel');
-				$devis->setCommentaire($data['commentaire']);
+				//$devis->setCommentaire($data['commentaire']);
+				$devis->setCommentaire($commentaire);
 				
 				$em->persist($devis);
 				$em->flush();

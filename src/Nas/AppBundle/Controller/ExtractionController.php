@@ -119,6 +119,7 @@ class ExtractionController extends Controller
 		//return $this->render('NasAppBundle:Devis:voir.html.twig', array('idDevis'=>$idDevis));
 
 	}
+	
 	public function listAction()
 	{
 		$user = $this->getUser();
@@ -142,6 +143,7 @@ class ExtractionController extends Controller
 		
 		return $this->render('NasAppBundle:Devis:liste.html.twig', array('listeDevis'=>$listeDevis));
 	}	
+	
 	public function ajouterAction()
 	{		
 		$devis = new Devis();		
@@ -207,10 +209,12 @@ class ExtractionController extends Controller
 		
 		return $this->render('NasAppBundle:Devis:ajouter.html.twig', array('form'=>$form->createView()));
 	}
+	
 	public function modifierAction()
 	{
 	
 	}	
+	
 	public function detailAction($idSpecialite)
 	{
 		
@@ -241,6 +245,7 @@ class ExtractionController extends Controller
 		 
 		return $response;
 	}	
+	
 	public function chercheAction()
 	{
 		//On crée le FormBuilder grâce à la méthode du contrôleur. Toujours sans entité
@@ -282,6 +287,7 @@ class ExtractionController extends Controller
 		}		
 		return $this->render('NasAppBundle:Devis:recherche.html.twig', array('form'=>$form->createView()));
 	}
+	
 	public function annuleAction($idDevis)
 	{			
 		$request = $this->getRequest();

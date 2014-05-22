@@ -14,14 +14,41 @@ class DevisRepository extends EntityRepository
 {
 	function extraction($data)
 	{
-		$query = $this->CreateQueryBuilder('d');
+		if($data['dateDu'] != "")
+		{
+			$dateInput = explode('/',$data['dateDu']);
+			$ukDateDu = $dateInput[2].'-'.$dateInput[1].'-'.$dateInput[0];
+		}
+		if($data['dateAu'] != "")
+		{
+			$dateInput = explode('/',$data['dateAu']);
+			$ukDateAu = $dateInput[2].'-'.$dateInput[1].'-'.$dateInput[0];
+		}
 		
+		$query = $this->CreateQueryBuilder('d');		
+
 		if($data['utilisateur'] != '')
 		{
 			$query->join('d.user', 'u')
 				->andwhere('u.id = :utilisateur')
-				->setParameters(array('utilisateur'=>$data['utilisateur']));
-		}
+				->setParameter('utilisateur',$data['utilisateur']);
+		}		
+		
+		if($data['specialite'] != "")
+		{
+			$query->join('d.specialite', 's')
+				->andWhere('d.specialite = :specialite')
+				->setParameter('specialite',$data['specialite']);
+		}	
+		
+		if($data['dateDu'] != "" && $data['dateAu'] != "")
+		{
+			$query->andWhere('d.date >= :dateDu')
+				->andWhere('d.date <= :dateAu')	
+				->setParameter('dateDu',$ukDateDu)
+				->setParameter('dateAu',$ukDateAu);
+		}		
+		
 		return $query->getQuery()->getResult();
 		
 	}
@@ -30,6 +57,9 @@ class DevisRepository extends EntityRepository
 		$nom = $data['nomPatient'];
 		$prenom = $data['prenomPatient'];
 		$intervention = $data['intervention'];
+		
+		var_dump($nom);
+		die;
 		
 		if($data['dateDu'] != "")
 		{

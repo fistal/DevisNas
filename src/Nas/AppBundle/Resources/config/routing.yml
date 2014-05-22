@@ -47,7 +47,7 @@ nasApp_chercheDevis:
     pattern: /chercheDevis/
     defaults: { _controller: NasAppBundle:Devis:cherche }
 nasApp_annuleDevis:
-    pattern: /annuleDevis/{idDevis}
+    pattern: /annuleDevis/{idDevis}{commentaire}
     defaults: { _controller: NasAppBundle:Devis:annule }
 nasApp_extraction:
     pattern: /extraction/

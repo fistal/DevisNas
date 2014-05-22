@@ -244,7 +244,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         // nasApp_annuleDevis
-        if (0 === strpos($pathinfo, '/annuleDevis') && preg_match('#^/annuleDevis/(?P<idDevis>[^/]++)$#s', $pathinfo, $matches)) {
+        if (0 === strpos($pathinfo, '/annuleDevis') && preg_match('#^/annuleDevis/(?P<idDevis>[^/]+)(?P<commentaire>[^/]++)$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'nasApp_annuleDevis')), array (  '_controller' => 'Nas\\AppBundle\\Controller\\DevisController::annuleAction',));
         }
 
