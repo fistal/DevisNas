@@ -8,16 +8,34 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class RechercheDevisType extends AbstractType
 {
-        /**
+	private $idSpecialite;
+	
+	public function __construct($idSpe)
+	{
+		$this->idSpecialite = $idSpe;
+
+	}
+
+	/**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+		$id = $this->idSpecialite;
+		
         $builder
             ->add('nomPatient', 'text', array('required' => false))
-			->add('prenomPatient', 'text', array('required' => false))
-			->add('intervention', 'text', array('required' => false))													
+			->add('prenomPatient', 'text', array('required' => false))												
+			->add('intervention', 'entity', array(
+				'class' => 'NasAppBundle:Intervention',
+				'property' => 'intervention',
+				'empty_value' => 'Choisissez une option',
+				'required' => false,
+				'query_builder' =>
+				function(\Nas\AppBundle\Entity\InterventionRepository $r) use($id) {
+					return $r->getSelectList($id);
+				}))												
 			->add('dateDu', 'datetime',array('required' => false,
                                                       'widget' =>'single_text',
                                                       'format' =>'dd/MM/yyyy'))
@@ -33,7 +51,7 @@ class RechercheDevisType extends AbstractType
         ;
     }
     
-
+	
     /**
      * @return string
      */

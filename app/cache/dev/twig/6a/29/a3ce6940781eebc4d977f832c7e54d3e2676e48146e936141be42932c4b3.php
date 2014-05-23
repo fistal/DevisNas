@@ -34,31 +34,31 @@ class __TwigTemplate_6a29a3ce6940781eebc4d977f832c7e54d3e2676e48146e936141be4293
 \t<div style=\"margin-top:20px; text-align:right; margin-right:50px;\">
 \t\tNeuilly-Sur-Seine, le ";
         // line 17
-        echo twig_escape_filter($this->env, $this->getContext($context, "date"), "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["date"]) ? $context["date"] : $this->getContext($context, "date")), "html", null, true);
         echo "
 \t</div>
 \t<div style=\"margin-top:20px;\">
 \t\t<strong>Objet :</strong> Devis pour l’hospitalisation de Monsieur / Madame ";
         // line 20
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "patient"), "nom"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["patient"]) ? $context["patient"] : $this->getContext($context, "patient")), "nom"), "html", null, true);
         echo " ";
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "patient"), "prenom"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["patient"]) ? $context["patient"] : $this->getContext($context, "patient")), "prenom"), "html", null, true);
         echo "
 \t</div>
 \t<div style=\"margin-top:20px;\">
 \t\tPraticien responsable : Dr ";
         // line 23
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "app"), "user"), "username"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user"), "username"), "html", null, true);
         echo "<br>
 \t\tEtabli le ";
         // line 24
-        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($this->getContext($context, "devis"), "date"), "d/m/Y"), "html", null, true);
+        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["devis"]) ? $context["devis"] : $this->getContext($context, "devis")), "date"), "d/m/Y"), "html", null, true);
         echo " à la demande du praticien
 \t</div>
 \t<div style=\"margin-top:20px;\">
 \t\tLe montant du devis pour la Clinique est de : ";
         // line 27
-        echo twig_escape_filter($this->env, $this->getContext($context, "totalFacture"), "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["totalFacture"]) ? $context["totalFacture"] : $this->getContext($context, "totalFacture")), "html", null, true);
         echo " se répartissant en : \t\t\t\t\t
 \t</div>
 \t<div style=\"margin-top:20px; border=1px solid black; width:750px;\">
@@ -70,7 +70,7 @@ class __TwigTemplate_6a29a3ce6940781eebc4d977f832c7e54d3e2676e48146e936141be4293
 \t\t\t\t<td style=\"width:50px;\">
 \t\t\t\t\t";
         // line 36
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "devis"), "mntPartClinique"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["devis"]) ? $context["devis"] : $this->getContext($context, "devis")), "mntPartClinique"), "html", null, true);
         echo "€
 \t\t\t\t</td>
 \t\t\t</tr>
@@ -81,7 +81,7 @@ class __TwigTemplate_6a29a3ce6940781eebc4d977f832c7e54d3e2676e48146e936141be4293
 \t\t\t\t<td style=\"width:50px;\">
 \t\t\t\t\t";
         // line 44
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "intervention"), "dmi"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["intervention"]) ? $context["intervention"] : $this->getContext($context, "intervention")), "dmi"), "html", null, true);
         echo "€
 \t\t\t\t</td>
 \t\t\t</tr>
@@ -92,7 +92,7 @@ class __TwigTemplate_6a29a3ce6940781eebc4d977f832c7e54d3e2676e48146e936141be4293
 \t\t\t\t<td style=\"width:50px;\">
 \t\t\t\t\t";
         // line 52
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "devis"), "mntChambre"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["devis"]) ? $context["devis"] : $this->getContext($context, "devis")), "mntChambre"), "html", null, true);
         echo "€
 \t\t\t\t</td>
 \t\t\t</tr>
@@ -103,7 +103,7 @@ class __TwigTemplate_6a29a3ce6940781eebc4d977f832c7e54d3e2676e48146e936141be4293
 \t\t\t\t<td style=\"width:50px;\">
 \t\t\t\t\t";
         // line 60
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "devis"), "mntAccompagnant"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["devis"]) ? $context["devis"] : $this->getContext($context, "devis")), "mntAccompagnant"), "html", null, true);
         echo "€
 \t\t\t\t</td>
 \t\t\t</tr>
@@ -114,7 +114,7 @@ class __TwigTemplate_6a29a3ce6940781eebc4d977f832c7e54d3e2676e48146e936141be4293
 \t\t\t\t<td style=\"width:50px;\">
 \t\t\t\t\t";
         // line 68
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "devis"), "honorairesPraticien"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["devis"]) ? $context["devis"] : $this->getContext($context, "devis")), "honorairesPraticien"), "html", null, true);
         echo "€
 \t\t\t\t</td>
 \t\t\t</tr>
@@ -125,7 +125,7 @@ class __TwigTemplate_6a29a3ce6940781eebc4d977f832c7e54d3e2676e48146e936141be4293
 \t\t\t\t<td style=\"width:50px;\">
 \t\t\t\t\t";
         // line 76
-        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "devis"), "honorairesAnesthesiste"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["devis"]) ? $context["devis"] : $this->getContext($context, "devis")), "honorairesAnesthesiste"), "html", null, true);
         echo "€
 \t\t\t\t</td>
 \t\t\t</tr>
@@ -136,7 +136,7 @@ class __TwigTemplate_6a29a3ce6940781eebc4d977f832c7e54d3e2676e48146e936141be4293
 \t\t\t\t<td style=\"width:50px;\">
 \t\t\t\t\t";
         // line 84
-        echo twig_escape_filter($this->env, $this->getContext($context, "honorairesAutres"), "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["honorairesAutres"]) ? $context["honorairesAutres"] : $this->getContext($context, "honorairesAutres")), "html", null, true);
         echo "€
 \t\t\t\t</td>
 \t\t\t</tr>
@@ -147,7 +147,7 @@ class __TwigTemplate_6a29a3ce6940781eebc4d977f832c7e54d3e2676e48146e936141be4293
 \t\t\t\t<td style=\"color:red; width:50px;\">
 \t\t\t\t\t";
         // line 92
-        echo twig_escape_filter($this->env, $this->getContext($context, "totalFacture"), "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["totalFacture"]) ? $context["totalFacture"] : $this->getContext($context, "totalFacture")), "html", null, true);
         echo "€
 \t\t\t\t</td>
 \t\t\t</tr>

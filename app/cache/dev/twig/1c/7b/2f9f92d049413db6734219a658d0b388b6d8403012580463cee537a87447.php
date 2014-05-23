@@ -46,7 +46,7 @@ class __TwigTemplate_1c7b2f9f92d049413db6734219a658d0b388b6d8403012580463cee537a
 \t<div class=\"col-md-8 col-md-offset-3\">
 \t\t<form method=\"post\" ";
         // line 12
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getContext($context, "form"), 'enctype');
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'enctype');
         echo " class=\"form-horizontal\">
 \t\t\t
 \t\t<fieldset>
@@ -55,19 +55,19 @@ class __TwigTemplate_1c7b2f9f92d049413db6734219a658d0b388b6d8403012580463cee537a
 \t\t<legend>Extraction : </legend>\t
 \t\t";
         // line 18
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getContext($context, "form"), 'errors');
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'errors');
         echo "
 \t\t
 \t\t<!-- Text input-->
 \t\t<div class=\"form-group\">
 \t\t\t\t\t\t<label for=\"username\" class=\"col-sm-4 control-label\">";
         // line 22
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "utilisateur"), 'label', array("label" => "Nom utilisateur : "));
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "utilisateur"), 'label', array("label" => "Nom utilisateur : "));
         echo " </label>
 \t\t\t\t\t\t<div class=\"col-sm-3\">
 \t\t\t\t\t\t\t";
         // line 24
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "utilisateur"), 'widget', array("attr" => array("class" => "form-control")));
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "utilisateur"), 'widget', array("attr" => array("class" => "form-control")));
         echo "
 \t\t\t\t\t\t</div>
 \t\t</div>
@@ -76,12 +76,12 @@ class __TwigTemplate_1c7b2f9f92d049413db6734219a658d0b388b6d8403012580463cee537a
 \t\t<div class=\"form-group\">
 \t\t\t\t\t\t<label for=\"username\" class=\"col-sm-4 control-label\">";
         // line 30
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "specialite"), 'label', array("label" => "Spécialité : "));
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "specialite"), 'label', array("label" => "Spécialité : "));
         echo " </label>
 \t\t\t\t\t\t<div class=\"col-sm-3\">
 \t\t\t\t\t\t\t";
         // line 32
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "specialite"), 'widget', array("attr" => array("class" => "form-control")));
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "specialite"), 'widget', array("attr" => array("class" => "form-control")));
         echo "
 \t\t\t\t\t\t</div>
 \t\t</div>\t\t
@@ -91,12 +91,12 @@ class __TwigTemplate_1c7b2f9f92d049413db6734219a658d0b388b6d8403012580463cee537a
 \t\t<div class=\"form-group\">
 \t\t\t\t\t\t<label for=\"username\" class=\"col-sm-4 control-label\">";
         // line 39
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "dateDu"), 'label', array("label" => "Devis du : "));
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "dateDu"), 'label', array("label" => "Devis du : "));
         echo " </label>
 \t\t\t\t\t\t<div class=\"col-sm-3\">
 \t\t\t\t\t\t\t";
         // line 41
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "dateDu"), 'widget', array("attr" => array("class" => "form-control datepicker")));
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "dateDu"), 'widget', array("attr" => array("class" => "form-control datepicker")));
         echo "
 \t\t\t\t\t\t</div>
 \t\t</div>\t
@@ -104,19 +104,19 @@ class __TwigTemplate_1c7b2f9f92d049413db6734219a658d0b388b6d8403012580463cee537a
 \t\t<div class=\"form-group\">
 \t\t\t\t\t\t<label for=\"username\" class=\"col-sm-4 control-label\">";
         // line 46
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "dateAu"), 'label', array("label" => " Au : "));
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "dateAu"), 'label', array("label" => " Au : "));
         echo " </label>
 \t\t\t\t\t\t<div class=\"col-sm-3\">
 \t\t\t\t\t\t\t";
         // line 48
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "dateAu"), 'widget', array("attr" => array("class" => "form-control datepicker")));
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "dateAu"), 'widget', array("attr" => array("class" => "form-control datepicker")));
         echo "
 \t\t\t\t\t\t</div>
 \t\t</div>\t\t\t\t\t\t
 
 \t\t";
         // line 52
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getContext($context, "form"), 'rest');
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'rest');
         echo "
 
 \t\t  <div class=\"form-group\">
@@ -169,6 +169,6 @@ class __TwigTemplate_1c7b2f9f92d049413db6734219a658d0b388b6d8403012580463cee537a
 
     public function getDebugInfo()
     {
-        return array (  154 => 84,  119 => 52,  112 => 48,  107 => 46,  99 => 41,  94 => 39,  84 => 32,  79 => 30,  70 => 24,  65 => 22,  58 => 18,  49 => 12,  42 => 7,  39 => 6,  32 => 3,  29 => 2,);
+        return array (  228 => 120,  207 => 108,  200 => 104,  104 => 41,  167 => 91,  65 => 22,  58 => 18,  150 => 92,  124 => 56,  114 => 48,  90 => 34,  81 => 29,  343 => 135,  340 => 134,  336 => 130,  333 => 129,  328 => 121,  325 => 120,  292 => 31,  287 => 29,  282 => 27,  274 => 25,  270 => 24,  267 => 23,  250 => 17,  232 => 12,  206 => 136,  191 => 120,  186 => 96,  178 => 114,  175 => 113,  170 => 112,  165 => 111,  160 => 109,  155 => 108,  113 => 95,  97 => 89,  84 => 32,  70 => 24,  172 => 101,  148 => 81,  480 => 162,  474 => 161,  469 => 158,  461 => 155,  457 => 153,  453 => 151,  444 => 149,  440 => 148,  437 => 147,  435 => 146,  430 => 144,  427 => 143,  423 => 142,  413 => 134,  409 => 132,  407 => 131,  402 => 130,  398 => 129,  393 => 126,  387 => 122,  384 => 121,  381 => 120,  379 => 119,  374 => 116,  368 => 112,  365 => 111,  362 => 110,  360 => 109,  355 => 106,  341 => 105,  337 => 103,  322 => 101,  314 => 99,  312 => 98,  309 => 97,  305 => 95,  298 => 91,  294 => 90,  285 => 89,  283 => 88,  278 => 26,  268 => 85,  264 => 22,  258 => 19,  252 => 80,  247 => 78,  241 => 15,  229 => 73,  220 => 70,  214 => 112,  177 => 65,  169 => 60,  140 => 104,  132 => 59,  128 => 76,  107 => 46,  61 => 20,  273 => 96,  269 => 94,  254 => 18,  243 => 88,  240 => 86,  238 => 14,  235 => 74,  230 => 82,  227 => 81,  224 => 71,  221 => 116,  219 => 76,  217 => 75,  208 => 68,  204 => 72,  179 => 92,  159 => 61,  143 => 56,  135 => 53,  119 => 52,  102 => 34,  71 => 19,  67 => 15,  63 => 22,  59 => 21,  38 => 6,  94 => 39,  89 => 85,  85 => 25,  75 => 17,  68 => 14,  56 => 9,  87 => 25,  21 => 2,  26 => 6,  93 => 35,  88 => 6,  78 => 83,  46 => 10,  27 => 4,  44 => 9,  31 => 5,  28 => 3,  201 => 129,  196 => 90,  183 => 116,  171 => 61,  166 => 71,  163 => 110,  158 => 67,  156 => 72,  151 => 107,  142 => 64,  138 => 54,  136 => 56,  121 => 97,  117 => 68,  105 => 40,  91 => 27,  62 => 23,  49 => 12,  24 => 4,  25 => 1,  19 => 1,  79 => 30,  72 => 16,  69 => 25,  47 => 9,  40 => 6,  37 => 17,  22 => 2,  246 => 16,  157 => 56,  145 => 46,  139 => 84,  131 => 60,  123 => 47,  120 => 53,  115 => 43,  111 => 56,  108 => 36,  101 => 32,  98 => 37,  96 => 36,  83 => 31,  74 => 26,  66 => 15,  55 => 24,  52 => 21,  50 => 60,  43 => 20,  41 => 7,  35 => 5,  32 => 3,  29 => 2,  209 => 82,  203 => 134,  199 => 67,  193 => 100,  189 => 71,  187 => 84,  182 => 109,  176 => 64,  173 => 65,  168 => 72,  164 => 59,  162 => 57,  154 => 84,  149 => 68,  147 => 106,  144 => 49,  141 => 48,  133 => 55,  130 => 69,  125 => 55,  122 => 43,  116 => 41,  112 => 48,  109 => 94,  106 => 60,  103 => 32,  99 => 41,  95 => 52,  92 => 43,  86 => 30,  82 => 36,  80 => 30,  73 => 36,  64 => 17,  60 => 6,  57 => 19,  54 => 10,  51 => 23,  48 => 22,  45 => 21,  42 => 7,  39 => 6,  36 => 5,  33 => 3,  30 => 2,);
     }
 }

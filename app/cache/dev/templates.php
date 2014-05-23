@@ -79,6 +79,7 @@
   'DoctrineBundle:Collector:explain.html.twig' => 'C:\\wamp\\www\\DevisNas\\vendor\\doctrine\\doctrine-bundle\\Doctrine\\Bundle\\DoctrineBundle/Resources/views/Collector/explain.html.twig',
   'NasAppBundle:Devis:ajouter.html.twig' => 'C:\\wamp\\www\\DevisNas\\src\\Nas\\AppBundle/Resources/views/Devis/ajouter.html.twig',
   'NasAppBundle:Devis:liste.html.twig' => 'C:\\wamp\\www\\DevisNas\\src\\Nas\\AppBundle/Resources/views/Devis/liste.html.twig',
+  'NasAppBundle:Devis:print.html.twig' => 'C:\\wamp\\www\\DevisNas\\src\\Nas\\AppBundle/Resources/views/Devis/print.html.twig',
   'NasAppBundle:Devis:recherche.html.twig' => 'C:\\wamp\\www\\DevisNas\\src\\Nas\\AppBundle/Resources/views/Devis/recherche.html.twig',
   'NasAppBundle:Devis:voir.html.twig' => 'C:\\wamp\\www\\DevisNas\\src\\Nas\\AppBundle/Resources/views/Devis/voir.html.twig',
   'NasAppBundle:Devis:voir.html.twig.bak' => 'C:\\wamp\\www\\DevisNas\\src\\Nas\\AppBundle/Resources/views/Devis/voir.html.twig.bak',

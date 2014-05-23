@@ -255,8 +255,13 @@ class DevisController extends Controller
 	}	
 	public function chercheAction()
 	{
+	
+		$user = $this->getUser();
+		$idSpe = $user->getSpecialite()->getId();		
+		
 		//On crée le FormBuilder grâce à la méthode du contrôleur. Toujours sans entité
-		$form = $this->createForm(new RechercheDevisType());
+		$form = $this->createForm(new RechercheDevisType($idSpe));
+		
 		$user = $this->getUser();
 		//On récupère la requête
 		$request = $this->getRequest();
@@ -264,15 +269,15 @@ class DevisController extends Controller
 		if($request->getMethod() == 'POST')
 		{
 			//lier le formulaire avec la requete
-			$form->bind($request);
-			
+			$form->bind($request);			
+
 			//On vérifie que les valeurs entrées sont correctes
 			if($form->isValid())
 			{
 				$em = $this->getDoctrine()->getManager();
 	
 				//On récupère les données entrées dans le formulaire par l'utilisateur
-				$data = $this->getRequest()->request->get('nas_appbundle_rechercheDevis');
+				$data = $this->getRequest()->request->get('nas_appbundle_rechercheDevis');								
 				
 				//init idUser si utilisateur != admin / superadmin
 				if(!$this->get('security.context')->isGranted('ROLE_SUPER_ADMIN')) 

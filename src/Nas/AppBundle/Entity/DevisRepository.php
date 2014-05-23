@@ -58,9 +58,6 @@ class DevisRepository extends EntityRepository
 		$prenom = $data['prenomPatient'];
 		$intervention = $data['intervention'];
 		
-		var_dump($nom);
-		die;
-		
 		if($data['dateDu'] != "")
 		{
 			$dateInput = explode('/',$data['dateDu']);
