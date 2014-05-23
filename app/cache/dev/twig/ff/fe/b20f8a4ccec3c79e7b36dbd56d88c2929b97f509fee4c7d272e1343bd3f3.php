@@ -55,12 +55,12 @@ class __TwigTemplate_fffeb20f8a4ccec3c79e7b36dbd56d88c2929b97f509fee4c7d272e1343
 <div class=\"navbar navbar-inverse navbar-fixed-top\" role=\"navigation\">
       <div class=\"container\">
         <div class=\"navbar-header\">
-          <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-collapse\">
+          <a  class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-collapse\">
             <span class=\"sr-only\">Toggle navigation</span>
             <span class=\"icon-bar\"></span>
             <span class=\"icon-bar\"></span>
             <span class=\"icon-bar\"></span>
-          </button>
+          </a>
           <a class=\"navbar-brand\" href=\"#\">Devis nas</a>
         </div>
         <div class=\"navbar-collapse collapse\">
@@ -73,12 +73,15 @@ class __TwigTemplate_fffeb20f8a4ccec3c79e7b36dbd56d88c2929b97f509fee4c7d272e1343
             <li class=\"dropdown\">
               <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><span class=\"icon-copy\"></span> Devis <b class=\"caret\"></b></a>
               <ul class=\"dropdown-menu\">
-                <li><a href=\"";
+                ";
         // line 83
-        echo $this->env->getExtension('routing')->getPath("nasApp_ajouterDevis");
-        echo "\">Créer un devis</a></li>
-                <li><a href=\"";
+        if ((!$this->env->getExtension('security')->isGranted("ROLE_SUPER_ADMIN"))) {
+            echo "<li><a href=\"";
+            echo $this->env->getExtension('routing')->getPath("nasApp_ajouterDevis");
+            echo "\">Créer un devis</a></li>";
+        }
         // line 84
+        echo "                <li><a href=\"";
         echo $this->env->getExtension('routing')->getPath("nasApp_listeDevis");
         echo "\">Liste des devis</a></li>
                 <li><a href=\"";
@@ -127,7 +130,7 @@ class __TwigTemplate_fffeb20f8a4ccec3c79e7b36dbd56d88c2929b97f509fee4c7d272e1343
         // line 102
         if ($this->env->getExtension('security')->isGranted("IS_AUTHENTICATED_REMEMBERED")) {
             echo "  -  ";
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user"), "username"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "app"), "user"), "username"), "html", null, true);
             echo " ";
         }
         echo " <b class=\"caret\"></b></a>
@@ -208,9 +211,9 @@ class __TwigTemplate_fffeb20f8a4ccec3c79e7b36dbd56d88c2929b97f509fee4c7d272e1343
 \t  </div>
 \t  
     <div class=\"container\">
-      <footer>
+      <div>
         <p>&copy; Clinique Ambroise Pare 2014</p>
-      </footer>
+      </div>
     </div> <!-- /container -->
 
 
@@ -352,6 +355,6 @@ class __TwigTemplate_fffeb20f8a4ccec3c79e7b36dbd56d88c2929b97f509fee4c7d272e1343
 
     public function getDebugInfo()
     {
-        return array (  340 => 135,  337 => 134,  333 => 130,  330 => 129,  325 => 121,  322 => 120,  289 => 31,  284 => 29,  279 => 27,  275 => 26,  271 => 25,  267 => 24,  264 => 23,  261 => 22,  255 => 19,  251 => 18,  247 => 17,  243 => 16,  238 => 15,  235 => 14,  229 => 12,  203 => 136,  200 => 134,  198 => 129,  190 => 123,  188 => 120,  183 => 117,  180 => 116,  175 => 114,  172 => 113,  167 => 112,  162 => 111,  160 => 110,  157 => 109,  152 => 108,  148 => 107,  144 => 106,  139 => 105,  137 => 104,  128 => 102,  125 => 101,  118 => 97,  114 => 96,  110 => 95,  106 => 94,  99 => 90,  94 => 89,  92 => 88,  86 => 85,  82 => 84,  78 => 83,  70 => 78,  50 => 60,  48 => 22,  45 => 21,  43 => 14,  38 => 12,  25 => 1,);
+        return array (  343 => 135,  340 => 134,  336 => 130,  333 => 129,  328 => 121,  325 => 120,  292 => 31,  287 => 29,  282 => 27,  278 => 26,  274 => 25,  270 => 24,  267 => 23,  264 => 22,  258 => 19,  254 => 18,  250 => 17,  246 => 16,  241 => 15,  238 => 14,  232 => 12,  206 => 136,  203 => 134,  201 => 129,  193 => 123,  191 => 120,  186 => 117,  183 => 116,  178 => 114,  175 => 113,  170 => 112,  165 => 111,  163 => 110,  160 => 109,  155 => 108,  151 => 107,  147 => 106,  142 => 105,  140 => 104,  131 => 102,  128 => 101,  121 => 97,  117 => 96,  113 => 95,  109 => 94,  102 => 90,  97 => 89,  95 => 88,  89 => 85,  84 => 84,  78 => 83,  70 => 78,  50 => 60,  48 => 22,  45 => 21,  43 => 14,  38 => 12,  25 => 1,);
     }
 }

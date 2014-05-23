@@ -38,8 +38,8 @@ nasApp_ajouterDevis:
     pattern: /ajouterDevis/
     defaults: { _controller: NasAppBundle:Devis:ajouter }
 nasApp_voirDevis:
-    pattern: /voirDevis/{idDevis}
-    defaults: { _controller: NasAppBundle:Devis:voir }
+    pattern: /voirDevis/{idDevis}/{print}
+    defaults: { _controller: NasAppBundle:Devis:voir, print:non }
 nasApp_listeDevis:
     pattern: /listeDevis/
     defaults: { _controller: NasAppBundle:Devis:list }
@@ -47,7 +47,7 @@ nasApp_chercheDevis:
     pattern: /chercheDevis/
     defaults: { _controller: NasAppBundle:Devis:cherche }
 nasApp_annuleDevis:
-    pattern: /annuleDevis/{idDevis}{commentaire}
+    pattern: /annuleDevis/{idDevis}/{commentaire}
     defaults: { _controller: NasAppBundle:Devis:annule }
 nasApp_extraction:
     pattern: /extraction/
@@ -59,4 +59,4 @@ nasApp_nbrJourIntervention:
     pattern:  /update/data/from/ajax/call
     defaults: { _controller: NasAppBundle:Devis:nbrJours }
     requirements:
-      _method: POST
+      _method: POST 

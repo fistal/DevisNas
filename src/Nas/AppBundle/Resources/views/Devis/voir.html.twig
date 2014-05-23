@@ -3,25 +3,24 @@
 <ul class="nav nav-pills pull-right">
 	<li>
 		<div class="navbar-form navbar-left">
-			<a class="btn btn-warning" href="#" onclick="imprime_zone('commande', 'printDevis');"><span class="glyphicon glyphicon-print"></span> Imprimer</a>
+			<a class="btn btn-warning" href="{{path('nasApp_voirDevis', {'idDevis': devis.id, 'print': 'ok'}) }}" target="_blank"><span class="glyphicon glyphicon-print"></span> Imprimer</a>
 		</div>
 	</li>
 	{% if is_granted('ROLE_SUPER_ADMIN') %}
 	<li>
 		<div class="navbar-form navbar-left">
 			<div class="btn-group">
-			  <button type="button" class="btn btn-danger" href="#"><span class="glyphicon glyphicon-trash"></span> Annuler</button>
-			  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+			  <a class="btn btn-danger" href="#"><span class="glyphicon glyphicon-trash"></span> Annuler</a>
+			  <a class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
 				<span class="caret"></span>
 				<span class="sr-only">Toggle Dropdown</span>
-			  </button>
+			  </a>
 			  <ul class="dropdown-menu" role="menu">
 				<li><a href="{{path('nasApp_annuleDevis',{'idDevis': devis.id,'commentaire': 'Le patient ne viendra pas'})}}">Le patient ne viendra pas</a></li>
 				<li><a href="{{path('nasApp_annuleDevis',{'idDevis': devis.id,'commentaire': 'Erreur dans le devis'})}}">Erreur dans le devis</a></li>
 				<li><a href="{{path('nasApp_annuleDevis',{'idDevis': devis.id,'commentaire': 'Devis non signé'})}}">Devis non signé</a></li>
 			  </ul>
 			</div>
-			 Annuler</a>
 		</div>
 	</li>
 	{% endif %}	
@@ -37,19 +36,16 @@
 {% if devis.etat != "success" %}
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-		<div class="alert alert-danger alert-dismissable">
-			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		<div class="alert alert-danger">			
 			<div class="text-center">
 				<strong>Attention!</strong> Ce devis a été annulé. <br>Commentaire : {{ devis.commentaire }}.<br>
 			</div>
-			<a class="btn btn-info text-right" href="{{ path('nasApp_listeDevis') }}"><span class="glyphicon glyphicon-chevron-left"></span> Liste des devis</a>
 		</div>
 	</div>
 </div>
 
 {% endif %}
 
-<div id='printDevis'>
 <div class="row">
   <div class="col-md-6 col-md-offset-3 text-center">
 		<h2>Informations générales</h2>
@@ -117,7 +113,7 @@
 		</tr>
 		<tr>
 			<td>Honoraires autres spécialités </td>
-			<td>{{ intervention.honoraires}} €</td>			
+			<td>{{ honorairesAutres}} €</td>			
 		</tr>
 		<tr>
 		  <td>TOTAL :</td>
@@ -127,24 +123,6 @@
     </table>
   </div>
 </div>
-</div>
-{% if devis.etat == "success" %}
-<div class="row">
-  <div class="col-md-6 col-md-offset-3 text-center" >
-		<a class="btn btn-warning" href="#" onclick="imprime_zone('commande', 'printDevis');"><span class="glyphicon glyphicon-print"></span> Imprimer</a>
-		{% if is_granted('ROLE_SUPER_ADMIN') %}
-			<form class="navbar-form navbar-right" method="post" action="#" >
-            <div class="form-group">
-              {{ form_widget(form.commentaire,  { 'attr': {'class': 'form-control'}}) }}
-			  {{ form_rest(form) }}
-            </div>
-            <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span>  Annuler</button>
-          </form>
-		{% endif %}
-  </div>
-</div>
-{% endif %}
-
 {% endblock %}
 
 

@@ -1,0 +1,137 @@
+<div>
+<table>
+	<tr>
+		<td style="width:450px;">
+			<strong>CMC AMBROISE PARE</strong><br>
+			27 Bd Victor Hugo<br>
+			92523 Neuilly-Sur-Seine<br><br>
+			<strong>Tél :</strong> 08.26.200.300     <strong>Fax :</strong> 01.46.41.89.80<br>
+		</td>
+		<td>
+			<img src="../web/dist/images/cmcap.png" width="250">
+		</td>
+	</tr>
+</table>
+	<div style="clear:both;"></div>
+	<div style="margin-top:20px; text-align:right; margin-right:50px;">
+		Neuilly-Sur-Seine, le {{date}}
+	</div>
+	<div style="margin-top:20px;">
+		<strong>Objet :</strong> Devis pour l’hospitalisation de Monsieur / Madame {{patient.nom}} {{patient.prenom}}
+	</div>
+	<div style="margin-top:20px;">
+		Praticien responsable : Dr {{ app.user.username }}<br>
+		Etabli le {{devis.date|date("d/m/Y")}} à la demande du praticien
+	</div>
+	<div style="margin-top:20px;">
+		Le montant du devis pour la Clinique est de : {{totalFacture}} se répartissant en : 					
+	</div>
+	<div style="margin-top:20px; border=1px solid black; width:750px;">
+		<table>
+			<tr>
+				<td style="width:500px;height:20px;">
+					Part de la clinique incluant les frais de séjour (y compris de réanimation):
+				</td>
+				<td style="width:50px;">
+					{{ devis.mntPartClinique }}€
+				</td>
+			</tr>
+			<tr>
+				<td style="width:500px;height:20px;">
+					Dispositifs médicaux implantables :
+				</td>
+				<td style="width:50px;">
+					{{ intervention.dmi }}€
+				</td>
+			</tr>
+			<tr>
+			<td style="width:500px;height:20px;">
+					Chambre particulière :
+				</td>
+				<td style="width:50px;">
+					{{ devis.mntChambre }}€
+				</td>
+			</tr>
+			<tr>
+				<td style="width:500px;height:20px;">
+					Lit accompagnant + repas :
+				</td>
+				<td style="width:50px;">
+					{{ devis.mntAccompagnant }}€
+				</td>
+			</tr>
+			<tr>
+				<td style="width:500px;height:20px;">
+					Honoraires praticien :
+				</td>
+				<td style="width:50px;">
+					{{ devis.honorairesPraticien }}€
+				</td>
+			</tr>
+			<tr>
+				<td style="width:500px;height:20px;">
+					Honoraires anesthésiste :
+				</td>
+				<td style="width:50px;">
+					{{ devis.honorairesAnesthesiste }}€
+				</td>
+			</tr>
+			<tr>
+				<td style="width:500px;height:20px;">
+					Honoraires autres spécialités :
+				</td>
+				<td style="width:50px;">
+					{{ honorairesAutres }}€
+				</td>
+			</tr>
+			<tr>
+				<td style="color:red; text-align:right; padding-right:30px;">
+					TOTAL
+				</td>
+				<td style="color:red; width:50px;">
+					{{ totalFacture }}€
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="margin-top:20px;">
+		Ce montant sera à acquitter le jour d’entrée à la clinique sinon l’hospitalisation pourra vous être refusée.		
+	</div>
+	<div style="text-align:center;margin-top:20px;">
+		Merci de vous présenter avec un chèque certifié de banque ou des espèces ou une carte bancaire <br>(sauf American Express)
+	</div>
+	<div style="text-align:center; margin-top:40px;width:800px;">
+		<table border="1" >
+			<tr>
+				<td style="height:60px"></td>
+				<td style="height:60px"></td>
+				<td style="height:60px"></td>
+			</tr>
+			<tr>
+				<td style=" width:225px;">
+					Signature de la clinique
+					Précédé de la mention « lu et approuvé »
+				</td>
+				<td style=" width:225px;">
+					Signature du patient
+					Précédé de la mention « lu et approuvé »				
+				</td>
+				<td style=" width:225px;">
+					Signature du chirurgien 
+					Précédé de la mention « lu et approuvé »				
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+

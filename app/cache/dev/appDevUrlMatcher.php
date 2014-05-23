@@ -221,8 +221,8 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         // nasApp_voirDevis
-        if (0 === strpos($pathinfo, '/voirDevis') && preg_match('#^/voirDevis/(?P<idDevis>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'nasApp_voirDevis')), array (  '_controller' => 'Nas\\AppBundle\\Controller\\DevisController::voirAction',));
+        if (0 === strpos($pathinfo, '/voirDevis') && preg_match('#^/voirDevis/(?P<idDevis>[^/]++)(?:/(?P<print>[^/]++))?$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'nasApp_voirDevis')), array (  '_controller' => 'Nas\\AppBundle\\Controller\\DevisController::voirAction',  'print' => 'non',));
         }
 
         // nasApp_listeDevis
@@ -244,7 +244,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         // nasApp_annuleDevis
-        if (0 === strpos($pathinfo, '/annuleDevis') && preg_match('#^/annuleDevis/(?P<idDevis>[^/]+)(?P<commentaire>[^/]++)$#s', $pathinfo, $matches)) {
+        if (0 === strpos($pathinfo, '/annuleDevis') && preg_match('#^/annuleDevis/(?P<idDevis>[^/]++)/(?P<commentaire>[^/]++)$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'nasApp_annuleDevis')), array (  '_controller' => 'Nas\\AppBundle\\Controller\\DevisController::annuleAction',));
         }
 

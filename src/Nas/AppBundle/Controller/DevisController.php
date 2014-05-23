@@ -19,8 +19,9 @@ class DevisController extends Controller
 	{
 		return $this->render('NasAppBundle:Devis:index.html.twig');
 	}
-	public function voirAction($idDevis)
-	{
+	public function voirAction($idDevis, $print)
+	{	
+		
 		$form = $this->createForm(new AnnuleDevisType());
 		$request = $this->getRequest();
 		
@@ -57,12 +58,46 @@ class DevisController extends Controller
 			$totalFacture += $honoraire->getMnt();
 		} */
 		
+		$jour = array("Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"); 
+		$mois = array("","Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"); 
+		$datefr = $jour[date("w")]." ".date("d")." ".$mois[date("n")]." ".date("Y"); 
+	
+	
+		if($print == "ok")
+		{
+			require_once(dirname(__FILE__).'/../Resources/public/html2pdf/html2pdf.class.php');
+				  
+			$html=$this->get('templating')->render('NasAppBundle:Devis:print.html.twig', array('devis'=>$devis,
+																			'patient'=>$patient,
+																			'date'=>$datefr,
+																			'specialite'=>$specialite,
+																			'intervention'=>$intervention,
+																			'listeHonoraires'=>$listeHonoraires,
+																			'totalFacture'=>$totalFacture,
+																			'honorairesAutres'=>$honorairesAutres));
+			
+			$html2pdf = new \HTML2PDF('P','A4','fr');
+			$html2pdf->pdf->SetDisplayMode('real');
+			$html2pdf->pdf->SetTitle('TITLE');
+			$html2pdf->writeHTML($html);
+			$fichier = $html2pdf->Output("test.pdf");
 
-		
-		if(!$this->get('security.context')->isGranted('ROLE_SUPER_ADMIN')) 
+			$response = new Response();
+			//$response->clearHttpHeaders();
+			var_dump($fichier);
+			die;
+			$response->setContent(file_get_contents($fichier));
+			$response->headers->set('Content-Type', 'application/force-download'); 
+			$response->headers->set('Content-disposition', 'filename='. $fichier);
+	 
+			return $response;				
+		}
+	
+ 		if(!$this->get('security.context')->isGranted('ROLE_SUPER_ADMIN')) 
 		{
 			return $this->render('NasAppBundle:Devis:voir.html.twig', array('devis'=>$devis,
 																		'patient'=>$patient,
+																		'date'=>$datefr,
 																		'specialite'=>$specialite,
 																		'intervention'=>$intervention,
 																		'listeHonoraires'=>$listeHonoraires,
@@ -74,16 +109,13 @@ class DevisController extends Controller
 
 			return $this->render('NasAppBundle:Devis:voir.html.twig', array('devis'=>$devis,
 																		'patient'=>$patient,
+																		'date'=>$datefr,
 																		'specialite'=>$specialite,
 																		'intervention'=>$intervention,
 																		'listeHonoraires'=>$listeHonoraires,
 																		'totalFacture'=>$totalFacture,
 																		'form'=>$form->createView()));
-		}
-	
-		
-		//return $this->render('NasAppBundle:Devis:voir.html.twig', array('idDevis'=>$idDevis));
-
+		} 		
 	}
 	public function listAction()
 	{
@@ -264,36 +296,19 @@ class DevisController extends Controller
 	}
 	public function annuleAction($idDevis, $commentaire)
 	{			
-	var_dump($idDevis);
-	die;
-		$request = $this->getRequest();
-		$form = $this->createForm(new AnnuleDevisType());
-		
-		if($request->getMethod() == 'POST')
+		if($idDevis != "" && $commentaire != "")
 		{
-			$form->bind($request);
-			if($form->isValid())
-			{
-				$em = $this->getDoctrine()->getManager();
-				
-				$data = $this->getRequest()->request->get('nas_appbundle_annuleDevis'); //récupère les données du formulaire dans un array data
-				
-				$devis = $em->getRepository('NasAppBundle:Devis')->find($idDevis);
-				$devis->setEtat('cancel');
-				//$devis->setCommentaire($data['commentaire']);
-				$devis->setCommentaire($commentaire);
-				
-				$em->persist($devis);
-				$em->flush();
-				
-			/*	$message = \Swift_Message::newInstance()
-				->setSubject('Hello Email')
-				->setFrom('julienrochart@hotmail.fr')
-				->setTo('julienrochart@hotmail.fr')
-				->setBody("MON TEXTE<br>MON TEXTE<br>MON TEXTE<br>MON TEXTE<br>MON TEXTE<br>MON TEXTE<br>MON TEXTE<br>MON TEXTE<br>MON TEXTE<br>MON TEXTE<br>MON TEXTE<br>MON TEXTE<br>MON TEXTE<br>MON TEXTE<br>MON TEXTE<br>MON TEXTE<br>");
-				$this->get('mailer')->send($message); */
-				
-			}
+			$em = $this->getDoctrine()->getManager();		
+			
+			$devis = $em->getRepository('NasAppBundle:Devis')->find($idDevis);
+
+			$devis->setEtat('cancel');
+			$devis->setCommentaire($commentaire);
+			
+			$em->persist($devis);
+			$em->flush();
+			
+			return $this->redirect($this->generateUrl('nasApp_listeDevis'));
 		}
 		return $this->redirect($this->generateUrl('nasApp_listeDevis'));
 	}
