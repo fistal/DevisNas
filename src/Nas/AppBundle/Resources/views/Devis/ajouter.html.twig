@@ -4,96 +4,99 @@
 {% endblock %}
 
 {% block NasApp_body %}
-<div class="row">
-	<div class="col-md-9 col-md-offset-1">
 		<form method="post" {{ form_enctype(form) }} class="form-horizontal">			
 			<fieldset>
 				<legend>Ajouter un devis</legend>
 				
-				
-					<div class="form-group">
-						<label for="username" class="col-sm-6 control-label">Intervention : </label>
-						<div class="col-sm-3">
-							{{ form_widget(form.intervention,  { 'attr': {'class': 'form-control'}}) }}
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2">
+						<div class="form-group">
+							<div class="input-group">
+								<span class="input-group-addon">Nom</span>
+								{{ form_widget(form.patient.nom,  { 'attr': {'class': 'form-control'}}) }}
+							</div>
 						</div>
+						<div class="form-group">
+							<div class="input-group">
+								<span class="input-group-addon">Prénom</span>
+								{{ form_widget(form.patient.prenom,  { 'attr': {'class': 'form-control'}}) }}
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="input-group">
+								<span class="input-group-addon">Tel.</span>
+								{{ form_widget(form.patient.telephone,  { 'attr': {'class': 'form-control'}}) }}
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="input-group">
+								<span class="input-group-addon">E-mail</span>
+								{{ form_widget(form.patient.email,  { 'attr': {'class': 'form-control'}}) }}
+							</div>
+						</div>																														
 					</div>
-					
-					<div class="form-group">
-						<label for="username" class="col-sm-6 control-label"><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Chambre particulière possible">Nombre de jours estimés du séjour (*)</a> : </label>
-						<div class="col-sm-3 control-label" id="nas_appbundle_devis_nbrJours">
-							
+					<div class="col-md-5">
+						
+							<div class="form-group">
+							<label for="username" class="col-sm-6 control-label">Intervention : </label>
+							<div class="col-sm-3">
+								{{ form_widget(form.intervention,  { 'attr': {'class': 'form-control'}}) }}
+							</div>
 						</div>
-					</div>	
-					<div class="form-group">
-						<label for="username" class="col-sm-6 control-label"><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Tooltip on top">Nombre de jours supplémentaires (*)</a> : </label>
-						<div class="col-sm-3">
-							{{ form_widget(form.nbrJoursSupp,  { 'attr': {'class': 'form-control'}}) }}
+						
+						<div class="form-group">
+							<label for="username" class="col-sm-6 control-label"><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Chambre particulière possible">Nombre de jours estimés du séjour (*)</a> : </label>
+							<div class="col-sm-3 control-label" id="nas_appbundle_devis_nbrJours">
+								
+							</div>
+						</div>	
+						<div class="form-group">
+							<label for="username" class="col-sm-6 control-label"><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Tooltip on top">Nombre de jours supplémentaires (*)</a> : </label>
+							<div class="col-sm-3">
+								{{ form_widget(form.nbrJoursSupp,  { 'attr': {'class': 'form-control'}}) }}
+							</div>
 						</div>
-					</div>
-					<div class="form-group">
-						<label for="username" class="col-sm-6 control-label"> * Le patient a-t-il demandé la chambre particulière ? </label>
-						<div class="col-sm-3">
-							{{ form_widget(form.chambre,  { 'attr': {'class': 'checkbox inline'}}) }}
-						</div>
-					</div>					
+						<div class="form-group">
+							<label for="username" class="col-sm-6 control-label"> * Le patient a-t-il demandé la chambre particulière ? </label>
+							<div class="col-sm-3">
+								{{ form_widget(form.chambre,  { 'attr': {'class': 'checkbox inline'}}) }}
+							</div>
+						</div>					
 
-					<div class="form-group">
-						<label for="username" class="col-sm-6 control-label">Accompagnant</label>
-						<div class="col-sm-3">
-							{{ form_widget(form.accompagnant,  { 'attr': {'class': 'checkbox inline'}}) }}
+						<div class="form-group">
+							<label for="username" class="col-sm-6 control-label">Accompagnant</label>
+							<div class="col-sm-3">
+								{{ form_widget(form.accompagnant,  { 'attr': {'class': 'checkbox inline'}}) }}
+							</div>
 						</div>
-					</div>
 
-					<div class="form-group">
-						<label for="username" class="col-sm-6 control-label">Honoraires praticien  </label>
-						<div class="col-sm-3">
-							{{ form_widget(form.honorairesPraticien,  { 'attr': {'class': 'form-control'}}) }}
+						<div class="form-group">
+							<label for="username" class="col-sm-6 control-label">Honoraires praticien  </label>
+							<div class="col-sm-3">
+								{{ form_widget(form.honorairesPraticien,  { 'attr': {'class': 'form-control'}}) }}
+							</div>
 						</div>
-					</div>
-					<div class="form-group">
-						<label for="username" class="col-sm-6 control-label">Honoraires anesthésiste  </label>
-						<div class="col-sm-3">
-							{{ form_widget(form.honorairesAnesthesiste,  { 'attr': {'class': 'form-control'}}) }}
+						<div class="form-group">
+							<label for="username" class="col-sm-6 control-label">Honoraires anesthésiste  </label>
+							<div class="col-sm-3">
+								{{ form_widget(form.honorairesAnesthesiste,  { 'attr': {'class': 'form-control'}}) }}
+							</div>
 						</div>
-					</div>									
-					
-					<div class="form-group">
-						<label for="username" class="col-sm-6 control-label">Nom du patient : </label>
-						<div class="col-sm-3">
-							{{ form_widget(form.patient.nom,  { 'attr': {'class': 'form-control'}}) }}
+	{{ form_rest(form) }}
+					  <div class="form-group">
+						<div class="col-sm-offset-4 col-sm-10">
+						  <input type="submit" class="btn btn-primary" value="Enregistrer" class="btn btn-default"/>
 						</div>
-					</div>
-					<div class="form-group">
-						<label for="username" class="col-sm-6 control-label">Prénom du patient : </label>
-						<div class="col-sm-3">
-							{{ form_widget(form.patient.prenom,  { 'attr': {'class': 'form-control'}}) }}
-						</div>
-					</div>	
-					<div class="form-group">
-						<label for="username" class="col-sm-6 control-label">Telephone du patient : </label>
-						<div class="col-sm-3">
-							{{ form_widget(form.patient.telephone,  { 'attr': {'class': 'form-control'}}) }}
-						</div>
-					</div>	
-					<div class="form-group">
-						<label for="username" class="col-sm-6 control-label">E-mail du patient : </label>
-						<div class="col-sm-3">
-							{{ form_widget(form.patient.email,  { 'attr': {'class': 'form-control'}}) }}
-						</div>
-					</div>					
-{{ form_rest(form) }}
-				  <div class="form-group">
-					<div class="col-sm-offset-4 col-sm-10">
-					  <input type="submit" class="btn btn-primary" value="Enregistrer" class="btn btn-default"/>
-					</div>
-				  </div>  
-<div id="resultats_recherche"></div>
+					  </div>  
 
-				
+	
+	
+					</div>
+				</div>
+	<div id="resultats_recherche"></div>			
 			</fieldset>					
 		</form>
-	</div>
-</div>
+
 
 
 {# ------------------------------------------------------- JS ------------------------------------------------------------------#}

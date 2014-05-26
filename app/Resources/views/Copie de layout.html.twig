@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+
+    <title>{% block title %} Nas {% endblock%}</title>
+    
+	{% block stylesheets %}
+    <link href="{{ asset('dist/css/bootstrap-theme.css') }}" rel="stylesheet">
+	<link href="{{ asset('dist/css/bootstrap.min.css') }}" rel="stylesheet">			
+	<link href="{{ asset('dist/css/theme.css') }}" rel="stylesheet">			
+	<link href="{{ asset('dist/css/jquery-ui.css') }}" rel="stylesheet">			
+	<link href="{{ asset('dist/css/docs.min.css') }}" rel="stylesheet">			
+	{% endblock %}
+	
+	{% block javascripts %}
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>   
+	<script type="text/javascript" src="{{ asset('dist/js/bootstrap.min.js') }}"></script>	
+	<script type="text/javascript" src="{{ asset('dist/js/docs.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('dist/js/jquery-1.9.1.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('dist/js/jquery-ui.js') }}"></script>
+	<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+	<script type="text/javascript" src="{{ asset('dist/js/bootstrap-tooltip.js') }}"></script>
+	
+	<script type="text/javascript" src="{{ asset('dist/js/jquery.tablesorter.min.js') }}"></script>		
+    <script language="JavaScript">
+		$(function() {		
+		$("#myTable").tablesorter({sortList:[[0,0],[2,1]], widgets: ['zebra']});
+		$("#options").tablesorter({sortList: [[0,0]], headers: { 3:{sorter: false}, 4:{sorter: false}}});
+		});
+        function imprime_zone(titre, obj) {
+            // Définie la zone à imprimer
+            var zi = document.getElementById(obj).innerHTML;
+
+            // Ouvre une nouvelle fenetre
+            var f = window.open("", "ZoneImpr", "height=1000, width=1000,toolbar=0, menubar=0, scrollbars=1, resizable=1,status=0, location=0, left=10, top=10");
+
+            // Définit le Style de la page
+            f.document.body.style.color = '#000000';
+            f.document.body.style.backgroundColor = '#FFFFFF';
+            f.document.body.style.padding = "10px";
+
+            // Ajoute les Données
+            f.document.title = "";
+            f.document.body.innerHTML += " " + zi + " ";
+
+            // Imprime et ferme la fenetre
+            f.window.print();
+            f.window.close();
+            return true;
+        }
+	</script>	
+	{% endblock %}
+
+  </head>
+
+  <body>
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a  class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="navbar-brand" href="#">Devis nas</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="{{ path('nas_app_homepage')}}"><span class="icon-home" ></span> Accueil</a></li>
+			
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="icon-copy"></span> Devis <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                {% if not is_granted('ROLE_SUPER_ADMIN') %}<li><a href="{{ path('nasApp_ajouterDevis') }}">Créer un devis</a></li>{% endif %}
+                <li><a href="{{ path('nasApp_listeDevis') }}">Liste des devis</a></li>
+                <li><a href="{{ path('nasApp_chercheDevis') }}">Rechercher un devis</a></li>
+              </ul>
+            </li>
+			{% if is_granted('ROLE_SUPER_ADMIN') %}
+			<li><a href="{{ path('nasApp_ajouterSpecialite')}}"><span class="icon-grid" ></span> Specialité</a></li>
+			<li><a href="{{ path('nasApp_extraction')}}"><span class="icon-pie" ></span> Extraction</a></li>
+<!--             <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="icon-pie"></span> Statistique <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="{{ path('nasApp_ajouterSpecialite')}}">Devis par utilisateur</a></li>
+                <li><a href="{{ path('nasApp_ajouterSpecialite')}}">Devis validé</a></li>
+                <li><a href="{{ path('nasApp_listeSpecialite')}}">Devis supprimé</a></li>
+                <li><a href="{{ path('nasApp_listeSpecialite')}}">Listing par spécialité</a></li>
+              </ul>
+            </li>	 -->
+			{% endif %}
+			<li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="icon-user" ></span> Utilisateur{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}  -  {{ app.user.username }} {% endif %} <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+				{% if is_granted('ROLE_SUPER_ADMIN') %}
+                <li><a href="{{ path('fos_user_registration_register')}}"><span class="icon-user2" style="color:#5a943f;"></span> Nouveau utilisateur</a></li>
+				<!-- <li><a href="{{ path('nasUser_listUser')}}"><span class="icon-user2" style="color:#5a943f;"></span> Liste utilisateurs</a></li> -->
+				<li><a href="{{ path('fos_user_change_password') }}"><span class="glyphicon glyphicon-cog" style="color:#5a943f;"></span> Changer le mot de passe</a></li>
+                <li><a href="{{ path('fos_user_security_logout')}}"><span class="icon-close" style="color:#911f4c;"></span> Déconnexion</a></li>
+				{% else %}	
+					{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+						<li><a href="{{ path('fos_user_change_password') }}"><span class="glyphicon glyphicon-cog" style="color:#5a943f;"></span> Changer le mot de passe</a></li>
+						<li><a href="{{ path('fos_user_security_logout')}}"><span class="icon-close" style="color:#911f4c;"></span> Déconnexion</a></li>
+					{% else %}	
+						<li><a href="{{ path('fos_user_security_login')}}"><span class="icon-key" style="color:#5a943f;"></span> Connexion</a></li>
+					{% endif %}
+				{% endif %}
+              </ul>
+            </li>			
+          </ul>
+			{% block printDevis %}
+		
+			{% endblock %}
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+	
+<!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+		{% block titleAction %}
+		{% endblock %}
+{#http://fr.openclassrooms.com/forum/sujet/symfony2-une-liste-deroulante-qui-dependant-d-une-autre-59816 <br>#}
+{#http://fr.openclassrooms.com/forum/sujet/sf2-formulaire-libre<br>#}
+{#http://www.lafermeduweb.net/tutorial/les-formulaires-dans-symfony2-p100.html<br>#}
+		{% block body %}
+		{% endblock %}
+
+    </div>
+  
+	  <div class="container">
+
+	  </div>
+	  
+    <div class="container">
+      <div>
+        <p>&copy; Clinique Ambroise Pare 2014</p>
+      </div>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+	
+
+	
+  </body>
+</html>

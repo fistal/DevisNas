@@ -158,7 +158,7 @@ class __TwigTemplate_02f4c70cca64fc58ba160931279c360d4892ce4f390ee906a2e16dc5f27
 </div>
 <div class=\"row\">
   <div class=\"col-md-6 col-md-offset-3 text-center\">
-\t\t<h2>Informations tarifaire</h2>
+\t\t<h2>Informations tarifaires</h2>
   </div>
 </div>
 
