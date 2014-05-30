@@ -33,6 +33,12 @@
 								<span class="input-group-addon">E-mail</span>
 								{{ form_widget(form.patient.email,  { 'attr': {'class': 'form-control'}}) }}
 							</div>
+						</div>	
+						<div class="form-group">
+							<div class="input-group">
+								<span class="input-group-addon">Clinique</span>
+								{{ form_widget(form.clinique,  { 'attr': {'class': 'form-control'}}) }}
+							</div>
 						</div>																														
 					</div>
 					<div class="col-md-5">
@@ -45,7 +51,7 @@
 						</div>
 						
 						<div class="form-group">
-							<label for="username" class="col-sm-6 control-label"><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Chambre particulière possible">Nombre de jours estimés du séjour (*)</a> : </label>
+							<label for="username" class="col-sm-6 control-label"><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Chambre particulière possible">Durée de séjour estimée (*)</a> : </label>
 							<div class="col-sm-3 control-label" id="nas_appbundle_devis_nbrJours">
 								
 							</div>
@@ -57,14 +63,14 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="username" class="col-sm-6 control-label"> * Le patient a-t-il demandé la chambre particulière ? </label>
+							<label for="username" class="col-sm-6 control-label">Le patient demande une chambre particulière </label>
 							<div class="col-sm-3">
 								{{ form_widget(form.chambre,  { 'attr': {'class': 'checkbox inline'}}) }}
 							</div>
 						</div>					
 
 						<div class="form-group">
-							<label for="username" class="col-sm-6 control-label">Accompagnant</label>
+							<label for="username" class="col-sm-6 control-label">Le patient demande un lit accompagnant</label>
 							<div class="col-sm-3">
 								{{ form_widget(form.accompagnant,  { 'attr': {'class': 'checkbox inline'}}) }}
 							</div>

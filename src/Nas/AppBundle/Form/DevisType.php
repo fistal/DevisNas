@@ -32,6 +32,10 @@ class DevisType extends AbstractType
 			->add('honorairesPraticien', 'text', array('required' => true,))			
 			->add('honorairesAnesthesiste', 'text', array('required' => true,))			
             ->add('date')
+			->add('clinique', 'choice', array(
+				'choices'=> array('Ambroise Paré'=>'Ambroise Paré','Pierre Cherest'=>'Pierre Cherest', 'Hartmann'=>'Hartmann'),
+				'empty_value' => 'Choisissez un établissement',
+				'required'=> true))
             ->add('patient', new PatientType())
 			->add('intervention', 'entity', array(
 				'class' => 'NasAppBundle:Intervention',

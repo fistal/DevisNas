@@ -115,7 +115,12 @@ class Devis
 	/**
      * @ORM\Column(name="commentaire", type="text", nullable=true)
      */
-    private $commentaire;	
+    private $commentaire;
+
+	/**
+     * @ORM\Column(name="clinique", type="text")
+     */
+    private $clinique;	
 
 	public function __construct()
 	{
@@ -522,5 +527,28 @@ class Devis
     public function getMntAccompagnant()
     {
         return $this->mntAccompagnant;
+    }
+
+    /**
+     * Set clinique
+     *
+     * @param string $clinique
+     * @return Devis
+     */
+    public function setClinique($clinique)
+    {
+        $this->clinique = $clinique;
+    
+        return $this;
+    }
+
+    /**
+     * Get clinique
+     *
+     * @return string 
+     */
+    public function getClinique()
+    {
+        return $this->clinique;
     }
 }

@@ -1,12 +1,30 @@
 <div>
 <table>
 	<tr>
+		{% if devis.clinique == 'Ambroise Paré' %}
 		<td style="width:450px;">
 			<strong>CMC AMBROISE PARE</strong><br>
 			27 Bd Victor Hugo<br>
-			92523 Neuilly-Sur-Seine<br><br>
+			92200 Neuilly sur seine<br><br>
 			<strong>Tél :</strong> 08.26.200.300     <strong>Fax :</strong> 01.46.41.89.80<br>
 		</td>
+		{% elseif devis.clinique == 'Pierre Cherest'%}
+		<td style="width:450px;">
+			<strong>CMC PIERRE CHEREST</strong><br>
+			5 rue Pierre Cherest, <br>
+			92200 Neuilly sur seine<br><br>
+			<strong>Tél :</strong> 08.26.200.300     <strong>Fax :</strong> 01.46.41.89.80<br>
+		</td>		
+		{% elseif devis.clinique == 'Hartmann'%}
+		<td style="width:450px;">
+			<strong>CMC HARTMANN</strong><br>
+			26 Boulevard Victor Hugo<br>
+			92200 Neuilly sur seine<br><br>
+			<strong>Tél :</strong> 08.26.200.300     <strong>Fax :</strong> 01.46.41.89.80<br>
+		</td>	
+		{%  endif %}
+		
+		
 		<td>
 			<img src="../web/dist/images/cmcap.png" width="250">
 		</td>
@@ -24,7 +42,7 @@
 		Etabli le {{devis.date|date("d/m/Y")}} à la demande du praticien
 	</div>
 	<div style="margin-top:20px;">
-		Le montant du devis pour la Clinique est de : {{totalFacture}} se répartissant en : 					
+		Le montant du devis pour la Clinique est de : {{totalFacture}} euros se répartissant en : 					
 	</div>
 	<div style="margin-top:20px; border=1px solid black; width:750px;">
 		<table>

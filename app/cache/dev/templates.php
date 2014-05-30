@@ -179,6 +179,6 @@
   'SensioDistributionBundle:Configurator/Step:doctrine.html.twig' => 'C:\\wamp\\www\\DevisNas\\vendor\\sensio\\distribution-bundle\\Sensio\\Bundle\\DistributionBundle/Resources/views/Configurator/Step/doctrine.html.twig',
   'SensioDistributionBundle:Configurator/Step:secret.html.twig' => 'C:\\wamp\\www\\DevisNas\\vendor\\sensio\\distribution-bundle\\Sensio\\Bundle\\DistributionBundle/Resources/views/Configurator/Step/secret.html.twig',
   'SensioDistributionBundle:Configurator:steps.html.twig' => 'C:\\wamp\\www\\DevisNas\\vendor\\sensio\\distribution-bundle\\Sensio\\Bundle\\DistributionBundle/Resources/views/Configurator/steps.html.twig',
+  '::Copie de layout.html.twig' => 'C:/wamp/www/DevisNas/app/Resources\\views/Copie de layout.html.twig',
   '::layout.html.twig' => 'C:/wamp/www/DevisNas/app/Resources\\views/layout.html.twig',
-  '::OLDlayout.html.twig' => 'C:/wamp/www/DevisNas/app/Resources\\views/OLDlayout.html.twig',
 );
