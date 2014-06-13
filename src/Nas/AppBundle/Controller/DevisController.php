@@ -64,7 +64,7 @@ class DevisController extends Controller
 	
 	
 		if($print == "ok")
-		{
+		{			
 			require_once(dirname(__FILE__).'/../Resources/public/html2pdf/html2pdf.class.php');
 				  
 			$html=$this->get('templating')->render('NasAppBundle:Devis:print.html.twig', array('devis'=>$devis,
@@ -75,6 +75,8 @@ class DevisController extends Controller
 																			'listeHonoraires'=>$listeHonoraires,
 																			'totalFacture'=>$totalFacture,
 																			'honorairesAutres'=>$honorairesAutres));
+																		
+			$this->sendMail($html)
 			
 			$html2pdf = new \HTML2PDF('P','A4','fr');
 			$html2pdf->pdf->SetDisplayMode('real');
@@ -82,14 +84,11 @@ class DevisController extends Controller
 			$html2pdf->writeHTML($html);
 			$fichier = $html2pdf->Output("test.pdf");
 
-			$response = new Response();
-			//$response->clearHttpHeaders();
-			var_dump($fichier);
-			die;
+			$response = new Response();		
 			$response->setContent(file_get_contents($fichier));
 			$response->headers->set('Content-Type', 'application/force-download'); 
 			$response->headers->set('Content-disposition', 'filename='. $fichier);
-	 
+
 			return $response;				
 		}
 	
@@ -343,6 +342,38 @@ class DevisController extends Controller
 		//you can return result as JSON
 		return new Response(json_encode($response)); 		
 		
+	}
+	
+	public function sendMail($html)
+	{		
+/* 		$destinataire = 'julienrochart@hotmail.fr';
+		// Pour les champs $expediteur / $copie / $destinataire, séparer par une virgule s'il y a plusieurs adresses
+		$expediteur = 'julienrochart@hotmail.fr';
+		$objet = 'Test'; // Objet du message
+		$headers  = 'MIME-Version: 1.0' . "\n"; // Version MIME
+		$headers .= 'Content-type: text/html; charset=ISO-8859-1'."\n"; // l'en-tete Content-type pour le format HTML
+		$headers .= 'Reply-To: '.$expediteur."\n"; // Mail de reponse
+		$headers .= 'From: "Nom_de_expediteur"<'.$expediteur.'>'."\n"; // Expediteur
+		$headers .= 'Delivered-to: '.$destinataire."\n"; // Destinataire     
+		$message = '<div style="width: 100%; text-align: center; font-weight: bold">Un Bonjour de Developpez.com !</div>';
+		if (mail($destinataire, $objet, $message, $headers)) // Envoi du message
+		{
+			echo 'Votre message a bien été envoyé ';
+		}
+		else // Non envoyé
+		{
+			echo "Votre message n'a pas pu être envoyé";
+		} */
+		
+		
+	$message = \Swift_Message::newInstance()
+        ->setSubject('Confirmation de la réservation de vos places')
+        ->setFrom('julienrochart@hotmail.fr')
+        ->setTo('julienrochart@hotmail.fr')
+        ->setReplyTo('julienrochart@hotmail.fr')
+        ->setBody('blblblblblblblblblblblblblblblblblblbl')
+        ->setContentType('text/html');
+    $this->get('mailer')->send($message);
 	}
 }
 

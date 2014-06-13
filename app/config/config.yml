@@ -69,8 +69,9 @@ doctrine:
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: smtp
-    host:      smtp.live.com
-    username:  julienrochart@hotmail.fr
-    password:  padesh94210
-    spool:     { type: memory }
+    transport:  smtp
+    auth_mode:  login
+    host:       smtp.live.com
+    username:   julienrochart@hotmail.fr
+    password:   padesh94210
+
