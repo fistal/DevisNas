@@ -76,7 +76,7 @@ class DevisController extends Controller
 																			'totalFacture'=>$totalFacture,
 																			'honorairesAutres'=>$honorairesAutres));
 																		
-			$this->sendMail($html)
+			$this->sendMail($html);
 			
 			$html2pdf = new \HTML2PDF('P','A4','fr');
 			$html2pdf->pdf->SetDisplayMode('real');
