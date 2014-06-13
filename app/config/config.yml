@@ -71,7 +71,7 @@ doctrine:
 swiftmailer:
     transport:  smtp
     auth_mode:  login
-    host:       smtp.live.com
-    username:   julienrochart@hotmail.fr
-    password:   padesh94210
+    host:       192.168.48.10
+    username:   devisnas
+    password:   nas
 
